@@ -19,7 +19,7 @@
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <!-- Conexión a la base de datos -->
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bdbiblioteca</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ColegioLMAV</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password"/>
     <property name="transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
@@ -29,7 +29,5 @@
         -->
     <property name="hbm2ddl.auto">update</property>
     <!-- create / create-drop / update -->
-    <mapping class="biblioteca.una.ac.cr.entities.Libro"/>
-    <mapping class="biblioteca.una.ac.cr.entities.Usuario"/>
   </session-factory>
 </hibernate-configuration>
