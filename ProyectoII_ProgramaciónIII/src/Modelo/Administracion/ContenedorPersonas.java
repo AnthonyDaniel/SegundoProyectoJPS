@@ -1,6 +1,7 @@
 
 package Modelo.Administracion;
 
+import Modelo.Entidades.EntidadUsuarios;
 import java.util.ArrayList;
 
 public class ContenedorPersonas implements IEntidadUsuarios{

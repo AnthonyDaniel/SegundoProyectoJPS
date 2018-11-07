@@ -1,5 +1,5 @@
 
-package Modelo.Administracion;
+package Modelo.Entidades;
 
 import java.io.Serializable;
 

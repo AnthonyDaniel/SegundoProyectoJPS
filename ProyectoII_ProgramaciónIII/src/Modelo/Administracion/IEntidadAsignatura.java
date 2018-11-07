@@ -1,6 +1,7 @@
 
 package Modelo.Administracion;
 
+import Modelo.Entidades.EntidadAsignatura;
 import java.util.ArrayList;
 
 public interface IEntidadAsignatura {
