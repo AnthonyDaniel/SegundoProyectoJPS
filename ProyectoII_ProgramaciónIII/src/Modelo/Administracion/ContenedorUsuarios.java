@@ -4,15 +4,15 @@ package Modelo.Administracion;
 import Modelo.Entidades.EntidadUsuarios;
 import java.util.ArrayList;
 
-public class ContenedorPersonas implements IEntidadUsuarios{
+public class ContenedorUsuarios implements IEntidadUsuarios{
 
     @Override
-    public boolean agregarUsuario(EntidadPersona usuario) throws Exception {
+    public boolean agregarUsuario(EntidadUsuarios usuario) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean modificarUsuario(EntidadPersona usuario) throws Exception {
+    public boolean modificarUsuario(EntidadUsuarios usuario) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -22,7 +22,7 @@ public class ContenedorPersonas implements IEntidadUsuarios{
     }
 
     @Override
-    public ArrayList<EntidadPersona> listar() throws Exception {
+    public ArrayList<EntidadUsuarios> listar() throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
