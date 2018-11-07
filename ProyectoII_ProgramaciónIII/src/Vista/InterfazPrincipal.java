@@ -86,6 +86,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
                         .addGap(24, 24, 24)
@@ -113,12 +114,19 @@ public class InterfazPrincipal extends javax.swing.JFrame {
 =======
                         .addGap(163, 163, 163)
                         .addComponent(jLabel3)
+=======
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel3)
+>>>>>>> parent of c11e57d... Algunos avances más
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
+<<<<<<< HEAD
+>>>>>>> parent of c11e57d... Algunos avances más
+=======
 >>>>>>> parent of c11e57d... Algunos avances más
         );
         jPanel2Layout.setVerticalGroup(
@@ -126,6 +134,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,6 +157,8 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
 =======
+=======
+>>>>>>> parent of c11e57d... Algunos avances más
                         .addGap(20, 20, 20)
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -156,6 +167,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel1)))
+<<<<<<< HEAD
+>>>>>>> parent of c11e57d... Algunos avances más
+=======
 >>>>>>> parent of c11e57d... Algunos avances más
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -184,6 +198,7 @@ public class InterfazPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 .addGap(304, 304, 304)
 =======
 <<<<<<< HEAD
@@ -192,6 +207,9 @@ public class InterfazPrincipal extends javax.swing.JFrame {
                 .addGap(304, 304, 304)
 >>>>>>> c11e57d7523489242bce441cee77ad71ef558449
 >>>>>>> Thony
+=======
+                .addGap(349, 349, 349)
+>>>>>>> parent of c11e57d... Algunos avances más
 =======
                 .addGap(349, 349, 349)
 >>>>>>> parent of c11e57d... Algunos avances más
