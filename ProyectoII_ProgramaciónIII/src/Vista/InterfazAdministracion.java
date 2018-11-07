@@ -17,7 +17,11 @@ public class InterfazAdministracion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 874, Short.MAX_VALUE)
+=======
+            .addGap(0, 400, Short.MAX_VALUE)
+>>>>>>> parent of 5b2b4db... Ajustes minimos
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
