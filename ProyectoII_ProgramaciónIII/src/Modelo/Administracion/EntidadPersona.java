@@ -1,13 +1,14 @@
 
 package Modelo.Administracion;
 
-public class EntidadUsuarios {
+public class EntidadPersona {
+    
     private String cedula;
     private String nombre;
     private String apellidos;
     private int edad;
     
-    public EntidadUsuarios(){
+    public EntidadPersona(){
         cedula = "";
         nombre = "";
         apellidos = "";
