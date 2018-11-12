@@ -2,7 +2,9 @@
 package Modelo.Entidades;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.*;
 
@@ -20,14 +22,14 @@ public class EntidadAsignatura implements Serializable{
     private String nombreAsignatura;
     
     @ManyToOne
-    @JoinColumn(name="IdProfesor")
     private EntidadProfesor profesor;
    
-    @ManyToMany(cascade = {CascadeType.ALL},mappedBy="asignaturas")
-    private Set<EntidadEstudiante> estudiante = new HashSet();
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="usuario") 
+    private List<EstudianteAsignatura> cEstudianteAsignatura;
+    
    
     public EntidadAsignatura(){
-    
+    this.cEstudianteAsignatura = new ArrayList<EstudianteAsignatura>();
     
     }
     
@@ -53,13 +55,21 @@ public class EntidadAsignatura implements Serializable{
         this.profesor = profesor;
     }
 
-    public Set<EntidadEstudiante> getEstudiante() {
-        return estudiante;
+    /**
+     * @return the cEstudianteAsignatura
+     */
+    public List<EstudianteAsignatura> getcEstudianteAsignatura() {
+        return cEstudianteAsignatura;
     }
 
-    public void setEstudiante(Set<EntidadEstudiante> estudiante) {
-        this.estudiante = estudiante;
+    /**
+     * @param cEstudianteAsignatura the cEstudianteAsignatura to set
+     */
+    public void setcEstudianteAsignatura(List<EstudianteAsignatura> cEstudianteAsignatura) {
+        this.cEstudianteAsignatura = cEstudianteAsignatura;
     }
+
+    
 
 
     

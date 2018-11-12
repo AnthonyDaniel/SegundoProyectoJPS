@@ -31,10 +31,8 @@ public class EntidadProfesor implements Serializable {
     @Column(name="Edad")
     private int edad;
 
-    @OneToMany(cascade= CascadeType.ALL)
-    @JoinColumn(name="IdProfesor")
-    @IndexColumn(name="idx")
-    private List<EntidadAsignatura> asignatura;
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="profesor") 
+    private List<EntidadAsignatura> cAsignatura;
     
     
     public EntidadProfesor(){
@@ -90,11 +88,11 @@ public class EntidadProfesor implements Serializable {
     }
 
     public List<EntidadAsignatura> getAsignatura() {
-        return asignatura;
+        return cAsignatura;
     }
 
     public void setAsignatura(List<EntidadAsignatura> asignatura) {
-        this.asignatura = asignatura;
+        this.cAsignatura = asignatura;
     }
 
 

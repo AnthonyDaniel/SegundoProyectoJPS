@@ -1,12 +1,16 @@
 
 package Controlador;
 
+import Modelo.Hibernate.HibernateUtil;
+import org.hibernate.Session;
+
 public class Main {
     
     public static void main(String args[]){
     
-        new ControladorPrincipal();
+        Session  sesion = HibernateUtil.getSession().getCurrentSession();
             
+        sesion.beginTransaction();
     }
     
 }
