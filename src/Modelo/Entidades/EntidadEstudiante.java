@@ -2,22 +2,58 @@
 package Modelo.Entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.*;
+import org.hibernate.annotations.IndexColumn;
 
+
+@Entity
+@Table(name="Estudiante")
 public class EntidadEstudiante implements Serializable {
     
+    private static final long serialVersionID=1L;
+    
+    @Id
+    @Column(name="Cedula")
     private String cedula;
+   
+    @Column(name="Nombre")
     private String nombre;
+     
+    @Column(name="Apellidos")
     private String apellidos;
+    
+    @Column(name="Correo")
     private String correo;
+    
+    @Column(name="Telefono")
     private String telefono;
+    
+    @Column(name="Edad")
     private int edad;
     
-    private EntidadAusencia ausencia;
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="IdEstudiante")
+    @IndexColumn(name="idx")
+    private List<EntidadAusencia> ausencia;
     
-    private EntidadAsignatura asignatura;
+ 
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="EstudianteAsignatura", joinColumns={@JoinColumn(name="IdEstudiante")}, inverseJoinColumns={@JoinColumn(name="IdAsignatura")})
+    private Set<EntidadAsignatura> asignatura = new HashSet();
     
     public EntidadEstudiante(){
     
+    }
+
+    public List<EntidadAusencia> getAusencia() {
+        return ausencia;
+    }
+
+    public void setAusencia(List<EntidadAusencia> ausencia) {
+        this.ausencia = ausencia;
     }
 
     public String getCedula() {
@@ -68,20 +104,12 @@ public class EntidadEstudiante implements Serializable {
         this.edad = edad;
     }
 
-    public EntidadAusencia getAusencia() {
-        return ausencia;
-    }
-
-    public void setAusencia(EntidadAusencia ausencia) {
-        this.ausencia = ausencia;
-    }
-
-    public EntidadAsignatura getAsignatura() {
+    public Set<EntidadAsignatura> getAsignatura() {
         return asignatura;
     }
 
-    public void setAsignatura(EntidadAsignatura asignatura) {
+    public void setAsignatura(Set<EntidadAsignatura> asignatura) {
         this.asignatura = asignatura;
     }
-    
+
 }

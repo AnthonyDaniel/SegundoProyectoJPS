@@ -2,19 +2,39 @@
 package Modelo.Entidades;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.*;
+import org.hibernate.annotations.IndexColumn;
 
-
+@Entity
+@Table(name="Profesor")
 public class EntidadProfesor implements Serializable {
     
-    private String cedula;
-    private String nombre;
-    private String apellidos;
-    private String correo;
-    private String telefono;
-    private int edad;
-    private int edadd;
+    private static final long serialVersionID=1L;
     
-    private EntidadAsignatura asignatura;
+    @Id
+    @Column(name="Cedula")
+    private String cedula;
+    
+    @Column(name="Nombre")
+    private String nombre;
+    
+    @Column(name="Apellidos")
+    private String apellidos;
+    
+    @Column(name="Correo")
+    private String correo;
+    
+    @Column(name="Telefono")
+    private String telefono;
+    
+    @Column(name="Edad")
+    private int edad;
+
+    @OneToMany(cascade= CascadeType.ALL)
+    @JoinColumn(name="IdProfesor")
+    @IndexColumn(name="idx")
+    private List<EntidadAsignatura> asignatura;
     
     
     public EntidadProfesor(){
@@ -69,12 +89,13 @@ public class EntidadProfesor implements Serializable {
         this.edad = edad;
     }
 
-    public EntidadAsignatura getAsignatura() {
+    public List<EntidadAsignatura> getAsignatura() {
         return asignatura;
     }
 
-    public void setAsignatura(EntidadAsignatura asignatura) {
+    public void setAsignatura(List<EntidadAsignatura> asignatura) {
         this.asignatura = asignatura;
     }
-    
+
+
 }
