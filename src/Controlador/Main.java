@@ -20,12 +20,12 @@ public class Main {
         
         
 //        SessionFactory sessionFactory;
-//
+////
 //        Configuration configuration = new Configuration();
 //        configuration.configure();
 //        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
 //        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-//
+
 //        EntidadEstudiante estudiante = new EntidadEstudiante(10, "Laura", "Vivó");
 //        List<EntidadAsistencia> asistencia = new ArrayList<>();
 //        asistencia.add(new EntidadAsistencia(3, "2019", estudiante));
@@ -67,7 +67,7 @@ public class Main {
 //        session.save(estudiante1);
 //        session.save(estudiante2);
 //        session.save(estudiante);
-//
+
 //        session.getTransaction().commit();
 //        session.close();
 
