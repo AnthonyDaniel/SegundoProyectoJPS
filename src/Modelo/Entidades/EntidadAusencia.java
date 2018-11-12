@@ -18,7 +18,7 @@ public class EntidadAusencia implements Serializable{
     @Column(name="Fecha")
     private String fecha;
     
-    @ManyToMany
+    @ManyToOne
     private EntidadEstudiante estudiante;
     
     public EntidadAusencia (){

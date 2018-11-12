@@ -24,7 +24,7 @@ public class EntidadAsignatura implements Serializable{
     @ManyToOne
     private EntidadProfesor profesor;
    
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="usuario") 
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="asignatura") 
     private List<EstudianteAsignatura> cEstudianteAsignatura;
     
    

@@ -32,7 +32,7 @@ public class EntidadEstudiante implements Serializable {
     
     @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="estudiante") 
     private List<EntidadAusencia> cAusencia;
-   @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="estudiante") 
+   @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER,mappedBy="asignatura") 
     private List<EstudianteAsignatura> cEstudianteAsignatura;
     
    
