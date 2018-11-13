@@ -56,7 +56,7 @@ public class Main {
         //Así Se llama La class HibernateUtil();
         Session session = new HibernateUtil().buildSessionFactory().openSession();
         
-<<<<<<< HEAD
+
         session.beginTransaction();
 
         session.save(profesor);
@@ -67,7 +67,7 @@ public class Main {
 
         session.getTransaction().commit();
         session.close();
-=======
+
 //        SessionFactory sessionFactory;
 ////
 //        Configuration configuration = new Configuration();
@@ -119,7 +119,6 @@ public class Main {
 
 //        session.getTransaction().commit();
 //        session.close();
->>>>>>> 31b3bd2e2b72eddf70ee0e6247dbb274f4095fe3
 
     }
 }
