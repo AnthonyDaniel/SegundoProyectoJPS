@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo.Administracion;
 
-/**
- *
- * @author kasvi
- */
+import Modelo.Entidades.EntidadAsignatura;
+import java.util.ArrayList;
+
 public interface IAsignatura {
-    
+     public boolean agregarAsignatura(EntidadAsignatura asignatura) throws Exception;
+    public boolean modificarAsignatura(EntidadAsignatura asignatura) throws Exception;
+    public boolean eliminarAsignatura(String codigo) throws Exception;
+    public ArrayList<EntidadAsignatura>listar() throws Exception; //este metodo quizas sea map
 }
