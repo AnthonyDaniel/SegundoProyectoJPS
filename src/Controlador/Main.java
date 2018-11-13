@@ -52,7 +52,6 @@ public class Main {
         //Así Se llama La class HibernateUtil();
         Session session = new HibernateUtil().buildSessionFactory().openSession();
         
-
         session.beginTransaction();
 
         session.save(profesor);
@@ -62,6 +61,8 @@ public class Main {
         session.save(estudiante);
 
         session.getTransaction().commit();
+        
+        //Recuerden cerrar Session Cada vez que hagan algo
         session.close();
 
 
