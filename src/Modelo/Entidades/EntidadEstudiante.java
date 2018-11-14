@@ -31,12 +31,9 @@ public class EntidadEstudiante implements Serializable  {
     @IndexColumn(name="idx")
     private List<EntidadAsistencia> asistencia;
    
-    @OneToMany(cascade= CascadeType.ALL)
-    @JoinColumn(name="IdEstudiante")
-    @IndexColumn(name="idx")
-    private List<EntidadNota> nota;
-    
-    
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name="AssignaturaEstudiante", joinColumns={@JoinColumn(name="IdEstudiante")}, inverseJoinColumns={@JoinColumn(name="IdAsignatura")})
+    private Set<EntidadAsignatura> asignaturas=new HashSet();
    
     public EntidadEstudiante(){ 
     }
@@ -81,7 +78,13 @@ public class EntidadEstudiante implements Serializable  {
         this.asistencia = asistencia;
     }
 
+    public Set<EntidadAsignatura> getAsignaturas() {
+        return asignaturas;
+    }
 
+    public void setAsignaturas(Set<EntidadAsignatura> asignaturas) {
+        this.asignaturas = asignaturas;
+    }
 
   
     

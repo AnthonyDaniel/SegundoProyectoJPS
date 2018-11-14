@@ -2,17 +2,22 @@
 package Modelo.Administracion;
 
 import Modelo.Entidades.EntidadAsignatura;
+import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Hibernate.HibernateUtil;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 public class ContenedorAsignatura implements IAsignatura{
-      Session session = new HibernateUtil().buildSessionFactory().openSession();  
+    Session session = new HibernateUtil().buildSessionFactory().openSession();  
       
     public ContenedorAsignatura(){
         
     }
+    
     @Override
     public boolean agregarAsignatura(EntidadAsignatura asignatura) throws Exception {
       
@@ -50,13 +55,39 @@ public class ContenedorAsignatura implements IAsignatura{
     @Override
     public List<EntidadAsignatura> listar() throws Exception {
         List<EntidadAsignatura> datos;
+        
         session.beginTransaction();
         
         datos=session.createCriteria(EntidadAsignatura.class).list();
+        
         session.getTransaction().commit();
         session.close();
         
         return datos;
     }
-    
+
+//    @Override
+//    public List<EntidadAsignatura> listarUnicos(int id) throws Exception {
+//       session.beginTransaction();
+//        
+//        List<EntidadAsignatura> lista;
+//
+//        SQLQuery consulta =  session.createSQLQuery("select * from assignatura where IdAsignatura = "+id);
+//
+//        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+//        
+//        lista = consulta.list();
+//        
+//        for(Object lib:lista){
+//            Map tupla = (Map)lib;
+//            System.out.println(tupla.get("IdAsignatura") +" "+tupla.get("IdAsignatura"));
+//            System.out.println("-------");
+//        }
+//        
+//        session.getTransaction().commit();
+//        //session.close();
+//        return lista;
+//    }
+//    
 }
+
