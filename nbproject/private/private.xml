@@ -3,9 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/ContenedorAsignatura.java</file>
             <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/IAsignatura.java</file>
             <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Controlador/Main.java</file>
+=======
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Hibernate/HibernateUtil.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/IAsignatura.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/IProfesor.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorPrincipal.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadProfesor.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/ContenedorAsignatura.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadAsignatura.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/ContenedorProfesor.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Controlador/Main.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadEstudiante.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadAsistencia.java</file>
+            <file>file:/C:/Users/Mauricio/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorProfesor.java</file>
+>>>>>>> 26402d88a306bbfaa1eb3c0c32e043f5eb776ee2
         </group>
     </open-files>
 </project-private>
