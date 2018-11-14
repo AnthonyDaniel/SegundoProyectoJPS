@@ -1,10 +1,8 @@
 
 package Modelo.Entidades;
 
-import Modelo.Entidades.EntidadEstudiante;
 import java.io.Serializable;
 import javax.persistence.*;
-import org.hibernate.annotations.IndexColumn;
 
 @Entity
 @Table(name="Asistencia")

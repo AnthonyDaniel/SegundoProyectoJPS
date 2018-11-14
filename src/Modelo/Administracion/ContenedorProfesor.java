@@ -30,6 +30,7 @@ public class ContenedorProfesor implements IProfesor{
 
         session.getTransaction().commit();
         session.close();
+        return null;
     }
 
     @Override

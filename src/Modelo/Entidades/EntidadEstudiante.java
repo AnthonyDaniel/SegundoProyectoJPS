@@ -15,14 +15,16 @@ public class EntidadEstudiante implements Serializable  {
     
     @Id
     @Column(name="Cedula")
-    private int id;
+    private String id;
     
     @Column(name="Nombre")
     private String nombre;
     
     @Column(name="Apellido")
     private String ape1;
-
+    
+    @Column(name="Contrasena")
+    private String contrasena;
     
     @OneToMany(cascade= CascadeType.ALL)
     @JoinColumn(name="IdEstudiante")
@@ -36,17 +38,11 @@ public class EntidadEstudiante implements Serializable  {
     public EntidadEstudiante(){ 
     }
 
-    public EntidadEstudiante(int id, String nombre, String ape1) {
-        this.id = id;
-        this.nombre = nombre;
-        this.ape1 = ape1;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,6 +62,14 @@ public class EntidadEstudiante implements Serializable  {
         this.ape1 = ape1;
     }
 
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
     public List<EntidadAsistencia> getAsistencia() {
         return asistencia;
     }
@@ -74,13 +78,14 @@ public class EntidadEstudiante implements Serializable  {
         this.asistencia = asistencia;
     }
 
-    public Set<EntidadAsignatura> getAsignatura() {
+    public Set<EntidadAsignatura> getAsignaturas() {
         return asignaturas;
     }
 
-    public void setAsignatura(Set<EntidadAsignatura> modulos) {
-        this.asignaturas = modulos;
+    public void setAsignaturas(Set<EntidadAsignatura> asignaturas) {
+        this.asignaturas = asignaturas;
     }
 
-
+  
+    
 }

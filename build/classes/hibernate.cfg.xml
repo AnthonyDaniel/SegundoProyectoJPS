@@ -8,11 +8,11 @@
     <property name="connection.password"/>
     <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
     <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="Modelo.Entidades.EntidadEstudiante"/>
     <mapping class="Modelo.Entidades.EntidadAsistencia"/>
     <mapping class="Modelo.Entidades.EntidadAsignatura"/>
     <mapping class="Modelo.Entidades.EntidadProfesor"/>
- <!--    <mapping class="Modelo.Entidades.EntidadAsignatura"/> -->
+    <!--    <mapping class="Modelo.Entidades.EntidadAsignatura"/> -->
   </session-factory>
 </hibernate-configuration>
