@@ -53,10 +53,7 @@ public class ControladorLogin {
 
             public void keyPressed(KeyEvent ke) { //Captura la tecla precionada
                if(ke.getKeyCode() == KeyEvent.VK_ENTER){
-                   
-                   
                    ValidarDatos( e,  a);
-                   
                }
             }
         });
