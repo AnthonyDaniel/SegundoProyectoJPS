@@ -38,7 +38,34 @@ public class ControladorLogin {
             @Override
             public void actionPerformed(ActionEvent ae) {
                
+<<<<<<< HEAD
                 if(!interfazLogin.jTextFieldCedula.getText().equals("") &&!interfazLogin.jPasswordFieldContrasena.getText().equals("")){
+=======
+               ValidarDatos( e,  a);
+            
+            }
+        });
+    
+    }
+    
+    private void EventoEnterAceptar(Interfaz e, InterfazLogin a){
+        interfazLogin.jButtonAceptar.addKeyListener(new KeyAdapter() {
+
+            public void keyPressed(KeyEvent ke) { //Captura la tecla precionada
+               if(ke.getKeyCode() == KeyEvent.VK_ENTER){
+                   
+                   
+                   ValidarDatos( e,  a);
+                   
+               }
+            }
+        });
+    
+    }
+    
+    private void ValidarDatos(Interfaz e, InterfazLogin a){
+         if(!interfazLogin.jTextFieldCedula.getText().equals("") &&!interfazLogin.jPasswordFieldContrasena.getText().equals("")){
+>>>>>>> parent of a012f6d... Fichas De Trabajo
                     
                         interfazLogin.jLabelMensaje.setText("");
 
