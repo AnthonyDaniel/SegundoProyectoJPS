@@ -33,6 +33,8 @@ public class LoginMetodos implements ILogin{
             List<EntidadEstudiante> estudiante;
             List<EntidadProfesor> profesor;
             
+            EntidadProfesor p;
+            
             estudiante = sesion.createCriteria(EntidadEstudiante.class).list();
             
             for(EntidadEstudiante e : estudiante){

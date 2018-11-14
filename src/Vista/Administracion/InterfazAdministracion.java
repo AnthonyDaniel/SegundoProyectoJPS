@@ -17,6 +17,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaListas = new javax.swing.JTable();
@@ -24,12 +25,15 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 >>>>>>> a012f6d434804d701a3a3d867225d1d974157b6c
 =======
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+        jPanel2 = new javax.swing.JPanel();
+>>>>>>> parent of e689d11... asignaturas
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
-        rBtnEstudiante = new javax.swing.JRadioButton();
-        rBtnProfesor = new javax.swing.JRadioButton();
-        rBtnAsignatura = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -40,60 +44,48 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of e689d11... asignaturas
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-
-        tablaListas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaListas);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+            .addGap(0, 481, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+            .addGap(0, 243, Short.MAX_VALUE)
         );
 
+<<<<<<< HEAD
 =======
 >>>>>>> a012f6d434804d701a3a3d867225d1d974157b6c
 =======
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+>>>>>>> parent of e689d11... asignaturas
         jLabel2.setText("Buscar");
 
-        btnBuscar.setText("Lupa");
+        jButton1.setText("Lupa");
 
-        buttonGroup1.add(rBtnEstudiante);
-        rBtnEstudiante.setSelected(true);
-        rBtnEstudiante.setText("Estudiantes");
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("Estudiantes");
 
-        buttonGroup1.add(rBtnProfesor);
-        rBtnProfesor.setText("Profesores");
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Profesores");
 
-        buttonGroup1.add(rBtnAsignatura);
-        rBtnAsignatura.setText("Asignaturas");
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Asignaturas");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
                 .addComponent(jLabel1)
@@ -107,6 +99,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                         .addComponent(btnBuscar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(rBtnEstudiante))
@@ -115,19 +108,16 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 =======
 =======
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+>>>>>>> parent of e689d11... asignaturas
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jRadioButton1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> a012f6d434804d701a3a3d867225d1d974157b6c
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rBtnAsignatura)
-                                    .addComponent(rBtnProfesor)))
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jRadioButton3)
+                            .addComponent(jRadioButton2))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -138,11 +128,12 @@ public class InterfazAdministracion extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar)
-                    .addComponent(rBtnEstudiante))
+                    .addComponent(jButton1)
+                    .addComponent(jRadioButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rBtnProfesor)
+                .addComponent(jRadioButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                 .addComponent(rBtnAsignatura)
@@ -157,6 +148,12 @@ public class InterfazAdministracion extends javax.swing.JPanel {
                 .addComponent(jRadioButton3)
                 .addGap(0, 22, Short.MAX_VALUE))
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+                .addComponent(jRadioButton3)
+                .addGap(0, 16, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+>>>>>>> parent of e689d11... asignaturas
         );
 
         jTabbedPane2.addTab("Inicio", jPanel4);
@@ -167,10 +164,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             .addGap(0, 364, Short.MAX_VALUE)
@@ -180,6 +178,9 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 =======
             .addGap(0, 118, Short.MAX_VALUE)
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+            .addGap(0, 355, Short.MAX_VALUE)
+>>>>>>> parent of e689d11... asignaturas
         );
 
         jTabbedPane2.addTab("Estudiantes", jPanel5);
@@ -190,10 +191,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             .addGap(0, 364, Short.MAX_VALUE)
@@ -203,6 +205,9 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 =======
             .addGap(0, 118, Short.MAX_VALUE)
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+            .addGap(0, 355, Short.MAX_VALUE)
+>>>>>>> parent of e689d11... asignaturas
         );
 
         jTabbedPane2.addTab("Profesores o administrativos", jPanel6);
@@ -211,10 +216,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 481, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             .addGap(0, 364, Short.MAX_VALUE)
@@ -224,6 +230,9 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 =======
             .addGap(0, 118, Short.MAX_VALUE)
 >>>>>>> 582d57b98fd8cac8c0d17b0a9542d459068f20fd
+=======
+            .addGap(0, 355, Short.MAX_VALUE)
+>>>>>>> parent of e689d11... asignaturas
         );
 
         jTabbedPane2.addTab("Asignaturas", jPanel1);
@@ -233,20 +242,19 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnBuscar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
-    public javax.swing.JRadioButton rBtnAsignatura;
-    public javax.swing.JRadioButton rBtnEstudiante;
-    public javax.swing.JRadioButton rBtnProfesor;
-    public javax.swing.JTable tablaListas;
     // End of variables declaration//GEN-END:variables
 }
