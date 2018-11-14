@@ -1,14 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo.Administracion;
 
-/**
- *
- * @author Edris Jose Rios
- */
-public class ContenedorEstudiante {
+import Modelo.Entidades.EntidadAsignatura;
+import Modelo.Entidades.EntidadEstudiante;
+import Modelo.Hibernate.HibernateUtil;
+import java.util.List;
+import org.hibernate.Session;
+
+
+public class ContenedorEstudiante implements IEstudiante{
+
+    Session session = new HibernateUtil().buildSessionFactory().openSession();  
+    
+    public ContenedorEstudiante(){
+        
+    }
+    @Override
+    public List<EntidadEstudiante> listar() throws Exception {
+       List<EntidadEstudiante> estudiante;
+       
+       session.beginTransaction();
+        
+        estudiante= session.createCriteria(EntidadAsignatura.class).list();
+        
+        return estudiante;
+    }
     
 }
