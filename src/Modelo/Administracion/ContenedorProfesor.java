@@ -25,26 +25,27 @@ public class ContenedorProfesor implements IProfesor{
 
     @Override
     public List<EntidadEstudiante> listarEstudiantes(int _idAsignatura) {
-        Session session = new HibernateUtil().buildSessionFactory().openSession();        
-        session.beginTransaction();
-        
-        List<EntidadEstudiante> lista;
-
-        SQLQuery consulta =  session.createSQLQuery("select * from assignaturaestudiante where IdAsignatura = "+_idAsignatura);
-
-        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
-        
-        lista = consulta.list();
-        
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura"));
-            System.out.println("-------");
-        }
-        
-        session.getTransaction().commit();
-        //session.close();
-        return lista;
+//        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+//        session.beginTransaction();
+//        
+//        List<EntidadEstudiante> lista;
+//
+//        SQLQuery consulta =  session.createSQLQuery("select * from assignaturaestudiante where IdAsignatura = "+_idAsignatura);
+//
+//        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+//        
+//        lista = consulta.list();
+//        
+//        for(Object lib:lista){
+//            Map tupla = (Map)lib;
+//            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura"));
+//            System.out.println("-------");
+//        }
+//        
+//        session.getTransaction().commit();
+//        //session.close();
+//        return lista;
+        return null;
     }
 
     @Override
