@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/ContenedorAsignatura.java</file>
+            <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Asignaturas.java</file>
+            <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/InterfazAdministracion.java</file>
+            <file>file:/C:/Users/kasvi/OneDrive/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorAsignaturas.java</file>
+=======
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadEstudiante.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Estudiante/InterfazEstudiante.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Administracion/ContenedorAsignatura.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Login/LoginMetodos.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadProfesor.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/Main.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadAsignatura.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/InterfazAdministracion.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Estudiantes.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Interfaz.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Profesores.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Asignaturas.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorLogin.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorPrincipal.java</file>
+>>>>>>> a012f6d434804d701a3a3d867225d1d974157b6c
+        </group>
+    </open-files>
 </project-private>
