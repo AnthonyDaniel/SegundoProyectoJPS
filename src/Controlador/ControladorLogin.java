@@ -10,6 +10,8 @@ import Vista.Login.InterfazLogin;
 import Vista.Profesor.InterfazProfesor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class ControladorLogin {
@@ -29,16 +31,40 @@ public class ControladorLogin {
         administracion = _administracion;
         profesor = _profesor;
         estudiante = _estudiante;
-        Validar(e,a);
+        AceptarClick(e,a);
+        EventoEnterAceptar(e, a);
     }
     
-    private void Validar(Interfaz e, InterfazLogin a){
+    private void AceptarClick(Interfaz e, InterfazLogin a){
     
         interfazLogin.jButtonAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                
-                if(!interfazLogin.jTextFieldCedula.getText().equals("") &&!interfazLogin.jPasswordFieldContrasena.getText().equals("")){
+               ValidarDatos( e,  a);
+            
+            }
+        });
+    
+    }
+    
+    private void EventoEnterAceptar(Interfaz e, InterfazLogin a){
+        interfazLogin.jButtonAceptar.addKeyListener(new KeyAdapter() {
+
+            public void keyPressed(KeyEvent ke) { //Captura la tecla precionada
+               if(ke.getKeyCode() == KeyEvent.VK_ENTER){
+                   
+                   
+                   ValidarDatos( e,  a);
+                   
+               }
+            }
+        });
+    
+    }
+    
+    private void ValidarDatos(Interfaz e, InterfazLogin a){
+         if(!interfazLogin.jTextFieldCedula.getText().equals("") &&!interfazLogin.jPasswordFieldContrasena.getText().equals("")){
                     
                         interfazLogin.jLabelMensaje.setText("");
 
@@ -53,7 +79,7 @@ public class ControladorLogin {
                               }else{
                                   e.panelContenedor.add(profesor).repaint();
                               }
-                              
+                              Limpiar();
                               e.setVisible(true);
                        
                         }else{
@@ -66,10 +92,12 @@ public class ControladorLogin {
                     interfazLogin.jLabelMensaje.setText("No debes dejar espacios en blancos");
                     
                 }
-            
-            }
-        });
-    
     }
     
+    private void Limpiar(){
+        
+        interfazLogin.jTextFieldCedula.setText("");
+        interfazLogin.jPasswordFieldContrasena.setText("");
+    
+    }
 }
