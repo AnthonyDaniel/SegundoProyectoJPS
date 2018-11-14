@@ -3,14 +3,16 @@ package Modelo.Administracion;
 
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Hibernate.HibernateUtil;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 public class ContenedorAsignatura implements IAsignatura{
-
+      Session session = new HibernateUtil().buildSessionFactory().openSession();  
+      
+    public ContenedorAsignatura(){
+        
+    }
     @Override
     public boolean agregarAsignatura(EntidadAsignatura asignatura) throws Exception {
       
@@ -46,15 +48,11 @@ public class ContenedorAsignatura implements IAsignatura{
     }
 
     @Override
-    public List<EntidadAsignatura> listar(String nombreAsignatura) throws Exception {
-        
-        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+    public List<EntidadAsignatura> listar() throws Exception {
+        List<EntidadAsignatura> datos;
         session.beginTransaction();
-
-        SQLQuery consulta =  session.createSQLQuery("SELECT * FROM colegiomav WHERE asignatura= "+nombreAsignatura);
-
-        List datos = consulta.list();
         
+        datos=session.createCriteria(EntidadAsignatura.class).list();
         session.getTransaction().commit();
         session.close();
         
