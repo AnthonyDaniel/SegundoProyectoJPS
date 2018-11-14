@@ -47,8 +47,6 @@ public class Main {
         correosElectronicos.add(new EntidadAsignatura(1, "laura@gmail.com", profesor));
 
         profesor.setCorreosElectronicos(correosElectronicos);
-
-        
         //Así Se llama La class HibernateUtil();
         Session session = new HibernateUtil().buildSessionFactory().openSession();
         
@@ -61,7 +59,6 @@ public class Main {
         session.save(estudiante);
 
         session.getTransaction().commit();
-        
         //Recuerden cerrar Session Cada vez que hagan algo
         session.close();
 
