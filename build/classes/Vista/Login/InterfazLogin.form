@@ -51,10 +51,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabelMensaje" pref="222" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jPasswordFieldContrasena" pref="222" max="32767" attributes="0"/>
-                              <Component id="jTextFieldCedula" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="jPasswordFieldContrasena" pref="222" max="32767" attributes="0"/>
+                          <Component id="jTextFieldCedula" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -119,6 +117,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldCedula">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCedulaKeyReleased"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

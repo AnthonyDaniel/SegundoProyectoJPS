@@ -1,7 +1,7 @@
 
 package Controlador;
 
-import Vista.InterfazAdministracion;
+import Vista.Administracion.InterfazAdministracion;
 
 public class ControladorAsignaturas {
     

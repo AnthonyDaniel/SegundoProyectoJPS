@@ -1,8 +1,8 @@
-package Vista;
+package Vista.Login;
 
-public class Login extends javax.swing.JFrame {
+public class InterfazLogin extends javax.swing.JFrame {
 
-    public Login() {
+    public InterfazLogin() {
         initComponents();
         setVisible(true);
     }
@@ -34,6 +34,12 @@ public class Login extends javax.swing.JFrame {
 
         jLabel4.setText("Contraseña:");
 
+        jTextFieldCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCedulaKeyReleased(evt);
+            }
+        });
+
         salir.setText("X");
         salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,9 +69,8 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPasswordFieldContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                                .addComponent(jTextFieldCedula)))))
+                            .addComponent(jPasswordFieldContrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+                            .addComponent(jTextFieldCedula))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,6 +102,10 @@ public class Login extends javax.swing.JFrame {
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
+
+    private void jTextFieldCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCedulaKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCedulaKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

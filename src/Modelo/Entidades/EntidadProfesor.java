@@ -20,16 +20,13 @@ public class EntidadProfesor implements Serializable  {
     @Column(name="ape1")
     private String ape1;
     
-    @Column(name="ape2")    
-    private String ape2;
-    
     @Column(name="Contrasena")
     private String contrasena;
     
     @OneToMany(cascade= CascadeType.ALL)
     @JoinColumn(name="IdProfesor")
     @IndexColumn(name="idx")
-    private List<EntidadAsignatura> correosElectronicos;
+    private List<EntidadAsignatura> asignaturas;
     
 
     public EntidadProfesor(){ 
@@ -59,14 +56,6 @@ public class EntidadProfesor implements Serializable  {
         this.ape1 = ape1;
     }
 
-    public String getApe2() {
-        return ape2;
-    }
-
-    public void setApe2(String ape2) {
-        this.ape2 = ape2;
-    }
-
     public String getContrasena() {
         return contrasena;
     }
@@ -75,13 +64,15 @@ public class EntidadProfesor implements Serializable  {
         this.contrasena = contrasena;
     }
 
-    public List<EntidadAsignatura> getCorreosElectronicos() {
-        return correosElectronicos;
+    public List<EntidadAsignatura> getAsignaturas() {
+        return asignaturas;
     }
 
-    public void setCorreosElectronicos(List<EntidadAsignatura> correosElectronicos) {
-        this.correosElectronicos = correosElectronicos;
+    public void setAsignaturas(List<EntidadAsignatura> asignaturas) {
+        this.asignaturas = asignaturas;
     }
+
+    
 
     
    
