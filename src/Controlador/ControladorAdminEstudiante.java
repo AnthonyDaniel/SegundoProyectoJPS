@@ -12,7 +12,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorAdminEstudiante {
-    private InterfazAdministracion interfazAdministracion;
+   private InterfazAdministracion interfazAdministracion;
     private EntidadEstudiante estudiante;
     private IAdminEstudiante interfaceAdminEstudiante;
     
@@ -34,7 +34,7 @@ public class ControladorAdminEstudiante {
                                  try {
                         List<EntidadEstudiante> lista= interfaceAdminEstudiante.listar();
 
-                        String[][] matriz = new String[lista.size()][4];
+                        String[][] matriz = new String[lista.size()][5];
 
                         for(int i = 0; i<lista.size();i++){
 
@@ -64,4 +64,8 @@ public class ControladorAdminEstudiante {
         });
        
         }
+    
+    public void buscar(){
+        
+    }
 }
