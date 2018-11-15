@@ -7,6 +7,7 @@ import Modelo.Entidades.EntidadProfesor;
 import Modelo.Hibernate.HibernateUtil;
 import Vista.Administracion.AgregarAsignatura;
 import Vista.Administracion.AgregarEstudiante;
+import Vista.Administracion.FichasAsignatura;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,6 +31,7 @@ public class ControladorAdminAsignatura {
             asignatura= r;
             interfazAdministracion.panelAgregar.add(aa).repaint();
             comboBox();
+            mostrarEnPanel();
             mostrarEnTabla();
             Agregar();
            //Modificar();
@@ -58,6 +60,25 @@ public class ControladorAdminAsignatura {
                     
             return datos;
     
+    }
+    
+    public void mostrarEnPanel(){
+    
+        interfazAdministracion.panelAsignaturas.removeAll();
+        FichasAsignatura fa;
+        int i= 0;
+        for(EntidadAsignatura e: interfaceAsignatura.listar()){
+            fa = null;
+            fa = new FichasAsignatura(this);
+            fa.jTextFieldId.setText(e.getIdModulo());
+            fa.jTextFieldNombre.setText(e.getNombre());
+            fa.jTextFieldHorario.setText(e.getHorario());
+            i++;
+            interfazAdministracion.panelAsignaturas.add(fa).repaint();
+            
+        }
+            interfazAdministracion.panelAsignaturas.updateUI();
+            JOptionPane.showMessageDialog(null, i);
     }
     
     public void mostrarEnTabla(){
@@ -101,12 +122,10 @@ public class ControladorAdminAsignatura {
     
     public void Agregar(){
     
-        JOptionPane.showMessageDialog(null, "EntroAgregar");
+         
            agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   JOptionPane.showMessageDialog(null, "Escucho el metodo");
-                 
                    asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
                    asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
                    asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
@@ -114,22 +133,21 @@ public class ControladorAdminAsignatura {
                    
                    String as = agregarAsignatura.jComboBoxProfesores.getSelectedItem()+ "";
                    
-                   JOptionPane.showMessageDialog(null, as);
                    
                    for (EntidadProfesor e : datos){
                        
                        if(e.getNombre().equals(as)){
                            asignatura.setProfesor(e);
-                           JOptionPane.showMessageDialog(null, "1");
                        }
-                       JOptionPane.showMessageDialog(null, "2");
                    }
                    
-                   JOptionPane.showMessageDialog(null, asignatura.getProfesor().getNombre());
                    
                   if(interfaceAsignatura.validarDatos()){
                 
-                   if(interfaceAsignatura.agregarAsignatura(asignatura));
+                   if(interfaceAsignatura.agregarAsignatura(asignatura)){
+                       mostrarEnPanel();
+                       JOptionPane.showMessageDialog(null, "Guardado");
+                   }
                    else {
                    JOptionPane.showMessageDialog(null, "ErrorGuardar");
                    }
@@ -143,24 +161,20 @@ public class ControladorAdminAsignatura {
     
     public void Modificar(){
     
-        JOptionPane.showMessageDialog(null, "EntroModificar");
+         mostrarEnPanel();
            agregarAsignatura.jButtonModificar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
-                   EntidadProfesor s = new EntidadProfesor();
-                   s.setId("Julio");
-                   s.setContrasena("1234");
-                   s.setApe1("Bolivar");
-                   s.setNombre("Nombre");
+                  
                    asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
                    asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
                    asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
-                   asignatura.setProfesor(s);
+               
                    
                   if(interfaceAsignatura.validarDatos()){
                 
-                   if(interfaceAsignatura.modificarAsignatura(asignatura));
+                   if(interfaceAsignatura.modificarAsignatura(asignatura))
+                       JOptionPane.showMessageDialog(null, "Modificado");
                    else {
                      JOptionPane.showMessageDialog(null, "ErrorGuardar");
                    }
@@ -174,20 +188,15 @@ public class ControladorAdminAsignatura {
     
     public void Eliminar(){
     
-        JOptionPane.showMessageDialog(null, "EntroModificar");
+         mostrarEnPanel();
            agregarAsignatura.jButtonModificar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
-                   EntidadProfesor s = new EntidadProfesor();
-                   s.setId("Julio");
-                   s.setContrasena("1234");
-                   s.setApe1("Bolivar");
-                   s.setNombre("Nombre");
+                  
                    asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
                    asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
                    asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
-                   asignatura.setProfesor(s);
+                
                    
                   if(interfaceAsignatura.validarDatos()){
                 

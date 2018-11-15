@@ -26,11 +26,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jTableDatos = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         contenedorEstudiantes = new javax.swing.JPanel();
-        panelAgregarEstudiante = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         panelAgregar = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        panelAsignaturas = new javax.swing.JPanel();
 
         setLayout(new java.awt.GridLayout(1, 0));
 
@@ -129,20 +129,13 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         contenedorEstudiantes.setLayout(new java.awt.GridLayout(1, 0));
 
-        panelAgregarEstudiante.setLayout(new java.awt.GridLayout());
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contenedorEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(panelAgregarEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(contenedorEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -150,9 +143,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(contenedorEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
-                .addComponent(panelAgregarEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Estudiantes", jPanel5);
@@ -175,30 +166,23 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         panelAgregar.setBackground(new java.awt.Color(204, 204, 255));
         panelAgregar.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 291, Short.MAX_VALUE)
-        );
+        panelAsignaturas.setBackground(new java.awt.Color(204, 204, 204));
+        panelAsignaturas.setLayout(new java.awt.GridLayout(0, 1));
+        jScrollPane2.setViewportView(panelAsignaturas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -217,7 +201,6 @@ public class InterfazAdministracion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -225,10 +208,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
     public javax.swing.JRadioButton jRadioButtonEstudiantes;
     public javax.swing.JRadioButton jRadioButtonProfesor;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane2;
     public javax.swing.JTable jTableDatos;
     public javax.swing.JPanel panelAgregar;
-    public javax.swing.JPanel panelAgregarEstudiante;
+    public javax.swing.JPanel panelAsignaturas;
     public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }
