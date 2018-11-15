@@ -10,22 +10,25 @@ import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class ContenedorAsignatura implements IAsignatura{
+    
+    
     
     public ContenedorAsignatura(){
         
     }
     
     @Override
-    public boolean agregarAsignatura(EntidadAsignatura asignatura) throws Exception {
+    public boolean agregarAsignatura(EntidadAsignatura asignatura){
       
       Session session = new HibernateUtil().buildSessionFactory().openSession();        
       session.beginTransaction();
       boolean exito;
         
       try{ 
-      //insertar una entidad
+  
       session.save(asignatura);
       
       session.getTransaction().commit();
@@ -42,17 +45,7 @@ public class ContenedorAsignatura implements IAsignatura{
     }
 
     @Override
-    public boolean modificarAsignatura(EntidadAsignatura asignatura) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean eliminarAsignatura(String codigo) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<EntidadAsignatura> listar() throws Exception {
+    public List<EntidadAsignatura> listar(){
       
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
@@ -67,28 +60,16 @@ public class ContenedorAsignatura implements IAsignatura{
         return datos;
     }
 
-//    @Override
-//    public List<EntidadAsignatura> listarUnicos(int id) throws Exception {
-//       session.beginTransaction();
-//        
-//        List<EntidadAsignatura> lista;
-//
-//        SQLQuery consulta =  session.createSQLQuery("select * from assignatura where IdAsignatura = "+id);
-//
-//        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
-//        
-//        lista = consulta.list();
-//        
-//        for(Object lib:lista){
-//            Map tupla = (Map)lib;
-//            System.out.println(tupla.get("IdAsignatura") +" "+tupla.get("IdAsignatura"));
-//            System.out.println("-------");
-//        }
-//        
-//        session.getTransaction().commit();
-//        //session.close();
-//        return lista;
-//    }
-//    
+    @Override
+    public boolean modificarAsignatura(EntidadAsignatura asignatura) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean eliminarAsignatura(String codigo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
 }
 

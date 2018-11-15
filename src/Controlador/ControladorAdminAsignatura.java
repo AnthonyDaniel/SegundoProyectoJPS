@@ -3,6 +3,7 @@ package Controlador;
 
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
+import Vista.Administracion.AgregarAsignatura;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,13 +15,15 @@ public class ControladorAdminAsignatura {
     private InterfazAdministracion interfazAdministracion;
     private EntidadAsignatura asignatura;
     private IAsignatura interfaceAsignatura;
+    private AgregarAsignatura agregarAsignatura;
     
-    public ControladorAdminAsignatura(InterfazAdministracion e, IAsignatura a, EntidadAsignatura r){
+    public ControladorAdminAsignatura(InterfazAdministracion e, IAsignatura a, EntidadAsignatura r, AgregarAsignatura aa){
      
+            agregarAsignatura = aa;
             interfazAdministracion = e;
             interfaceAsignatura = a;
             asignatura= r;
-            
+            interfazAdministracion.panelAgregar.add(aa).repaint();
             mostrarEnTabla();
         
     }

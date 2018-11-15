@@ -9,6 +9,7 @@ import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Login.ILogin;
 import Modelo.Login.LoginMetodos;
+import Vista.Administracion.AgregarAsignatura;
 import Vista.Interfaz;
 import Vista.Administracion.InterfazAdministracion;
 import Vista.Estudiante.InterfazEstudiante;
@@ -28,7 +29,7 @@ public class ControladorPrincipal {
     public InterfazAdministracion administracion;
     public InterfazProfesor profesor;
     public InterfazEstudiante estudiante;
-    
+    public AgregarAsignatura agregarAsignatura;
     //Modelo
     private ILogin loginMetodos;
     private EntidadAsignatura asignatura;
@@ -56,6 +57,7 @@ public class ControladorPrincipal {
         estudiante = new InterfazEstudiante();
         profesor = new InterfazProfesor();
         administracion = new InterfazAdministracion();
+        agregarAsignatura = new AgregarAsignatura();
         
     }
     public final void Modelo(){
@@ -77,7 +79,7 @@ public class ControladorPrincipal {
         //Se inicializa en login
                 if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Administrador")){
                     JOptionPane.showMessageDialog(null, "Administrador");
-                    controladorAsignaturas = new ControladorAdminAsignatura(administracion,interfaceAsignatura,asignatura);
+                    controladorAsignaturas = new ControladorAdminAsignatura(administracion,interfaceAsignatura,asignatura,agregarAsignatura);
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante);
                     
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
