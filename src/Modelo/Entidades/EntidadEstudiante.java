@@ -2,9 +2,7 @@
 package Modelo.Entidades;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.IndexColumn;
 
@@ -35,9 +33,7 @@ public class EntidadEstudiante implements Serializable  {
     @JoinColumn(name="IdEstudiante")
     @IndexColumn(name="idx")
     private List<EntidadNota> nota;
-    
-    
-   
+
     public EntidadEstudiante(){ 
     }
 
@@ -79,6 +75,14 @@ public class EntidadEstudiante implements Serializable  {
 
     public void setAsistencia(List<EntidadAsistencia> asistencia) {
         this.asistencia = asistencia;
+    }
+
+    public List<EntidadNota> getNota() {
+        return nota;
+    }
+
+    public void setNota(List<EntidadNota> nota) {
+        this.nota = nota;
     }
 
 
