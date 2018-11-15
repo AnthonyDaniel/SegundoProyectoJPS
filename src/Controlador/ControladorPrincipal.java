@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Modelo.Administracion.ContenedorAdminEstudiante;
 import Modelo.Administracion.ContenedorAsignatura;
 import Modelo.Administracion.IAdminEstudiante;
 import Modelo.Administracion.IAsignatura;
@@ -61,6 +62,7 @@ public class ControladorPrincipal {
         //Modelo
         loginMetodos = new LoginMetodos();
         interfaceAsignatura = new ContenedorAsignatura();
+        adminEstudiante = new ContenedorAdminEstudiante();
         asignatura=new EntidadAsignatura();
         entidadEstudiante = new EntidadEstudiante();
         
