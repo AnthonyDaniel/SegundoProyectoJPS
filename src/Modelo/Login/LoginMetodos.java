@@ -16,7 +16,7 @@ public class LoginMetodos implements ILogin{
     private String tipo;
     
     public LoginMetodos(){
-    
+        tipo  = "Ninguno";
     }
 
     public boolean verificarUsuario(String cedula, String contrasena) {

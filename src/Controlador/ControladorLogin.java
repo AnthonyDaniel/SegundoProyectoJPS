@@ -22,9 +22,11 @@ public class ControladorLogin {
     private InterfazAdministracion administracion;
     private InterfazProfesor profesor;
     private InterfazEstudiante estudiante;
+    private ControladorPrincipal controladorPrincipal;
     
-    public ControladorLogin(Interfaz e, InterfazLogin a, ILogin lm, InterfazAdministracion _administracion, InterfazProfesor _profesor, InterfazEstudiante _estudiante){
+    public ControladorLogin(ControladorPrincipal t,Interfaz e, InterfazLogin a, ILogin lm, InterfazAdministracion _administracion, InterfazProfesor _profesor, InterfazEstudiante _estudiante){
     
+        controladorPrincipal = t;
         interfazLogin = a;
         interfaz = e;
         login = lm;
@@ -40,9 +42,8 @@ public class ControladorLogin {
         interfazLogin.jButtonAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-               
                ValidarDatos( e,  a);
-            
+               controladorPrincipal.iniciarLosConstructores();
             }
         });
     
@@ -54,6 +55,7 @@ public class ControladorLogin {
             public void keyPressed(KeyEvent ke) { //Captura la tecla precionada
                if(ke.getKeyCode() == KeyEvent.VK_ENTER){
                    ValidarDatos( e,  a);
+                   controladorPrincipal.iniciarLosConstructores();
                }
             }
         });
