@@ -13,23 +13,23 @@ import javax.swing.JOptionPane;
 
 public class ControladorAsignaturas {
     
-    private InterfazAdministracion interfazAdministracion;
-    private EntidadAsignatura asignatura;
-    
-    private IAsignatura interfaceAsignatura;
+//    private InterfazAdministracion interfazAdministracion;
+//    private EntidadAsignatura asignatura;
+//    
+//    private IAsignatura interfaceAsignatura;
     
     public ControladorAsignaturas(InterfazAdministracion e){
-        try {
-            interfazAdministracion = e;
-            interfaceAsignatura = new ContenedorAsignatura();
-            asignatura=new EntidadAsignatura();
-            interfaceAsignatura.listar();
-            evento();
-//        agregar();
-//        listarUnos();
-        } catch (Exception ex) {
-            Logger.getLogger(ControladorAsignaturas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            interfazAdministracion = e;
+//            interfaceAsignatura = new ContenedorAsignatura();
+//            asignatura=new EntidadAsignatura();
+//            interfaceAsignatura.listar();
+//            evento();
+////        agregar();
+////        listarUnos();
+//        } catch (Exception ex) {
+//            Logger.getLogger(ControladorAsignaturas.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
     
    void evento(){

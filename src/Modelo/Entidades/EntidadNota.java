@@ -17,8 +17,8 @@ public class EntidadNota implements Serializable{
     @Column(name="ID")
     private int id;
 
-    @Column(name="INota")
-    private String nota;
+    @Column(name="Nota")
+    private double nota;
     
     @ManyToOne
     @JoinColumn(name="IdEstudiante")
@@ -32,11 +32,11 @@ public class EntidadNota implements Serializable{
     
     }
 
-    public String getNota() {
+    public double getNota() {
         return nota;
     }
 
-    public void setNota(String nota) {
+    public void setNota(double nota) {
         this.nota = nota;
     }
     

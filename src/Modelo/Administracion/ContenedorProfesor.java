@@ -25,37 +25,78 @@ public class ContenedorProfesor implements IProfesor{
 
     @Override
     public List<EntidadEstudiante> listarEstudiantes(int _idAsignatura) {
-//        Session session = new HibernateUtil().buildSessionFactory().openSession();        
-//        session.beginTransaction();
-//        
-//        List<EntidadEstudiante> lista;
-//
-//        SQLQuery consulta =  session.createSQLQuery("select * from assignaturaestudiante where IdAsignatura = "+_idAsignatura);
-//
-//        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
-//        
-//        lista = consulta.list();
-//        
-//        for(Object lib:lista){
-//            Map tupla = (Map)lib;
-//            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura"));
-//            System.out.println("-------");
-//        }
-//        
-//        session.getTransaction().commit();
-//        //session.close();
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+        
+        List<EntidadEstudiante> lista;
+
+        SQLQuery consulta =  session.createSQLQuery("select * from asignaturaestudiante where IdAsignatura = "+_idAsignatura);
+
+        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        
+        lista = consulta.list();
+        
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura") +" "+tupla.get("INota"));
+            System.out.println("-------");
+        }
+        
+        session.getTransaction().commit();
+        session.close();
         return null;
     }
 
     @Override
     public List<EntidadAsignatura> listarAsignaturas(int _idProf) {
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
         
-        return null;
+        List<EntidadAsignatura> lista;
+
+        SQLQuery consulta =  session.createSQLQuery("select * from asignatura where IdProfesor = "+_idProf);
+
+        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        
+        lista = consulta.list();
+        
+        System.out.println("Lista asignaturas segun profesor");
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            System.out.println(tupla.get("IdAsignatura") +" "+tupla.get("Nombre"));
+            System.out.println("-------");
+        }
+        
+        session.getTransaction().commit();
+        session.close();
+        
+        return lista;
     }
 
     @Override
     public List<EntidadProfesor> listarProfesores() {
-        return null;
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+        
+        List<EntidadProfesor> lista;
+
+        SQLQuery consulta =  session.createSQLQuery("select * from profesor");
+
+        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        
+        lista = consulta.list();
+        
+        System.out.println("Lista profesor");
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            System.out.println(tupla.get("Id")+" "+tupla.get("nombre") +" "+tupla.get("ape1")+" "+tupla.get("ape2"));
+            System.out.println("-------");
+        }
+        
+        session.getTransaction().commit();
+        session.close();
+        
+        return lista;
     }
 
     @Override
@@ -80,7 +121,28 @@ public class ContenedorProfesor implements IProfesor{
 
     @Override
     public List<EntidadAusencia> listarAusencias(int _cedEst, int _idAsignatura) {
-        return null;
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+        
+        List<EntidadAusencia> lista;
+
+        SQLQuery consulta =  session.createSQLQuery("select * from profesor");
+
+        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        
+        lista = consulta.list();
+        
+        System.out.println("Lista profesor");
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            System.out.println(tupla.get("Id")+" "+tupla.get("nombre") +" "+tupla.get("ape1")+" "+tupla.get("ape2"));
+            System.out.println("-------");
+        }
+        
+        session.getTransaction().commit();
+        session.close();
+        
+        return lista;
     }
     
 }

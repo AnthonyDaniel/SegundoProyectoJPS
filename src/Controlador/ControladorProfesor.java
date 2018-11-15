@@ -17,6 +17,8 @@ public class ControladorProfesor {
     public ControladorProfesor(){
         interfaceProfesor = new ContenedorProfesor();
         
-        interfaceProfesor.listarEstudiantes(3);
+//        interfaceProfesor.listarEstudiantes(3);
+//        interfaceProfesor.listarAsignaturas(504110539);
+//        interfaceProfesor.listarProfesores();
     }
 }
