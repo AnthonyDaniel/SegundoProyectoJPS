@@ -20,18 +20,16 @@ public class ControladorLogin {
     private InterfazLogin interfazLogin;
     private ILogin login;
     private InterfazAdministracion administracion;
-    private InterfazProfesor profesor;
     private InterfazEstudiante estudiante;
     private ControladorPrincipal controladorPrincipal;
     
-    public ControladorLogin(ControladorPrincipal t,Interfaz e, InterfazLogin a, ILogin lm, InterfazAdministracion _administracion, InterfazProfesor _profesor, InterfazEstudiante _estudiante){
+    public ControladorLogin(ControladorPrincipal t,Interfaz e, InterfazLogin a, ILogin lm, InterfazAdministracion _administracion,  InterfazEstudiante _estudiante){
     
         controladorPrincipal = t;
         interfazLogin = a;
         interfaz = e;
         login = lm;
         administracion = _administracion;
-        profesor = _profesor;
         estudiante = _estudiante;
         AceptarClick(e,a);
         EventoEnterAceptar(e, a);

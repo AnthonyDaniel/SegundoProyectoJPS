@@ -26,10 +26,10 @@ public class ControladorProfesor {
     private final InterfazProfesor interfazProf;
     private ListaAsignaturas interfazAsig;
     
-    public ControladorProfesor(Interfaz interfazPrin,InterfazProfesor _interfazProfe){
+    public ControladorProfesor(Interfaz interfazPrin){
         
         iProfesor = new ContenedorProfesor();
-        interfazProf = _interfazProfe;
+        interfazProf = new InterfazProfesor();
                         
         interfazPrin.panelContenedor.add(interfazProf).repaint();       
         

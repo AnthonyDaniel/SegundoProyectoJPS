@@ -29,7 +29,6 @@ public class ControladorPrincipal {
     public Interfaz interfaz;
     public InterfazLogin login;
     public InterfazAdministracion administracion;
-    public InterfazProfesor profesor;
     public InterfazEstudiante estudiante;
     public AgregarAsignatura agregarAsignatura;
     public Estudiantes panelEstudiantes;
@@ -59,7 +58,6 @@ public class ControladorPrincipal {
         login = new InterfazLogin();
         interfaz = new Interfaz();
         estudiante = new InterfazEstudiante();
-        profesor = new InterfazProfesor();
         administracion = new InterfazAdministracion();
         agregarAsignatura = new AgregarAsignatura();
         panelEstudiantes = new Estudiantes();
@@ -77,7 +75,7 @@ public class ControladorPrincipal {
     }
     public final void Controladores(){
        //Controladores Inyeccion de codigo
-        controladorLogin = new ControladorLogin(this,interfaz,login, loginMetodos, administracion, profesor, estudiante);
+        controladorLogin = new ControladorLogin(this,interfaz,login, loginMetodos, administracion,estudiante);
       
     }
   
@@ -89,7 +87,7 @@ public class ControladorPrincipal {
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes, agregarEstudiante);
                     
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
-                    controlProfesor = new ControladorProfesor(interfaz,profesor);
+                    controlProfesor = new ControladorProfesor(interfaz);
                 
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                     JOptionPane.showMessageDialog(null, "Entre Estudiantes");
