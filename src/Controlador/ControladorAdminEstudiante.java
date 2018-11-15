@@ -31,7 +31,7 @@ public class ControladorAdminEstudiante {
             public void actionPerformed(ActionEvent ae) {
                
                 if(interfazAdministracion.jRadioButtonEstudiantes.isSelected()){
-                                 try {
+              try {
                         List<EntidadEstudiante> lista= interfaceAdminEstudiante.listar();
 
                         String[][] matriz = new String[lista.size()][5];
@@ -66,6 +66,12 @@ public class ControladorAdminEstudiante {
         }
     
     public void buscar(){
-        
+        interfazAdministracion.btnBuscar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                interfaceAdminEstudiante.listarEstudiantes(interfazAdministracion.)
+            }
+            
+        });
     }
 }
