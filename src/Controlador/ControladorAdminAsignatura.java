@@ -15,7 +15,7 @@ public class ControladorAdminAsignatura {
     private EntidadAsignatura asignatura;
     private IAsignatura interfaceAsignatura;
     
-    public ControladorAdminAsignatura( InterfazAdministracion e, IAsignatura a, EntidadAsignatura r){
+    public ControladorAdminAsignatura(InterfazAdministracion e, IAsignatura a, EntidadAsignatura r){
      
             interfazAdministracion = e;
             interfaceAsignatura = a;

@@ -69,7 +69,7 @@ public class ControladorAdminEstudiante {
         interfazAdministracion.btnBuscar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-             //   interfaceAdminEstudiante.listarEstudiantes(interfazAdministracion);
+             //   interfaceAdminEstudiante.listarEstudiantes(interfazAdministracion.);
             }
             
         });
