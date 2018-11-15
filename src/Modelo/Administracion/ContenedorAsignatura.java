@@ -5,7 +5,6 @@ import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Hibernate.HibernateUtil;
 import Vista.Administracion.AgregarAsignatura;
-import Vista.Administracion.Asignaturas;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;

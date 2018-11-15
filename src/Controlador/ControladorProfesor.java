@@ -7,7 +7,6 @@ package Controlador;
 import Modelo.Administracion.ContenedorProfesor;
 import Modelo.Administracion.IProfesor;
 import Modelo.Entidades.*;
-import Vista.Administracion.Asignaturas;
 import Vista.Profesor.*;
 import Vista.Interfaz;
 import java.util.ArrayList;
