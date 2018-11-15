@@ -18,6 +18,9 @@ public class EntidadAsignatura implements Serializable {
     
     @Column(name="Nombre")
     private String nombre;
+    
+    @Column(name="Horario")
+    private String horario;
  
     @ManyToOne
     @JoinColumn(name="IdProfesor")
@@ -70,6 +73,22 @@ public class EntidadAsignatura implements Serializable {
 
     public void setProfesor(EntidadProfesor profesor) {
         this.profesor = profesor;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public List<EntidadNota> getNota() {
+        return nota;
+    }
+
+    public void setNota(List<EntidadNota> nota) {
+        this.nota = nota;
     }
     
 }

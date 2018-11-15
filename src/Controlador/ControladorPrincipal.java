@@ -80,7 +80,7 @@ public class ControladorPrincipal {
                     
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
                     JOptionPane.showMessageDialog(null, "Entre Profesortes");
-                    controlProfesor = new ControladorProfesor();
+                    controlProfesor = new ControladorProfesor(interfaz);
                 
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                     JOptionPane.showMessageDialog(null, "Entre Estudiantes");

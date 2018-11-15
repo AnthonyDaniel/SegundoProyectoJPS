@@ -27,30 +27,71 @@ public class InterfazProfesor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btn_listarAsig = new javax.swing.JButton();
+        btn_listarProf = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        panel_Contenido = new javax.swing.JPanel();
 
-        jButton1.setText("jButton1");
+        btn_listarAsig.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_listarAsig.setText("Listar Asignaturas");
+
+        btn_listarProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_listarProf.setText("Listar Profesores");
+        btn_listarProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_listarProfActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Menu Profesores");
+
+        panel_Contenido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panel_Contenido.setLayout(new java.awt.GridLayout(1, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(224, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(103, 103, 103))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 149, Short.MAX_VALUE)
+                        .addComponent(btn_listarAsig)
+                        .addGap(40, 40, 40)
+                        .addComponent(btn_listarProf)
+                        .addGap(0, 149, Short.MAX_VALUE))
+                    .addComponent(panel_Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jButton1)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_listarAsig)
+                    .addComponent(btn_listarProf))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panel_Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_listarProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listarProfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_listarProfActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btn_listarAsig;
+    public javax.swing.JButton btn_listarProf;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JPanel panel_Contenido;
     // End of variables declaration//GEN-END:variables
 }

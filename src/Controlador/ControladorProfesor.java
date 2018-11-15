@@ -6,19 +6,57 @@
 package Controlador;
 import Modelo.Administracion.ContenedorProfesor;
 import Modelo.Administracion.IProfesor;
+import Modelo.Entidades.*;
+import Vista.Administracion.Asignaturas;
+import Vista.Profesor.*;
+import Vista.Interfaz;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Mauricio
  */
 public class ControladorProfesor {
     
-    private IProfesor interfaceProfesor;
+    private final IProfesor iProfesor;
+    private final InterfazProfesor interfazProf;
+    private ListaAsignaturas interfazAsig;
     
-    public ControladorProfesor(){
-        interfaceProfesor = new ContenedorProfesor();
+    public ControladorProfesor(Interfaz interfazPrin){
+        iProfesor = new ContenedorProfesor();
+        interfazProf = new InterfazProfesor();
+                        
+        interfazPrin.panelContenedor.add(interfazProf).repaint();       
         
-//        interfaceProfesor.listarEstudiantes(3);
-//        interfaceProfesor.listarAsignaturas(504110539);
+        cargarTablaAsignaturas();       
+        interfazProf.panel_Contenido.add(interfazAsig);
+        
+//        interfaceProfesor.listarEstudiantes(2);
+//        interfaceProfesor.listarAsignaturas(1536);
 //        interfaceProfesor.listarProfesores();
+    }
+    
+    private void cargarTablaAsignaturas(){
+        interfazAsig = new ListaAsignaturas();
+        
+        List lista = iProfesor.listarAsignaturas(1536);        
+        
+        interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
+        Object[] etiquetas = {"CODIGO","NOMBRE"};
+        DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
+        Object[] fila ;
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            fila = new Object[2];
+            fila[0] = tupla.get("IdAsignatura");
+            fila[1] = tupla.get("Nombre");            
+            model.addRow(fila);
+        }
+        interfazAsig.tbl_ListaAsig.setModel(model); 
     }
 }

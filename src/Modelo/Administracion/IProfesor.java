@@ -17,12 +17,12 @@ import java.util.List;
  * @author Mauricio
  */
 public interface IProfesor {
-    public List<EntidadEstudiante> listarEstudiantes(int _idAsginatura);
-    public List<EntidadAsignatura> listarAsignaturas(int _idProf);
-    public List<EntidadProfesor> listarProfesores();
+    public List listarEstudiantes(int _idAsginatura);
+    public List listarAsignaturas(int _idProf);
+    public List listarProfesores();
     public void ponerNota();
     public void ponerFalta();
     public void modificarNota();
     public void modificarFalta();
-    public List<EntidadAusencia> listarAusencias(int _cedEst, int _idAsignatura);
+    public List listarAusencias(int _cedEst, int _idAsignatura);
 }
