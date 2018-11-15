@@ -26,7 +26,7 @@ public class ContenedorEstudiante implements IEstudiante {
         
         List<EntidadEstudiante> lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from assignaturaestudiante where IdAsignatura = "+_idAsginatura);
+        SQLQuery consulta =  session.createSQLQuery("select * from asignaturaestudiante where IdAsignatura = "+_idAsginatura);
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         

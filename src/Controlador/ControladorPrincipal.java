@@ -93,7 +93,7 @@ public class ControladorPrincipal {
                 
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                     JOptionPane.showMessageDialog(null, "Entre Estudiantes");
-                    controladorEstudiante = new ControladorEstudiante();
+                    controladorEstudiante = new ControladorEstudiante(interfaz, estudiante);
                     
                 }
                   
