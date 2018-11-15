@@ -5,6 +5,7 @@ import Modelo.Administracion.IAdminEstudiante;
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
+import Vista.Administracion.Estudiantes;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,11 +16,14 @@ public class ControladorAdminEstudiante {
    private InterfazAdministracion interfazAdministracion;
     private EntidadEstudiante estudiante;
     private IAdminEstudiante interfaceAdminEstudiante;
+    private Estudiantes panelEstudiantes;
     
-    public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r){
+    public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r, Estudiantes es){
+            panelEstudiantes=es;
             interfazAdministracion = e;
             interfaceAdminEstudiante = a;
             estudiante= r;
+            interfazAdministracion.contenedorEstudiantes.add(es).repaint();
             
             mostrarEnTabla();
     }

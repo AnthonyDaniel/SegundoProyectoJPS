@@ -25,6 +25,7 @@ public class ControladorAdminAsignatura {
             interfaceAsignatura = a;
             asignatura= r;
             interfazAdministracion.panelAgregar.add(aa).repaint();
+            
             mostrarEnTabla();
            // Agregar();
            //Modificar();

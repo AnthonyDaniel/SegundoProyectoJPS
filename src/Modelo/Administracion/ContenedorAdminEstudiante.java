@@ -4,6 +4,7 @@ package Modelo.Administracion;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Hibernate.HibernateUtil;
+import Vista.Administracion.Estudiantes;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
@@ -12,6 +13,11 @@ import org.hibernate.Session;
 
 public class ContenedorAdminEstudiante implements IAdminEstudiante{
 
+    private Estudiantes es;
+    
+    public ContenedorAdminEstudiante(Estudiantes _es){
+        es=_es;
+    }
   @Override
     public boolean agregarEstudiante(EntidadEstudiante estudiante) throws Exception {
       Session session = new HibernateUtil().buildSessionFactory().openSession();        
