@@ -26,6 +26,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jTableDatos = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         contenedorEstudiantes = new javax.swing.JPanel();
+        panelAgregarEstudiante = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         panelAgregar = new javax.swing.JPanel();
@@ -128,13 +129,20 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         contenedorEstudiantes.setLayout(new java.awt.GridLayout(1, 0));
 
+        panelAgregarEstudiante.setLayout(new java.awt.GridLayout());
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(contenedorEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contenedorEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, 946, Short.MAX_VALUE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(panelAgregarEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -142,7 +150,9 @@ public class InterfazAdministracion extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(contenedorEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addComponent(panelAgregarEstudiante, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
 
         jTabbedPane2.addTab("Estudiantes", jPanel5);
@@ -218,6 +228,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane2;
     public javax.swing.JTable jTableDatos;
     public javax.swing.JPanel panelAgregar;
+    public javax.swing.JPanel panelAgregarEstudiante;
     public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

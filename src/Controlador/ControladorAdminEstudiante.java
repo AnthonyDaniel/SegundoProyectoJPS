@@ -30,8 +30,13 @@ public class ControladorAdminEstudiante {
             estudiante= r;
             agregarEstudiante=ae;
             interfazAdministracion.contenedorEstudiantes.add(es).repaint();
+            interfazAdministracion.panelAgregarEstudiante.add(ae).repaint();
             
             mostrarEnTabla();
+            agregar();
+            modificar();
+            eliminar();
+            buscar();
     }
     
     public void mostrarEnTabla(){
@@ -75,17 +80,26 @@ public class ControladorAdminEstudiante {
        
         }
     
-    public void buscar(){
+     public void buscar(){
         interfazAdministracion.btnBuscar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-             //   interfaceAdminEstudiante.listarEstudiantes(interfazAdministracion.);
+                List<EntidadEstudiante> datos;
+                try {
+                    datos = interfaceAdminEstudiante.listarEstudiantes(
+                            Integer.parseInt(interfazAdministracion.txtBuscar.getText()));
+                   
+                    JOptionPane.showMessageDialog(null, datos);
+                } catch (Exception ex) {
+                    Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             
             }
             
         });
     }
     
-     public void Agregar(){
+     public void agregar(){
     
         JOptionPane.showMessageDialog(null, "EntroAgregar");
            agregarEstudiante.btnAgregar.addActionListener(new ActionListener() {
@@ -98,7 +112,11 @@ public class ControladorAdminEstudiante {
                    estudiante.setApe1(agregarEstudiante.txtApellido.getText());
                    estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
                    
-                
+                    panelEstudiantes.jTextFieldCedula.setText(agregarEstudiante.txtCedula.getText());
+                    panelEstudiantes.jTextFieldNombre.setText(agregarEstudiante.txtNombre.getText());
+                    panelEstudiantes.jTextFieldApellidos.setText(agregarEstudiante.txtApellido.getText());
+                    panelEstudiantes.jTextFieldContrasena.setText(agregarEstudiante.txtContrasenia.getText());
+                    
                    try {
                        if(interfaceAdminEstudiante.agregarEstudiante(estudiante));
                        else {
@@ -112,7 +130,7 @@ public class ControladorAdminEstudiante {
            });
     }
     
-    public void Modificar(){
+    public void modificar(){
     
         JOptionPane.showMessageDialog(null, "EntroModificar");
            panelEstudiantes.btnModificar.addActionListener(new ActionListener() {
@@ -120,10 +138,11 @@ public class ControladorAdminEstudiante {
                public void actionPerformed(ActionEvent ae) {
                    JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
                    
-                   estudiante.setId(agregarEstudiante.txtCedula.getText());
-                   estudiante.setNombre(agregarEstudiante.txtNombre.getText());
-                   estudiante.setApe1(agregarEstudiante.txtApellido.getText());
-                   estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+                    
+                   estudiante.setId(panelEstudiantes.jTextFieldCedula.getText());
+                   estudiante.setNombre(panelEstudiantes.jTextFieldNombre.getText());
+                   estudiante.setApe1(panelEstudiantes.jTextFieldApellidos.getText());
+                   estudiante.setContrasena(panelEstudiantes.jTextFieldContrasena.getText());
                    
                   
                 
@@ -140,7 +159,7 @@ public class ControladorAdminEstudiante {
            });
     }
     
-    public void Eliminar(){
+    public void eliminar(){
     
         JOptionPane.showMessageDialog(null, "EntroModificar");
            panelEstudiantes.btnEliminar.addActionListener(new ActionListener() {
@@ -148,10 +167,10 @@ public class ControladorAdminEstudiante {
                public void actionPerformed(ActionEvent ae) {
                    JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
                        
-                   estudiante.setId(agregarEstudiante.txtCedula.getText());
-                   estudiante.setNombre(agregarEstudiante.txtNombre.getText());
-                   estudiante.setApe1(agregarEstudiante.txtApellido.getText());
-                   estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+                   estudiante.setId(panelEstudiantes.jTextFieldCedula.getText());
+                   estudiante.setNombre(panelEstudiantes.jTextFieldNombre.getText());
+                   estudiante.setApe1(panelEstudiantes.jTextFieldApellidos.getText());
+                   estudiante.setContrasena(panelEstudiantes.jTextFieldContrasena.getText());
                    
                 
                    try {
