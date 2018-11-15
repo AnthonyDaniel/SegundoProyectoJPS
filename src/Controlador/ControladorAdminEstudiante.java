@@ -29,8 +29,7 @@ public class ControladorAdminEstudiante {
             interfaceAdminEstudiante = a;
             estudiante= r;
             agregarEstudiante=ae;
-            interfazAdministracion.contenedorEstudiantes.add(es).repaint();
-        //    interfazAdministracion.panelAgregarEstudiante.add(ae).repaint();
+            interfazAdministracion.panelAgregarEstudiante.add(es).repaint();
             
             mostrarEnTabla();
             agregar();
