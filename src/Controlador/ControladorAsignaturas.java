@@ -1,21 +1,13 @@
 
 package Controlador;
 
-import Modelo.Administracion.ContenedorAsignatura;
 import Modelo.Administracion.IAsignatura;
-import Modelo.Administracion.IProfesor;
 import Modelo.Entidades.EntidadAsignatura;
-import Modelo.Entidades.EntidadEstudiante;
 import Vista.Administracion.InterfazAdministracion;
-import Vista.Interfaz;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 public class ControladorAsignaturas {
     
@@ -28,6 +20,7 @@ public class ControladorAsignaturas {
             interfazAdministracion = e;
             interfaceAsignatura = a;
             asignatura= r;
+            
             mostrarEnTabla();
         
     }
@@ -68,8 +61,6 @@ public class ControladorAsignaturas {
             
             }
         });
-        
-         
        
         }
         
