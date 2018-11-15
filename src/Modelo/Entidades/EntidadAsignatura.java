@@ -14,7 +14,7 @@ public class EntidadAsignatura implements Serializable {
     
     @Id
     @Column(name="IdAsignatura")    
-    private int idModulo;
+    private String idModulo;
     
     @Column(name="Nombre")
     private String nombre;
@@ -35,18 +35,13 @@ public class EntidadAsignatura implements Serializable {
         
     }
 
-    public EntidadAsignatura(int idModulo, String nombre, EntidadProfesor profesor) {
-        this.idModulo = idModulo;
-        this.nombre = nombre;
-        this.profesor = profesor;
 
-    }
    
-    public int getIdAsignatura() {
+    public String getIdAsignatura() {
         return idModulo;
     }
 
-    public void setIdAsignatura(int idModulo) {
+    public void setIdAsignatura(String idModulo) {
         this.idModulo = idModulo;
     }
 
@@ -59,13 +54,14 @@ public class EntidadAsignatura implements Serializable {
         this.nombre = nombre;
     }
 
-    public int getIdModulo() {
+    public String getIdModulo() {
         return idModulo;
     }
 
-    public void setIdModulo(int idModulo) {
+    public void setIdModulo(String idModulo) {
         this.idModulo = idModulo;
     }
+
 
     public EntidadProfesor getProfesor() {
         return profesor;

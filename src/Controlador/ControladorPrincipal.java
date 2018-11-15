@@ -63,7 +63,7 @@ public class ControladorPrincipal {
     public final void Modelo(){
         //Modelo
         loginMetodos = new LoginMetodos();
-        interfaceAsignatura = new ContenedorAsignatura();
+        interfaceAsignatura = new ContenedorAsignatura(agregarAsignatura);
         adminEstudiante = new ContenedorAdminEstudiante();
         asignatura=new EntidadAsignatura();
         entidadEstudiante = new EntidadEstudiante();

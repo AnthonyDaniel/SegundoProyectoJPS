@@ -4,6 +4,8 @@ package Modelo.Administracion;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Hibernate.HibernateUtil;
+import Vista.Administracion.AgregarAsignatura;
+import Vista.Administracion.Asignaturas;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
@@ -14,15 +16,28 @@ import org.hibernate.Transaction;
 
 public class ContenedorAsignatura implements IAsignatura{
     
+    private AgregarAsignatura aa;
     
-    
-    public ContenedorAsignatura(){
+    public ContenedorAsignatura(AgregarAsignatura _aa){
+     
+        aa = _aa;
         
+    }
+    
+    public boolean validarDatos(){
+    
+        if(!aa.jTextFieldNombre.getText().equals("") && !aa.jTextFieldId.getText().equals("") 
+                && !aa.jTextFieldHorario.getText().equals("") && !aa.jComboBoxProfesores.getSelectedItem().equals("")){
+            return true;
+        }
+        
+        return false;
     }
     
     @Override
     public boolean agregarAsignatura(EntidadAsignatura asignatura){
-      
+  
+        
       Session session = new HibernateUtil().buildSessionFactory().openSession();        
       session.beginTransaction();
       boolean exito;
@@ -62,12 +77,51 @@ public class ContenedorAsignatura implements IAsignatura{
 
     @Override
     public boolean modificarAsignatura(EntidadAsignatura asignatura) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+      Session session = new HibernateUtil().buildSessionFactory().openSession();        
+      session.beginTransaction();
+      boolean exito;
+        
+      try{ 
+  
+      session.saveOrUpdate(asignatura);
+      
+      session.getTransaction().commit();
+      session.close();
+      
+      exito=true;
+       }catch(Exception ex){
+             exito=false;
+             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             "WARNING", JOptionPane.WARNING_MESSAGE);
+       }
+      
+         return exito;
+    
+    
     }
 
     @Override
-    public boolean eliminarAsignatura(String codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean eliminarAsignatura(EntidadAsignatura asignatura) {
+         Session session = new HibernateUtil().buildSessionFactory().openSession();        
+      session.beginTransaction();
+      boolean exito;
+        
+      try{ 
+
+      session.delete(asignatura);
+      session.getTransaction().commit();
+      session.close();
+      
+      exito=true;
+       }catch(Exception ex){
+             exito=false;
+             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             "WARNING", JOptionPane.WARNING_MESSAGE);
+       }
+      
+         return exito;
+   
     }
 
 

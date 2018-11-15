@@ -3,6 +3,7 @@ package Controlador;
 
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
+import Modelo.Entidades.EntidadProfesor;
 import Vista.Administracion.AgregarAsignatura;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
@@ -25,6 +26,9 @@ public class ControladorAdminAsignatura {
             asignatura= r;
             interfazAdministracion.panelAgregar.add(aa).repaint();
             mostrarEnTabla();
+           // Agregar();
+           //Modificar();
+            Eliminar();
         
     }
     
@@ -66,5 +70,99 @@ public class ControladorAdminAsignatura {
         });
        
         }
-        
+    
+    public void Agregar(){
+    
+        JOptionPane.showMessageDialog(null, "EntroAgregar");
+           agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent ae) {
+                   JOptionPane.showMessageDialog(null, "Escucho el metodo");
+                   EntidadProfesor s = new EntidadProfesor();
+                   s.setId("Julio");
+                   s.setContrasena("1234");
+                   s.setApe1("Marin");
+                   s.setNombre("Nombre");
+                   asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
+                   asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
+                   asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
+                   asignatura.setProfesor(s);
+                   
+                  if(interfaceAsignatura.validarDatos()){
+                
+                   if(interfaceAsignatura.agregarAsignatura(asignatura));
+                   else {
+                   JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                   }
+                  }else{
+               
+                   JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios");
+               }
+               }
+           });
+    }
+    
+    public void Modificar(){
+    
+        JOptionPane.showMessageDialog(null, "EntroModificar");
+           agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent ae) {
+                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
+                   EntidadProfesor s = new EntidadProfesor();
+                   s.setId("Julio");
+                   s.setContrasena("1234");
+                   s.setApe1("Bolivar");
+                   s.setNombre("Nombre");
+                   asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
+                   asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
+                   asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
+                   asignatura.setProfesor(s);
+                   
+                  if(interfaceAsignatura.validarDatos()){
+                
+                   if(interfaceAsignatura.modificarAsignatura(asignatura));
+                   else {
+                     JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                   }
+                  }else{
+               
+                   JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios");
+               }
+               }
+           });
+    }
+    
+    public void Eliminar(){
+    
+        JOptionPane.showMessageDialog(null, "EntroModificar");
+           agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent ae) {
+                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
+                   EntidadProfesor s = new EntidadProfesor();
+                   s.setId("Julio");
+                   s.setContrasena("1234");
+                   s.setApe1("Bolivar");
+                   s.setNombre("Nombre");
+                   asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
+                   asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
+                   asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
+                   asignatura.setProfesor(s);
+                   
+                  if(interfaceAsignatura.validarDatos()){
+                
+                   if(interfaceAsignatura.eliminarAsignatura(asignatura));
+                   else {
+                     JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                   }
+                  }else{
+               
+                   JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios");
+               }
+               }
+           });
+    }
+    
    }
+    
