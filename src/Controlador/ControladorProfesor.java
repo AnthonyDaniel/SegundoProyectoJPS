@@ -26,14 +26,18 @@ public class ControladorProfesor {
     private final InterfazProfesor interfazProf;
     private ListaAsignaturas interfazAsig;
     
-    public ControladorProfesor(Interfaz interfazPrin){
+    public ControladorProfesor(Interfaz interfazPrin,InterfazProfesor _interfazProfe){
+        
         iProfesor = new ContenedorProfesor();
-        interfazProf = new InterfazProfesor();
+        interfazProf = _interfazProfe;
                         
         interfazPrin.panelContenedor.add(interfazProf).repaint();       
         
         cargarTablaAsignaturas();       
         interfazProf.panel_Contenido.add(interfazAsig);
+        
+        interfazPrin.panelContenedor.add(interfazProf).repaint();
+        interfazPrin.panelContenedor.updateUI();
         
 //        interfaceProfesor.listarEstudiantes(2);
 //        interfaceProfesor.listarAsignaturas(1536);

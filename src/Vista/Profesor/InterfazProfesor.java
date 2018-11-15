@@ -47,7 +47,7 @@ public class InterfazProfesor extends javax.swing.JPanel {
         jLabel1.setText("Menu Profesores");
 
         panel_Contenido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel_Contenido.setLayout(new java.awt.GridLayout(1, 0));
+        panel_Contenido.setLayout(new java.awt.GridLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -57,11 +57,11 @@ public class InterfazProfesor extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 149, Short.MAX_VALUE)
+                        .addGap(0, 185, Short.MAX_VALUE)
                         .addComponent(btn_listarAsig)
                         .addGap(40, 40, 40)
                         .addComponent(btn_listarProf)
-                        .addGap(0, 149, Short.MAX_VALUE))
+                        .addGap(0, 186, Short.MAX_VALUE))
                     .addComponent(panel_Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -78,7 +78,7 @@ public class InterfazProfesor extends javax.swing.JPanel {
                     .addComponent(btn_listarAsig)
                     .addComponent(btn_listarProf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panel_Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                .addComponent(panel_Contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

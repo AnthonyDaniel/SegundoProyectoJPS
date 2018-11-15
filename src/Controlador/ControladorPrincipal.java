@@ -81,8 +81,7 @@ public class ControladorPrincipal {
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante);
                     
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
-                    JOptionPane.showMessageDialog(null, "Entre Profesortes");
-                    controlProfesor = new ControladorProfesor(interfaz);
+                    controlProfesor = new ControladorProfesor(interfaz,profesor);
                 
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                     JOptionPane.showMessageDialog(null, "Entre Estudiantes");

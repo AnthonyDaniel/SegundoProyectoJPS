@@ -76,7 +76,7 @@ public class ControladorLogin {
                               }else if(login.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                                   e.panelContenedor.add(estudiante).repaint();
                               }else{
-                                  e.panelContenedor.add(profesor).repaint();
+                                   e.panelContenedor.updateUI();
                               }
                               Limpiar();
                               e.setVisible(true);
