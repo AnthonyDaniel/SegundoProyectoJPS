@@ -30,7 +30,7 @@ public class ControladorAdminEstudiante {
             estudiante= r;
             agregarEstudiante=ae;
             interfazAdministracion.contenedorEstudiantes.add(es).repaint();
-            interfazAdministracion.panelAgregarEstudiante.add(ae).repaint();
+        //    interfazAdministracion.panelAgregarEstudiante.add(ae).repaint();
             
             mostrarEnTabla();
             agregar();
