@@ -64,8 +64,6 @@ public class ContenedorAsignatura implements IAsignatura{
         session.getTransaction().commit();
         session.close();
         
-        JOptionPane.showMessageDialog(null, datos.get(0).getNombre());
-        
         return datos;
     }
 

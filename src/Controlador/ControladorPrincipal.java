@@ -1,6 +1,9 @@
 
 package Controlador;
 
+import Modelo.Administracion.ContenedorAsignatura;
+import Modelo.Administracion.IAsignatura;
+import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Login.ILogin;
 import Modelo.Login.LoginMetodos;
 import Vista.Interfaz;
@@ -20,6 +23,8 @@ public class ControladorPrincipal {
     
     //Modelo
     private ILogin loginMetodos;
+    private EntidadAsignatura asignatura;
+    private IAsignatura interfaceAsignatura;
     
     //Controladores
     private ControladorLogin controladorLogin;
@@ -45,11 +50,13 @@ public class ControladorPrincipal {
     public final void Modelo(){
         //Modelo
         loginMetodos = new LoginMetodos();
+        interfaceAsignatura = new ContenedorAsignatura();
+        asignatura=new EntidadAsignatura();
     }
     public final void Controladores(){
        //Controladores Inyeccion de codigo
         controladorLogin = new ControladorLogin(interfaz,login, loginMetodos, administracion, profesor, estudiante);
-        controladorAsignaturas = new ControladorAsignaturas(administracion);
+        controladorAsignaturas = new ControladorAsignaturas(administracion,interfaceAsignatura,asignatura);
         controlProfesor = new ControladorProfesor();
     }
   
