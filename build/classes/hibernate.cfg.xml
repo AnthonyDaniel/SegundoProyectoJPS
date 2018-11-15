@@ -13,7 +13,6 @@
     <mapping class="Modelo.Entidades.EntidadAsistencia"/>
     <mapping class="Modelo.Entidades.EntidadAsignatura"/>
     <mapping class="Modelo.Entidades.EntidadProfesor"/>
-    <mapping class="Modelo.Entidades.EntidadNota"/>
     <!--    <mapping class="Modelo.Entidades.EntidadAsignatura"/> -->
   </session-factory>
 </hibernate-configuration>
