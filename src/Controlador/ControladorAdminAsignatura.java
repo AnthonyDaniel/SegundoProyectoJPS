@@ -4,12 +4,15 @@ package Controlador;
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadProfesor;
+import Modelo.Hibernate.HibernateUtil;
 import Vista.Administracion.AgregarAsignatura;
+import Vista.Administracion.AgregarEstudiante;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.hibernate.Session;
 
 public class ControladorAdminAsignatura {
     
@@ -17,6 +20,7 @@ public class ControladorAdminAsignatura {
     private EntidadAsignatura asignatura;
     private IAsignatura interfaceAsignatura;
     private AgregarAsignatura agregarAsignatura;
+    private List<EntidadProfesor>  datos;
     
     public ControladorAdminAsignatura(InterfazAdministracion e, IAsignatura a, EntidadAsignatura r, AgregarAsignatura aa){
      
@@ -25,12 +29,37 @@ public class ControladorAdminAsignatura {
             interfaceAsignatura = a;
             asignatura= r;
             interfazAdministracion.panelAgregar.add(aa).repaint();
-            
+            comboBox();
             mostrarEnTabla();
-           // Agregar();
+            Agregar();
            //Modificar();
-            Eliminar();
+            //Eliminar();
         
+    }
+    
+    public List<EntidadProfesor> comboBox(){
+        
+        agregarAsignatura.jComboBoxProfesores.removeAllItems();
+        
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+                    session.beginTransaction();
+   
+                    List<EntidadProfesor> datos;
+       
+                    datos=session.createCriteria(EntidadProfesor.class).list();
+        
+                    session.getTransaction().commit();
+                    session.close();
+                   
+                    for(EntidadProfesor e: datos){
+                        
+                        agregarAsignatura.jComboBoxProfesores.addItem(e.getNombre());
+                    
+                    }
+                    
+                    
+            return datos;
+    
     }
     
     public void mostrarEnTabla(){
@@ -40,7 +69,7 @@ public class ControladorAdminAsignatura {
             public void actionPerformed(ActionEvent ae) {
                
                 if(interfazAdministracion.jRadioButonAsignaturas.isSelected()){
-                                 try {
+                    try {
                         List<EntidadAsignatura> lista= interfaceAsignatura.listar();
 
                         String[][] matriz = new String[lista.size()][4];
@@ -79,15 +108,26 @@ public class ControladorAdminAsignatura {
                @Override
                public void actionPerformed(ActionEvent ae) {
                    JOptionPane.showMessageDialog(null, "Escucho el metodo");
-                   EntidadProfesor s = new EntidadProfesor();
-                   s.setId("Julio");
-                   s.setContrasena("1234");
-                   s.setApe1("Marin");
-                   s.setNombre("Nombre");
+                 
                    asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
                    asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
                    asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
-                   asignatura.setProfesor(s);
+                   
+                   
+                   String as = agregarAsignatura.jComboBoxProfesores.getSelectedItem()+ "";
+                   
+                   JOptionPane.showMessageDialog(null, as);
+                   
+                   for (EntidadProfesor e : datos){
+                       
+                       if(e.getNombre().equals(as)){
+                           asignatura.setProfesor(e);
+                           JOptionPane.showMessageDialog(null, "1");
+                       }
+                       JOptionPane.showMessageDialog(null, "2");
+                   }
+                   
+                   JOptionPane.showMessageDialog(null, asignatura.getProfesor().getNombre());
                    
                   if(interfaceAsignatura.validarDatos()){
                 
@@ -106,7 +146,7 @@ public class ControladorAdminAsignatura {
     public void Modificar(){
     
         JOptionPane.showMessageDialog(null, "EntroModificar");
-           agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
+           agregarAsignatura.jButtonModificar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
                    JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
@@ -137,7 +177,7 @@ public class ControladorAdminAsignatura {
     public void Eliminar(){
     
         JOptionPane.showMessageDialog(null, "EntroModificar");
-           agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
+           agregarAsignatura.jButtonModificar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
                    JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");

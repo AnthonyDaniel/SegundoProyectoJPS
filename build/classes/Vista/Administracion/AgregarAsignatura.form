@@ -62,7 +62,9 @@
                           <Component id="jComboBoxProfesores" min="-2" pref="91" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jTextFieldHorario" min="-2" pref="87" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="96" max="32767" attributes="0"/>
+                          <Component id="jButtonModificar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonAgregar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -87,6 +89,7 @@
                       <Component id="jComboBoxProfesores" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldHorario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonAgregar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonModificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -152,6 +155,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="ID_Asignatura"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonModificar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
