@@ -10,6 +10,7 @@ import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Login.ILogin;
 import Modelo.Login.LoginMetodos;
 import Vista.Administracion.AgregarAsignatura;
+import Vista.Administracion.AgregarEstudiante;
 import Vista.Administracion.Estudiantes;
 import Vista.Interfaz;
 import Vista.Administracion.InterfazAdministracion;
@@ -32,6 +33,7 @@ public class ControladorPrincipal {
     public InterfazEstudiante estudiante;
     public AgregarAsignatura agregarAsignatura;
     public Estudiantes panelEstudiantes;
+    public AgregarEstudiante agregarEstudiante;
     //Modelo
     private ILogin loginMetodos;
     private EntidadAsignatura asignatura;
@@ -61,13 +63,14 @@ public class ControladorPrincipal {
         administracion = new InterfazAdministracion();
         agregarAsignatura = new AgregarAsignatura();
         panelEstudiantes = new Estudiantes();
+        agregarEstudiante = new AgregarEstudiante();
         
     }
     public final void Modelo(){
         //Modelo
         loginMetodos = new LoginMetodos();
         interfaceAsignatura = new ContenedorAsignatura(agregarAsignatura);
-        adminEstudiante = new ContenedorAdminEstudiante(panelEstudiantes);
+        adminEstudiante = new ContenedorAdminEstudiante(panelEstudiantes, agregarEstudiante);
         asignatura=new EntidadAsignatura();
         entidadEstudiante = new EntidadEstudiante();
         
@@ -83,7 +86,7 @@ public class ControladorPrincipal {
                 if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Administrador")){
                     JOptionPane.showMessageDialog(null, "Administrador");
                     controladorAsignaturas = new ControladorAdminAsignatura(administracion,interfaceAsignatura,asignatura,agregarAsignatura);
-                    controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes);
+                    controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes, agregarEstudiante);
                     
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
                     controlProfesor = new ControladorProfesor(interfaz,profesor);

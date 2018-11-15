@@ -5,11 +5,15 @@ import Modelo.Administracion.IAdminEstudiante;
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
+import Modelo.Entidades.EntidadProfesor;
+import Vista.Administracion.AgregarEstudiante;
 import Vista.Administracion.Estudiantes;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorAdminEstudiante {
@@ -17,12 +21,14 @@ public class ControladorAdminEstudiante {
     private EntidadEstudiante estudiante;
     private IAdminEstudiante interfaceAdminEstudiante;
     private Estudiantes panelEstudiantes;
+    private AgregarEstudiante agregarEstudiante;
     
-    public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r, Estudiantes es){
+    public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r, Estudiantes es, AgregarEstudiante ae){
             panelEstudiantes=es;
             interfazAdministracion = e;
             interfaceAdminEstudiante = a;
             estudiante= r;
+            agregarEstudiante=ae;
             interfazAdministracion.contenedorEstudiantes.add(es).repaint();
             
             mostrarEnTabla();
@@ -77,5 +83,87 @@ public class ControladorAdminEstudiante {
             }
             
         });
+    }
+    
+     public void Agregar(){
+    
+        JOptionPane.showMessageDialog(null, "EntroAgregar");
+           agregarEstudiante.btnAgregar.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent ae) {
+                   JOptionPane.showMessageDialog(null, "Escucho el metodo");
+                   
+                   estudiante.setId(agregarEstudiante.txtCedula.getText());
+                   estudiante.setNombre(agregarEstudiante.txtNombre.getText());
+                   estudiante.setApe1(agregarEstudiante.txtApellido.getText());
+                   estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+                   
+                
+                   try {
+                       if(interfaceAdminEstudiante.agregarEstudiante(estudiante));
+                       else {
+                           JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                       }
+                   } catch (Exception ex) {
+                       Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                
+               }
+           });
+    }
+    
+    public void Modificar(){
+    
+        JOptionPane.showMessageDialog(null, "EntroModificar");
+           panelEstudiantes.btnModificar.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent ae) {
+                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
+                   
+                   estudiante.setId(agregarEstudiante.txtCedula.getText());
+                   estudiante.setNombre(agregarEstudiante.txtNombre.getText());
+                   estudiante.setApe1(agregarEstudiante.txtApellido.getText());
+                   estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+                   
+                  
+                
+                   try {
+                       if(interfaceAdminEstudiante.modificarEstudiante(estudiante));
+                       else {
+                           JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                       }
+                   } catch (Exception ex) {
+                       Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                
+               }
+           });
+    }
+    
+    public void Eliminar(){
+    
+        JOptionPane.showMessageDialog(null, "EntroModificar");
+           panelEstudiantes.btnEliminar.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent ae) {
+                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
+                       
+                   estudiante.setId(agregarEstudiante.txtCedula.getText());
+                   estudiante.setNombre(agregarEstudiante.txtNombre.getText());
+                   estudiante.setApe1(agregarEstudiante.txtApellido.getText());
+                   estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+                   
+                
+                   try {
+                       if(interfaceAdminEstudiante.eliminarEstudiante(estudiante));
+                       else {
+                           JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                       }
+                   } catch (Exception ex) {
+                       Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                
+               }
+           });
     }
 }

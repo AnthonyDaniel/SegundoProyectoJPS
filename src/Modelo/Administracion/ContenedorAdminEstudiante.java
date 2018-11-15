@@ -4,6 +4,7 @@ package Modelo.Administracion;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Hibernate.HibernateUtil;
+import Vista.Administracion.AgregarEstudiante;
 import Vista.Administracion.Estudiantes;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,9 +15,11 @@ import org.hibernate.Session;
 public class ContenedorAdminEstudiante implements IAdminEstudiante{
 
     private Estudiantes es;
+    private AgregarEstudiante ae;
     
-    public ContenedorAdminEstudiante(Estudiantes _es){
+    public ContenedorAdminEstudiante(Estudiantes _es, AgregarEstudiante _ae){
         es=_es;
+        ae=_ae;
     }
   @Override
     public boolean agregarEstudiante(EntidadEstudiante estudiante) throws Exception {
@@ -43,12 +46,49 @@ public class ContenedorAdminEstudiante implements IAdminEstudiante{
 
     @Override
     public boolean modificarEstudiante(EntidadEstudiante estudiante) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+      session.beginTransaction();
+      boolean exito;
+        
+      try{ 
+  
+      session.saveOrUpdate(estudiante);
+      
+      session.getTransaction().commit();
+      session.close();
+      
+      exito=true;
+       }catch(Exception ex){
+             exito=false;
+             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             "WARNING", JOptionPane.WARNING_MESSAGE);
+       }
+      
+         return exito;
     }
 
     @Override
-    public boolean eliminarEstudiante(String codigo) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean eliminarEstudiante(EntidadEstudiante estudiante) throws Exception {
+         Session session = new HibernateUtil().buildSessionFactory().openSession();        
+      session.beginTransaction();
+      boolean exito;
+        
+      try{ 
+
+      session.delete(estudiante);
+      session.getTransaction().commit();
+      session.close();
+      
+      exito=true;
+       }catch(Exception ex){
+             exito=false;
+             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             "WARNING", JOptionPane.WARNING_MESSAGE);
+       }
+      
+         return exito;
+   
+    
     }
 
     @Override
