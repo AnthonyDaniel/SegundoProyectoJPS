@@ -12,8 +12,7 @@ import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 public class ContenedorAsignatura implements IAsignatura{
-    Session session = new HibernateUtil().buildSessionFactory().openSession();  
-      
+    
     public ContenedorAsignatura(){
         
     }
@@ -54,14 +53,18 @@ public class ContenedorAsignatura implements IAsignatura{
 
     @Override
     public List<EntidadAsignatura> listar() throws Exception {
-        List<EntidadAsignatura> datos;
-        
+      
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
-        
+   
+        List<EntidadAsignatura> datos;
+       
         datos=session.createCriteria(EntidadAsignatura.class).list();
         
         session.getTransaction().commit();
         session.close();
+        
+        JOptionPane.showMessageDialog(null, datos.get(0).getNombre());
         
         return datos;
     }

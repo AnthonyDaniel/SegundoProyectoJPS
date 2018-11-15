@@ -19,13 +19,17 @@ public class ControladorAsignaturas {
     private IAsignatura interfaceAsignatura;
     
     public ControladorAsignaturas(InterfazAdministracion e){
-        interfazAdministracion = e;
-        interfaceAsignatura = new ContenedorAsignatura();
-        asignatura=new EntidadAsignatura();
-        
-        evento();
+        try {
+            interfazAdministracion = e;
+            interfaceAsignatura = new ContenedorAsignatura();
+            asignatura=new EntidadAsignatura();
+            interfaceAsignatura.listar();
+            evento();
 //        agregar();
 //        listarUnos();
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorAsignaturas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
    void evento(){

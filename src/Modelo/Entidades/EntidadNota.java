@@ -13,6 +13,10 @@ import org.hibernate.annotations.IndexColumn;
 public class EntidadNota implements Serializable{
 
     @Id
+    @GeneratedValue
+    @Column(name="ID")
+    private int id;
+
     @Column(name="INota")
     private String nota;
     
@@ -37,6 +41,21 @@ public class EntidadNota implements Serializable{
     }
     
     
+    public EntidadEstudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(EntidadEstudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
+    public EntidadAsignatura getAsignatura() {
+        return asignatura;
+    }
+
+    public void setAsignatura(EntidadAsignatura asignatura) {
+        this.asignatura = asignatura;
+    }
     
     
 }
