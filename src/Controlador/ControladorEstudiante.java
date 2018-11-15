@@ -5,10 +5,58 @@
  */
 package Controlador;
 
+import Model.Controller.IEstudiante;
+import Modelo.Administracion.ContenedorEstudiante;
+import Vista.Estudiante.InterfazEstudiante;
+import Vista.Interfaz;
+import Vista.Profesor.ListaAsignaturas;
+import java.util.List;
+import java.util.Map;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Thony
  */
 public class ControladorEstudiante {
     
+     private final IEstudiante iEstudiante;
+    private final InterfazEstudiante interfazEstu;
+    private ListaAsignaturas interfazAsig;
+    public ControladorEstudiante(Interfaz interfazPrin, InterfazEstudiante interE){
+       // iEstudiante = new ContenedorEstudiante();
+        interfazEstu = interE;
+       
+        interfazPrin.panelContenedor.add(interfazEstu).repaint();
+        
+        tablaListarEstudiantes();       
+        //interfazEstu.tableEstudiantes.add(interfazAsig);
+        
+        interfazPrin.panelContenedor.add(interfazEstu).repaint();
+        interfazPrin.panelContenedor.updateUI();
+        
+    }
+    private void tablaListarEstudiantes(){
+        interfazAsig = new ListaAsignaturas();
+        
+        List lista;//= iEstudiante.listarEstudiantes(5);
+        interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
+        Object[] etiquetas = {"CODIGO","NOMBRE"};
+        DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
+        Object[] fila ;
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            fila = new Object[2];
+            fila[0] = tupla.get("IdAsignatura");
+            fila[1] = tupla.get("Nombre");            
+            model.addRow(fila);
+        }
+        interfazAsig.tbl_ListaAsig.setModel(model); 
+    
+        
+    }
+    
+
 }
