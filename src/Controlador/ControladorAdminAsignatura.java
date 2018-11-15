@@ -44,8 +44,6 @@ public class ControladorAdminAsignatura {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
                     session.beginTransaction();
    
-                    List<EntidadProfesor> datos;
-       
                     datos=session.createCriteria(EntidadProfesor.class).list();
         
                     session.getTransaction().commit();
