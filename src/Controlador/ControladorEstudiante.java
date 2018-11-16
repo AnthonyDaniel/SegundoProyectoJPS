@@ -45,6 +45,7 @@ public class ControladorEstudiante {
         listNotas = new ListaNotas();
         listAsistencia = new ListaAsistenciaEstu();
         interfazEstu = _interfazEstudiante;
+        
         interfazPrin.panelContenedor.add(interfazEstu).repaint();       
         
         tablaListarEstudiantes();       
@@ -60,10 +61,10 @@ public class ControladorEstudiante {
     private void tablaListarEstudiantes(){
         
     
-        String id;
+        String id = "504250813";
         EntidadEstudiante e = new EntidadEstudiante();
        
-        List lista = iEstudiante.listarEstudiantes();        
+        List lista = iEstudiante.listarEstudiantes(id);        
         
         interfazListEstudiantes.tableEstudiantes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         interfazListEstudiantes.tableEstudiantes.getTableHeader().setReorderingAllowed(false);
@@ -84,8 +85,8 @@ public class ControladorEstudiante {
         EntidadEstudiante e = new EntidadEstudiante();
         
         List lista = iEstudiante.listarNotas(13);
-       // interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-       // interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
+          interfazAsignaturaEstu.tableAsignaturasEstu.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+          interfazAsignaturaEstu.tableAsignaturasEstu.getTableHeader().setReorderingAllowed(false);
         
         Object[] etiquetas = {"Estudiante","IdAsignatura", "Nota"};
         DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
@@ -103,10 +104,10 @@ public class ControladorEstudiante {
     }
     private void tablaListarAsistencia(){
        
-      // interfazAsig = new ListaAsignaturas();
-        List lista = iEstudiante.listarAsistencias(10);
-      //  interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-      //  interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
+      
+        List lista = iEstudiante.listarAsistencias(13);
+        interfazAsignaturaEstu.tableAsignaturasEstu.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        interfazAsignaturaEstu.tableAsignaturasEstu.getTableHeader().setReorderingAllowed(false);
         Object[] etiquetas = {"Asignatura","Cedula Estudiante","Asistencia"};
         DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
         Object[] fila ;
@@ -119,9 +120,13 @@ public class ControladorEstudiante {
             
             model.addRow(fila);
         }
-       // interfazAsig.tbl_ListaAsig.setModel(model);
+       interfazAsignaturaEstu.tableAsignaturasEstu.setModel(model);
        
     }
+    private void listarNotasClick(){
+        
+    }
+    
     
 
 }
