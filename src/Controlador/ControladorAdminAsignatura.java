@@ -40,7 +40,13 @@ public class ControladorAdminAsignatura {
           //  buscar();
         
     }
+    public void limpiarPanel(){
     
+        agregarAsignatura.jTextFieldId.setText("");
+        agregarAsignatura.jTextFieldHorario.setText("");
+        agregarAsignatura.jTextFieldNombre.setText("");
+        
+    }
     public List<EntidadProfesor> comboBox(){
         
         agregarAsignatura.jComboBoxProfesores.removeAllItems();
@@ -190,6 +196,7 @@ public class ControladorAdminAsignatura {
                 
                    if(interfaceAsignatura.agregarAsignatura(asignatura)){
                        mostrarEnPanel();
+                        limpiarPanel();
                        JOptionPane.showMessageDialog(null, "Guardado");
                    }
                    else {
