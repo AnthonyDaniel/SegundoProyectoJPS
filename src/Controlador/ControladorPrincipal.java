@@ -70,7 +70,7 @@ public class ControladorPrincipal {
         estudiante = new InterfazEstudiante();
         administracion = new InterfazAdministracion();
         agregarAsignatura = new AgregarAsignatura();
-        panelEstudiantes = new Estudiantes();
+        panelEstudiantes = new Estudiantes(controladorAdminEstudiantes);
         agregarEstudiante = new AgregarEstudiante();
         panelProfesores= new Profesores(controladorAdminProfesores);
         agregarProfesor = new AgregarProfesor();

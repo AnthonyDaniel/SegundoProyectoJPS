@@ -1,11 +1,19 @@
 
 package Vista.Administracion;
 
+import Controlador.ControladorAdminEstudiante;
+import Controlador.ControladorAdminProfesor;
+import Modelo.Entidades.EntidadEstudiante;
+import Modelo.Entidades.EntidadProfesor;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Estudiantes extends javax.swing.JPanel {
-
-    public Estudiantes() {
+private ControladorAdminEstudiante c;
+    public Estudiantes(ControladorAdminEstudiante e) {
+        c=e;
         initComponents();
     }
 
@@ -42,6 +50,11 @@ public class Estudiantes extends javax.swing.JPanel {
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jTextFieldCedula.setEnabled(false);
 
@@ -149,10 +162,52 @@ public class Estudiantes extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldContrasenaKeyPressed
 
     private void btnModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnModificarKeyPressed
-           if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-                   //Modificarrrrr.............. no implementado aún
+            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+                   
+           
+           EntidadEstudiante aux = new EntidadEstudiante();
+           
+            
+           aux.setId(this.jTextFieldCedula.getText());
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setApe1(this.jTextFieldApellidos.getText());
+           aux.setContrasena(this.jTextFieldContrasena.getText());
+           
+           
+               try {
+                   if(c.interfaceAdminEstudiante.modificarEstudiante(aux)){
+                       
+                       JOptionPane.showMessageDialog(null, "Se modifico");
+                       
+                       
+                       
+                       
+                   }       } catch (Exception ex) {
+                   Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
     }//GEN-LAST:event_btnModificarKeyPressed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+           
+           EntidadEstudiante aux = new EntidadEstudiante();
+            
+           aux.setId(this.jTextFieldCedula.getText());
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setApe1(this.jTextFieldApellidos.getText());
+           aux.setContrasena(this.jTextFieldContrasena.getText());
+           
+     try {
+         if(c.interfaceAdminEstudiante.eliminarEstudiante(aux)){
+             JOptionPane.showMessageDialog(null, "Se Elimino");
+             
+             
+             
+         }
+     } catch (Exception ex) {
+         Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

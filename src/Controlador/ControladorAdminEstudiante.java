@@ -8,6 +8,7 @@ import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Entidades.EntidadProfesor;
 import Vista.Administracion.AgregarEstudiante;
 import Vista.Administracion.Estudiantes;
+import Vista.Administracion.FichasAsignatura;
 import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,11 +18,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorAdminEstudiante {
-   private InterfazAdministracion interfazAdministracion;
-    private EntidadEstudiante estudiante;
-    private IAdminEstudiante interfaceAdminEstudiante;
-    private Estudiantes panelEstudiantes;
-    private AgregarEstudiante agregarEstudiante;
+   public InterfazAdministracion interfazAdministracion;
+    public EntidadEstudiante estudiante;
+    public IAdminEstudiante interfaceAdminEstudiante;
+    public Estudiantes panelEstudiantes;
+    public AgregarEstudiante agregarEstudiante;
     
     public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r, Estudiantes es, AgregarEstudiante ae){
             panelEstudiantes=es;
@@ -80,7 +81,29 @@ public class ControladorAdminEstudiante {
         });
        
         }
+       public void mostrarEnPanel(){
     
+        interfazAdministracion.panelAgregarEstudiantes.removeAll();
+        Estudiantes fa;
+      
+       try {
+           for(EntidadEstudiante e: interfaceAdminEstudiante.listar()){
+               fa = null;
+               fa = new Estudiantes(this);
+               fa.jTextFieldCedula.setText(e.getId());
+               fa.jTextFieldNombre.setText(e.getNombre());
+               fa.jTextFieldApellidos.setText(e.getApe1());
+               fa.jTextFieldContrasena.setText(e.getContrasena());
+               
+               interfazAdministracion.panelAgregarEstudiantes.add(fa).repaint();
+               
+           }
+       } catch (Exception ex) {
+           Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+       }
+            interfazAdministracion.panelAgregarEstudiantes.updateUI();
+         
+    }
      public void buscar(){
         interfazAdministracion.btnBuscar.addActionListener(new ActionListener(){
             @Override

@@ -37,6 +37,7 @@ public class ControladorAdminProfesor {
             modificar();
             eliminar();
             buscar();
+            mostrarEnPanel();
     }
     
     public void mostrarEnTabla(){
