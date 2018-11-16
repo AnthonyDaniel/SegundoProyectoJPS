@@ -23,5 +23,5 @@ public interface IProfesor {
     public double obtenerNota(String _idEst, String _idAsig);
     public void ponerFalta();    
     public void modificarFalta();
-    public List listarAusencias(int _cedEst, String _idAsignatura);
+    public List listarAusencias(String _cedEst, String _idAsignatura);
 }

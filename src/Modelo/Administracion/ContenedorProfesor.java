@@ -160,24 +160,18 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public List listarAusencias(int _cedEst, String _idAsignatura) {
+    public List listarAusencias(String _cedEst, String _idAsignatura) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         
         List lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from profesor");
+        SQLQuery consulta =  session.createSQLQuery("select * from asistencia where IdEstudiante= '"+_cedEst+"' and IdAsignatura = '"+_idAsignatura+"'");
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
         lista = consulta.list();
-        
-        System.out.println("Lista profesor");
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("Id")+" "+tupla.get("nombre") +" "+tupla.get("ape1")+" "+tupla.get("ape2"));
-            System.out.println("-------");
-        }
+                
         
         session.getTransaction().commit();
         session.close();
