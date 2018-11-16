@@ -146,7 +146,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
            
            auxx.setNombre(jComboBoxProfesores.getSelectedItem()+"");
            
-        
+           
            Session session = new HibernateUtil().buildSessionFactory().openSession();        
            session.beginTransaction();
    
@@ -155,13 +155,13 @@ public class FichasAsignatura extends javax.swing.JPanel {
            session.getTransaction().commit();
            session.close();
            
-           
+            
             for (EntidadProfesor e : datos){
-                if(e.getNombre().equals(auxx)){
+                if(e.getNombre().equals(auxx.getNombre())){
                     aux.setProfesor(e);
                 }
             }
-                   
+                  
            if(c.interfaceAsignatura.modificarAsignatura(aux)){
                c.mostrarEnPanel();
                JOptionPane.showMessageDialog(null, "Se modifico");

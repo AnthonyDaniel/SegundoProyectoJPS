@@ -3,6 +3,7 @@ package Controlador;
 
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
+import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Entidades.EntidadProfesor;
 import Modelo.Hibernate.HibernateUtil;
 import Vista.Administracion.AgregarAsignatura;
@@ -12,6 +13,8 @@ import Vista.Administracion.InterfazAdministracion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
 
@@ -34,6 +37,7 @@ public class ControladorAdminAsignatura {
             mostrarEnPanel();
             mostrarEnTabla();
             Agregar();
+          //  buscar();
         
     }
     
@@ -94,6 +98,37 @@ public class ControladorAdminAsignatura {
          
     }
     
+       public void buscar(){
+        interfazAdministracion.btnBuscar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+          
+                List<EntidadAsignatura> info;
+                info = interfaceAsignatura.listar();
+                
+                try {
+                  String aux = "";
+                    for(EntidadAsignatura i : info){
+                        
+                        if(i.getIdAsignatura().equals(interfazAdministracion.txtBuscar.getText())
+                                || i.getNombre().equals(interfazAdministracion.txtBuscar.getText())){
+                            
+                            aux = aux + i.getIdAsignatura() + " Nombre" + i.getNombre() + " Horario" + i.getHorario() + " Profesor" + i.getProfesor().getNombre();
+                        
+                        }
+                    
+                    }
+                    
+                    JOptionPane.showMessageDialog(null, datos);
+                } catch (Exception ex) {
+                    Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+                }
+             
+            }
+            
+        });
+    }
+    
     public void mostrarEnTabla(){
         
         interfazAdministracion.jRadioButonAsignaturas.addActionListener(new ActionListener() {
@@ -119,7 +154,7 @@ public class ControladorAdminAsignatura {
                                 interfazAdministracion.jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
                                      matriz,
                                     new String [] {
-                                "ID", "Nombre", "PROFESER"
+                                "ID", "Nombre", "PROFESOR"
                                     }
                                 ));
 
