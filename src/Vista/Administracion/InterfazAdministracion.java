@@ -28,11 +28,9 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         contenedorEstudiantes = new javax.swing.JPanel();
         panelAgregarEstudiantes = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         contenedorProfesores = new javax.swing.JPanel();
         panelAgregarProfesores = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panelAgregar = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -124,9 +122,6 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
         jPanel5.add(panelAgregarEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 230));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 960, 520));
-
         jTabbedPane2.addTab("Estudiantes", jPanel5);
 
         jPanel6.setBackground(new java.awt.Color(0, 255, 153));
@@ -137,9 +132,6 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
         panelAgregarProfesores.setLayout(new java.awt.GridLayout(1, 0));
         jPanel6.add(panelAgregarProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 960, 130));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
 
         jTabbedPane2.addTab("Profesores o administrativos", jPanel6);
 
@@ -180,8 +172,6 @@ public class InterfazAdministracion extends javax.swing.JPanel {
     public javax.swing.JPanel contenedorProfesores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
