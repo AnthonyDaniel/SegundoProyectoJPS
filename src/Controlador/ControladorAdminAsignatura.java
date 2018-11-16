@@ -68,6 +68,21 @@ public class ControladorAdminAsignatura {
         for(EntidadAsignatura e: interfaceAsignatura.listar()){
             fa = null;
             fa = new FichasAsignatura(this);
+            fa.jComboBoxProfesores.removeAllItems();
+            
+              for(EntidadProfesor i : datos){    
+                fa.jComboBoxProfesores.addItem(i.getNombre());
+              }
+              try{
+                if(e.getProfesor().getNombre().equals(""));
+                else{
+                    fa.jComboBoxProfesores.setSelectedItem(e.getProfesor().getNombre());
+                }
+                fa.jComboBoxProfesores.setSelectedItem(e.getProfesor().getNombre());
+              
+              }catch(Exception u){}
+              
+            
             fa.jTextFieldId.setText(e.getIdModulo());
             fa.jTextFieldNombre.setText(e.getNombre());
             fa.jTextFieldHorario.setText(e.getHorario());
