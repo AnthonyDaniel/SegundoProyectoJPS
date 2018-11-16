@@ -12,6 +12,9 @@ public class EntidadAsistencia implements Serializable {
     @Column(name="Fecha")
     private String fecha;
     
+    @Column(name="Justificacion")
+    private String justificacion;
+    
     @ManyToOne
     @JoinColumn(name="IdAsignatura")    
     private EntidadAsignatura idAsistencia;
@@ -26,6 +29,14 @@ public class EntidadAsistencia implements Serializable {
 
     public EntidadAsignatura getIdAsistencia() {
         return idAsistencia;
+    }
+
+    public String getJustificacion() {
+        return justificacion;
+    }
+
+    public void setJustificacion(String justificacion) {
+        this.justificacion = justificacion;
     }
 
     public void setIdAsistencia(EntidadAsignatura idAsistencia) {
