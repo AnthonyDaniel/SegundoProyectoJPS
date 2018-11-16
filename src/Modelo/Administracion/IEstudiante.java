@@ -12,7 +12,7 @@ import java.util.List;
  * @author Edris Jose Rios
  */
 public interface IEstudiante {
-    public List listarEstudiantes(int _idAsginatura);
+    public List listarEstudiantes(String _idAsginatura);
     public List listarProfesores(int _idAsignatura);
     public List listarNotas(int id);
     public List listarAsistencias(int id);

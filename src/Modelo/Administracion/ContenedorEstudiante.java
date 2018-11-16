@@ -22,7 +22,7 @@ import org.hibernate.Session;
 public class ContenedorEstudiante implements IEstudiante {
 
     @Override
-    public List listarEstudiantes(int _idAsginatura) {
+    public List listarEstudiantes(String _idAsginatura) {
          Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         
