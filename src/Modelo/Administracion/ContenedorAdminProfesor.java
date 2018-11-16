@@ -97,7 +97,7 @@ public class ContenedorAdminProfesor implements IAdminProfesor{
    
         List<EntidadProfesor> datos;
        
-        datos=session.createCriteria(EntidadEstudiante.class).list();
+        datos=session.createCriteria(EntidadProfesor.class).list();
         
         session.getTransaction().commit();
         session.close();
@@ -112,7 +112,7 @@ public class ContenedorAdminProfesor implements IAdminProfesor{
         
         List<EntidadProfesor> lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from estudiante where Cedula = "+idProfesor);
+        SQLQuery consulta =  session.createSQLQuery("select * from profesor where Id = "+idProfesor);
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         

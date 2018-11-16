@@ -39,11 +39,11 @@ public class ControladorAdminProfesor {
     
     public void mostrarEnTabla(){
         
-        interfazAdministracion.jRadioButtonEstudiantes.addActionListener(new ActionListener() {
+        interfazAdministracion.jRadioButtonProfesor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                
-                if(interfazAdministracion.jRadioButtonEstudiantes.isSelected()){
+                if(interfazAdministracion.jRadioButtonProfesor.isSelected()){
               try {
                         List<EntidadProfesor> lista= interfaceAdminProfesor.listar();
 

@@ -114,7 +114,7 @@ public class ContenedorAdminEstudiante implements IAdminEstudiante{
         
         List<EntidadEstudiante> lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from estudiante where IdEstudiante = "+idEstudiante);
+        SQLQuery consulta =  session.createSQLQuery("select * from estudiante where Cedula = "+idEstudiante);
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
