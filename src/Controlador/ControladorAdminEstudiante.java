@@ -35,6 +35,7 @@ public class ControladorAdminEstudiante {
             interfazAdministracion.panelAgregarEstudiantes.add(ae).repaint();
             
             mostrarEnTabla();
+            mostrarEnPanel();
             agregar();
             modificar();
             eliminar();
