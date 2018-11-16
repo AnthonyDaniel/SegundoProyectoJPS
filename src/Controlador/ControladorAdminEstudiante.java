@@ -273,11 +273,9 @@ public class ControladorAdminEstudiante {
                          }
                          //Pruebas
                      try{
-                    // e1.setAsignatura(asignatura);
                      e1.setEstudiante(estudiante);
-                     e1.setId(0);
-                     e1.setNota(12);
-                     estudiante.getNota().add(e1);
+                     
+                   //  estudiante.getNota().add(e1);
                      session.save(e1);
                      }catch(Exception r){
                      JOptionPane.showMessageDialog(null,"Error");
