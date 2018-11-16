@@ -138,6 +138,7 @@ public class ControladorAdminProfesor {
                        if(interfaceAdminProfesor.agregarProfesor(profesor)){
                        refrescar.mostrarEnPanel();
                        refrescar.comboBox();
+                       mostrarEnPanel();
                        }else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }
@@ -163,7 +164,8 @@ public class ControladorAdminProfesor {
                    
                 
                    try {
-                       if(interfaceAdminProfesor.modificarProfesor(profesor));
+                       if(interfaceAdminProfesor.modificarProfesor(profesor))
+                           mostrarEnPanel();
                        else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }
@@ -188,7 +190,8 @@ public class ControladorAdminProfesor {
                    
                 
                    try {
-                       if(interfaceAdminProfesor.eliminarProfesor(profesor));
+                       if(interfaceAdminProfesor.eliminarProfesor(profesor))
+                           mostrarEnPanel();
                        else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }

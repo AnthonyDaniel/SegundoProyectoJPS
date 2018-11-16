@@ -204,7 +204,7 @@ public class Profesores extends javax.swing.JPanel {
            
                try {
                    if(c.interfaceAdminProfesor.modificarProfesor(aux)){
-                       
+                       c.mostrarEnPanel();
                        JOptionPane.showMessageDialog(null, "Se modifico");
                        
                        
@@ -226,6 +226,7 @@ public class Profesores extends javax.swing.JPanel {
            
      try {
          if(c.interfaceAdminProfesor.eliminarProfesor(aux)){
+             c.mostrarEnPanel();
              JOptionPane.showMessageDialog(null, "Se Elimino");
              
              
