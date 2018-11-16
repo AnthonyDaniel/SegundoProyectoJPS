@@ -98,7 +98,7 @@ public class ControladorPrincipal {
                     JOptionPane.showMessageDialog(null, "Bievenido Eddier Lopez ");
                     controladorAsignaturas = new ControladorAdminAsignatura(administracion,interfaceAsignatura,asignatura,agregarAsignatura);
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes, agregarEstudiante);
-                     controladorAdminProfesores= new ControladorAdminProfesor(administracion,adminProfesor,entidadProfesor,panelProfesores, agregarProfesor);
+                     controladorAdminProfesores= new ControladorAdminProfesor(administracion,adminProfesor,entidadProfesor,panelProfesores, agregarProfesor,controladorAsignaturas);
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
                    // controlProfesor = new ControladorProfesor(interfaz);
                 
