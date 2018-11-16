@@ -46,8 +46,6 @@ public class AgregarProfesor extends javax.swing.JPanel {
 
         jLabel4.setText("Contraseña");
 
-        txtCedula.setText("jTextField1");
-
         txtNombre.setText("jTextField2");
 
         txtApellido.setText("jTextField3");
@@ -82,7 +80,7 @@ public class AgregarProfesor extends javax.swing.JPanel {
                         .addComponent(txtContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
                         .addComponent(btnAgregar)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
