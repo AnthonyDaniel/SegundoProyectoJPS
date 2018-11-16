@@ -1,9 +1,15 @@
 
 package Vista;
 
+import Controlador.ControladorPrincipal;
 import com.sun.awt.AWTUtilities;
+import java.awt.Font;
 import java.awt.Shape;
+import java.awt.font.TextAttribute;
 import java.awt.geom.RoundRectangle2D;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.JOptionPane;
 
 public class Interfaz extends javax.swing.JFrame {
 
@@ -87,6 +93,12 @@ public class Interfaz extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
         });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -130,12 +142,30 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
+       if(JOptionPane.showConfirmDialog(null, "Desea salir" ) == JOptionPane.YES_OPTION){
+           this.dispose();
+           new ControladorPrincipal();
+       }
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+
+    Font font = jLabel2.getFont();
+    Map<TextAttribute, Object> attributes = new HashMap<>(font.getAttributes());
+    attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+    jLabel2.setFont(font.deriveFont(attributes));
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+    Font font = jLabel2.getFont();
+    Map<TextAttribute, Object> attributes = new HashMap<>(font.getAttributes());
+    attributes.put(TextAttribute.UNDERLINE, -1);
+    jLabel2.setFont(font.deriveFont(attributes));
+    }//GEN-LAST:event_jLabel2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
