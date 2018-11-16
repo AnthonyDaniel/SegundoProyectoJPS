@@ -95,7 +95,7 @@ public class ControladorPrincipal {
     public void iniciarLosConstructores(){
         //Se inicializa en login
                 if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Administrador")){
-                    JOptionPane.showMessageDialog(null, "Administrador");
+                    JOptionPane.showMessageDialog(null, "Bievenido Eddier Lopez ");
                     controladorAsignaturas = new ControladorAdminAsignatura(administracion,interfaceAsignatura,asignatura,agregarAsignatura);
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes, agregarEstudiante);
                      controladorAdminProfesores= new ControladorAdminProfesor(administracion,adminProfesor,entidadProfesor,panelProfesores, agregarProfesor);
