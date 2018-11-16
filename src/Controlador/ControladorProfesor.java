@@ -102,7 +102,7 @@ public class ControladorProfesor {
         interfazListaProf.tbl_ListaProf.setModel(model); 
     }
     
-    private void cargarTablaEstudiantes(int _idAsig, String _nom){   
+    private void cargarTablaEstudiantes(String _idAsig, String _nom){   
         ArrayList<EntidadEstudiante> listEst = iProfesor.listarEstudiantes(_idAsig);
         
         interfazListaEst.tbl_listaEst.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -127,7 +127,7 @@ public class ControladorProfesor {
         interfazListaEst.lbl_tituloListEst.setText(_idAsig+"-"+_nom);
     }
     
-    private void editarNota(String _ced, String _nom, String _asig, int _idAsig){
+    private void editarNota(String _ced, String _nom, String _asig, String _idAsig){
         interfazNotas.txt_ced.setText(_ced);
         interfazNotas.txt_nomAp.setText(_nom);
         interfazNotas.txt_asig.setText(_asig);
@@ -164,7 +164,7 @@ public class ControladorProfesor {
             public void actionPerformed(ActionEvent e) {
                 if(interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(), 0) != null){
                     
-                    int id = (int) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),0);
+                    String id = (String) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),0);
                     String nom = (String) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),1);
                     cargarTablaEstudiantes(id, nom);                    
                     interfazProf.panel_Contenido.removeAll();
@@ -176,7 +176,7 @@ public class ControladorProfesor {
         });
     }
     
-    private void agregarNotaClick(int _idAsig, String _nombreAsig){
+    private void agregarNotaClick(String _idAsig, String _nombreAsig){
         interfazListaEst.btn_nota.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {                
@@ -195,7 +195,7 @@ public class ControladorProfesor {
         });
     }
     
-    private void guardarNotaClick(String _ced, int _idAsig, String _nom, String _asig){
+    private void guardarNotaClick(String _ced, String _idAsig, String _nom, String _asig){
         interfazNotas.btn_guardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

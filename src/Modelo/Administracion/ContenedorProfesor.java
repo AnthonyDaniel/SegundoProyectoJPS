@@ -24,13 +24,13 @@ import org.hibernate.Session;
 public class ContenedorProfesor implements IProfesor{
 
     @Override
-    public ArrayList<EntidadEstudiante> listarEstudiantes(int _idAsignatura) {
+    public ArrayList<EntidadEstudiante> listarEstudiantes(String _idAsignatura) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         
         List lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select IdEstudiante from asignaturaestudiante where IdAsignatura = "+_idAsignatura);
+        SQLQuery consulta =  session.createSQLQuery("select IdEstudiante from asignaturaestudiante where IdAsignatura = '"+_idAsignatura+"'");
 
         
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
@@ -111,11 +111,11 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public void ponerNota(double _nota, String _idEst, int _idAsig) {
+    public void ponerNota(double _nota, String _idEst, String _idAsig) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();        
 
-        SQLQuery consulta =  session.createSQLQuery("update asignaturaestudiante set Nota="+_nota+" where IdEstudiante= '"+_idEst+"' and IdAsignatura = "+_idAsig);
+        SQLQuery consulta =  session.createSQLQuery("update asignaturaestudiante set Nota="+_nota+" where IdEstudiante= '"+_idEst+"' and IdAsignatura = '"+_idAsig+"'");
 
         consulta.executeUpdate();    
         
@@ -129,7 +129,7 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public double obtenerNota(String _idEst, int _idAsig) {
+    public double obtenerNota(String _idEst, String _idAsig) {
         double nota = 0;
         
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
@@ -137,7 +137,7 @@ public class ContenedorProfesor implements IProfesor{
         
         List lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select Nota from asignaturaestudiante where IdEstudiante = '"+_idEst+"' and IdAsignatura = "+_idAsig);
+        SQLQuery consulta =  session.createSQLQuery("select Nota from asignaturaestudiante where IdEstudiante = '"+_idEst+"' and IdAsignatura = '"+_idAsig+"'");
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
@@ -160,7 +160,7 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public List listarAusencias(int _cedEst, int _idAsignatura) {
+    public List listarAusencias(int _cedEst, String _idAsignatura) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         

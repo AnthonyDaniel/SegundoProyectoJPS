@@ -16,12 +16,12 @@ import java.util.List;
  * @author Mauricio
  */
 public interface IProfesor {
-    public ArrayList<EntidadEstudiante> listarEstudiantes(int _idAsginatura);
+    public ArrayList<EntidadEstudiante> listarEstudiantes(String _idAsginatura);
     public List listarAsignaturas(String _idProf);
     public List listarProfesores();
-    public void ponerNota(double _nota, String _idEst, int _idAsig);
-    public double obtenerNota(String _idEst, int _idAsig);
+    public void ponerNota(double _nota, String _idEst, String _idAsig);
+    public double obtenerNota(String _idEst, String _idAsig);
     public void ponerFalta();    
     public void modificarFalta();
-    public List listarAusencias(int _cedEst, int _idAsignatura);
+    public List listarAusencias(int _cedEst, String _idAsignatura);
 }
