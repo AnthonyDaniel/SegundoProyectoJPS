@@ -170,7 +170,6 @@ public class ControladorAdminAsignatura {
     
     public void Agregar(){
     
-         
            agregarAsignatura.jButtonAgregar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
@@ -178,9 +177,7 @@ public class ControladorAdminAsignatura {
                    asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
                    asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
                    
-                   
                    String as = agregarAsignatura.jComboBoxProfesores.getSelectedItem()+ "";
-                   
                    
                    for (EntidadProfesor e : datos){
                        
@@ -188,7 +185,6 @@ public class ControladorAdminAsignatura {
                            asignatura.setProfesor(e);
                        }
                    }
-                   
                    
                   if(interfaceAsignatura.validarDatos()){
                 
