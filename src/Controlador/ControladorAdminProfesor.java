@@ -83,7 +83,7 @@ public class ControladorAdminProfesor {
     
       public void mostrarEnPanel(){
     
-        interfazAdministracion.panelAgregarProfesores.removeAll();
+        interfazAdministracion.contenedorProfesores.removeAll();
         Profesores fa;
          try {
              for(EntidadProfesor e: interfaceAdminProfesor.listar()){
@@ -94,12 +94,12 @@ public class ControladorAdminProfesor {
                  fa.jTextFieldApellidos.setText(e.getApe1());
                  fa.jTextFieldContrasena.setText(e.getContrasena());
                  
-                 interfazAdministracion.panelAgregarProfesores.add(fa).repaint();
+                 interfazAdministracion.contenedorProfesores.add(fa).repaint();
                  
              }} catch (Exception ex) {
              Logger.getLogger(ControladorAdminProfesor.class.getName()).log(Level.SEVERE, null, ex);
          }
-            interfazAdministracion.panelAgregarProfesores.updateUI();
+            interfazAdministracion.contenedorProfesores.updateUI();
     }
       
     public void buscar(){
