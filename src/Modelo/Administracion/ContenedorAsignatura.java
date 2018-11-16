@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
 
 public class ContenedorAsignatura implements IAsignatura{
     
-    private AgregarAsignatura aa;
+    public AgregarAsignatura aa;
     
     public ContenedorAsignatura(AgregarAsignatura _aa){
      

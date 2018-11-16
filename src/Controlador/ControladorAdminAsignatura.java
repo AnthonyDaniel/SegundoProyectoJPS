@@ -17,11 +17,11 @@ import org.hibernate.Session;
 
 public class ControladorAdminAsignatura {
     
-    private InterfazAdministracion interfazAdministracion;
-    private EntidadAsignatura asignatura;
-    private IAsignatura interfaceAsignatura;
-    private AgregarAsignatura agregarAsignatura;
-    private List<EntidadProfesor>  datos;
+    public InterfazAdministracion interfazAdministracion;
+    public EntidadAsignatura asignatura;
+    public IAsignatura interfaceAsignatura;
+    public AgregarAsignatura agregarAsignatura;
+    public List<EntidadProfesor>  datos;
     
     public ControladorAdminAsignatura(InterfazAdministracion e, IAsignatura a, EntidadAsignatura r, AgregarAsignatura aa){
      
