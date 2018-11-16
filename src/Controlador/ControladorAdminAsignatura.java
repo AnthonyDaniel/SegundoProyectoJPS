@@ -27,7 +27,7 @@ public class ControladorAdminAsignatura {
     public List<EntidadProfesor>  datos;
     
     public ControladorAdminAsignatura(InterfazAdministracion e, IAsignatura a, EntidadAsignatura r, AgregarAsignatura aa){
-     
+        
             agregarAsignatura = aa;
             interfazAdministracion = e;
             interfaceAsignatura = a;

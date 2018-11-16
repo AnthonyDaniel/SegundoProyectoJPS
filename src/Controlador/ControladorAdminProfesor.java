@@ -21,9 +21,10 @@ public class ControladorAdminProfesor {
     public IAdminProfesor interfaceAdminProfesor;
     public Profesores panelProfesores;
     public AgregarProfesor agregarProfesor;
-    
-    public ControladorAdminProfesor(InterfazAdministracion e, IAdminProfesor a, EntidadProfesor r, Profesores es, AgregarProfesor ae){
+    public ControladorAdminAsignatura refrescar;
+    public ControladorAdminProfesor(InterfazAdministracion e, IAdminProfesor a, EntidadProfesor r, Profesores es, AgregarProfesor ae, ControladorAdminAsignatura ca){
             panelProfesores=es;
+            refrescar = ca;
             interfazAdministracion = e;
             interfaceAdminProfesor = a;
             profesor= r;
@@ -134,8 +135,10 @@ public class ControladorAdminProfesor {
    
                     
                    try {
-                       if(interfaceAdminProfesor.agregarProfesor(profesor));
-                       else {
+                       if(interfaceAdminProfesor.agregarProfesor(profesor)){
+                       refrescar.mostrarEnPanel();
+                       refrescar.comboBox();
+                       }else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }
                    } catch (Exception ex) {
