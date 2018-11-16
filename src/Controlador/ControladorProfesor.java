@@ -149,7 +149,7 @@ public class ControladorProfesor {
             fila[2] = tupla.get("Fecha");
             fila[1] = tupla.get("IdEstudiante"); 
             fila[0] = tupla.get("IdAsignatura"); 
-            fila[3] = 0; 
+            fila[3] = tupla.get("Justificacion"); 
             model.addRow(fila);
         }
         interfazAusc.tbl_Ausc.setModel(model); 
