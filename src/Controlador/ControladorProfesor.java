@@ -28,6 +28,7 @@ public class ControladorProfesor {
     private ListaProfesores interfazListaProf;
     private ListaEstudiantes interfazListaEst;
     private NotaEstudiante interfazNotas;
+    private AusenciasEstudiante interfazAusc;
     
     private List lista;
     
@@ -38,6 +39,7 @@ public class ControladorProfesor {
         interfazListaProf = new  ListaProfesores();        
         interfazListaAsig = new ListaAsignaturas();
         interfazNotas = new NotaEstudiante();
+        interfazAusc = new AusenciasEstudiante();
                         
         interfazPrin.panelContenedor.add(interfazProf).repaint();       
         
@@ -125,6 +127,32 @@ public class ControladorProfesor {
         }
         interfazListaEst.tbl_listaEst.setModel(model); 
         interfazListaEst.lbl_tituloListEst.setText(_idAsig+"-"+_nom);
+    }
+    
+    private void cargarTablaAusencias(String _cedEst, String _idAsig){
+        lista = iProfesor.listarAusencias(_cedEst, _idAsig);
+        
+        interfazAusc.tbl_Ausc.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        interfazAusc.tbl_Ausc.getTableHeader().setReorderingAllowed(false);
+        Object[] etiquetas = {"ASIGNATURA","ESTUDIANTE","FECHA","ESTADO"};
+        DefaultTableModel model = new DefaultTableModel(new Object[][]{}, etiquetas){
+                boolean[] canEdit = new boolean[4];
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex ){
+                    return canEdit[columnIndex];
+                }
+        };
+        Object[] fila ;
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            fila = new Object[2];
+            fila[0] = tupla.get("Fecha");
+            fila[1] = tupla.get("IdEstudiante"); 
+            fila[1] = tupla.get("IdAsignatura"); 
+            //fila[1] = tupla.get("ape1"); 
+            model.addRow(fila);
+        }
+        interfazAusc.tbl_Ausc.setModel(model); 
     }
     
     private void editarNota(String _ced, String _nom, String _asig, String _idAsig){
