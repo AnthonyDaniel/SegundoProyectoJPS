@@ -22,6 +22,7 @@ public class ControladorLogin {
     private InterfazAdministracion administracion;
     private InterfazEstudiante estudiante;
     private ControladorPrincipal controladorPrincipal;
+    private ControladorProfesor controlProfesor;
     
     public ControladorLogin(ControladorPrincipal t,Interfaz e, InterfazLogin a, ILogin lm, InterfazAdministracion _administracion,  InterfazEstudiante _estudiante){
     
@@ -74,7 +75,7 @@ public class ControladorLogin {
                               }else if(login.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                                   e.panelContenedor.add(estudiante).repaint();
                               }else{
-                                   e.panelContenedor.updateUI();
+                                   controlProfesor = new ControladorProfesor(interfaz, interfazLogin.jTextFieldCedula.getText());
                               }
                               Limpiar();
                               e.setVisible(true);

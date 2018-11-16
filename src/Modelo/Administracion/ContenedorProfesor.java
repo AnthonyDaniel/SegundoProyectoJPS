@@ -6,13 +6,13 @@
 package Modelo.Administracion;
 
 import Modelo.Entidades.EntidadAsignatura;
-import Modelo.Entidades.EntidadAusencia;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Entidades.EntidadProfesor;
 import Modelo.Hibernate.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
@@ -24,37 +24,62 @@ import org.hibernate.Session;
 public class ContenedorProfesor implements IProfesor{
 
     @Override
-    public List listarEstudiantes(int _idAsignatura) {
+    public ArrayList<EntidadEstudiante> listarEstudiantes(int _idAsignatura) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         
         List lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from asignaturaestudiante where IdAsignatura = "+_idAsignatura);
+        SQLQuery consulta =  session.createSQLQuery("select IdEstudiante from asignaturaestudiante where IdAsignatura = "+_idAsignatura);
 
+        
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
         lista = consulta.list();
-        System.out.println("Lista estudiantes segun asignatura");
+        
+       
+        
+        Object[] idsEst = new Object[lista.size()];
+        
+        int n= 0;
         for(Object lib:lista){
             Map tupla = (Map)lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura") +" "+tupla.get("Nota"));
-            System.out.println("-------");
+            idsEst[n] = tupla.get("IdEstudiante");
+            n++;
         }
         
+        ArrayList<EntidadEstudiante> listEst = new ArrayList<>();
+        EntidadEstudiante student;
+        
+        List lista2;
+        
+        SQLQuery consulta2;
+        for(int i=0; i < lista.size();i++){
+            consulta2 =  session.createSQLQuery("select Cedula, Nombre, Apellido from estudiante where Cedula = '"+idsEst[i]+"'");
+            consulta2.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);        
+            lista2 = consulta2.list();
+            for(Object lib:lista2){
+                student = new EntidadEstudiante();
+                Map tupla = (Map)lib;
+                student.setId((String) tupla.get("Cedula"));
+                student.setNombre((String) tupla.get("Nombre"));
+                student.setApe1((String) tupla.get("Apellido"));
+                listEst.add(student);
+            }            
+        }        
         session.getTransaction().commit();
         session.close();
-        return lista;
+        return listEst;
     }
 
     @Override
-    public List listarAsignaturas(int _idProf) {
+    public List listarAsignaturas(String _idProf) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         
         List lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from asignatura where IdProfesor = "+_idProf);
+        SQLQuery consulta =  session.createSQLQuery("select * from asignatura where IdProfesor = '"+_idProf+"'");
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
@@ -77,14 +102,7 @@ public class ContenedorProfesor implements IProfesor{
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
-        lista = consulta.list();
-        
-        System.out.println("Lista profesor");
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("Id")+" "+tupla.get("nombre") +" "+tupla.get("ape1"));
-            System.out.println("-------");
-        }
+        lista = consulta.list();       
         
         session.getTransaction().commit();
         session.close();
@@ -93,8 +111,16 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public void ponerNota() {
+    public void ponerNota(double _nota, String _idEst, int _idAsig) {
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();        
+
+        SQLQuery consulta =  session.createSQLQuery("update asignaturaestudiante set Nota="+_nota+" where IdEstudiante= '"+_idEst+"' and IdAsignatura = "+_idAsig);
+
+        consulta.executeUpdate();    
         
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
@@ -103,8 +129,29 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public void modificarNota() {
+    public double obtenerNota(String _idEst, int _idAsig) {
+        double nota = 0;
         
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+        
+        List lista;
+
+        SQLQuery consulta =  session.createSQLQuery("select Nota from asignaturaestudiante where IdEstudiante = '"+_idEst+"' and IdAsignatura = "+_idAsig);
+
+        consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        
+        lista = consulta.list();  
+       
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            nota = (double) tupla.get("Nota");
+        }
+        
+        session.getTransaction().commit();
+        session.close();       
+        
+        return nota;
     }
 
     @Override

@@ -6,7 +6,6 @@
 package Modelo.Administracion;
 
 import Modelo.Entidades.EntidadAsignatura;
-import Modelo.Entidades.EntidadAusencia;
 import Modelo.Entidades.EntidadEstudiante;
 import Modelo.Entidades.EntidadProfesor;
 import java.util.ArrayList;
@@ -17,12 +16,12 @@ import java.util.List;
  * @author Mauricio
  */
 public interface IProfesor {
-    public List listarEstudiantes(int _idAsginatura);
-    public List listarAsignaturas(int _idProf);
+    public ArrayList<EntidadEstudiante> listarEstudiantes(int _idAsginatura);
+    public List listarAsignaturas(String _idProf);
     public List listarProfesores();
-    public void ponerNota();
-    public void ponerFalta();
-    public void modificarNota();
+    public void ponerNota(double _nota, String _idEst, int _idAsig);
+    public double obtenerNota(String _idEst, int _idAsig);
+    public void ponerFalta();    
     public void modificarFalta();
     public List listarAusencias(int _cedEst, int _idAsignatura);
 }

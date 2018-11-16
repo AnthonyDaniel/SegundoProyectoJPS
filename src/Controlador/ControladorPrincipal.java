@@ -84,7 +84,6 @@ public class ControladorPrincipal {
         adminProfesor = new ContenedorAdminProfesor(panelProfesores, agregarProfesor);
         asignatura=new EntidadAsignatura();
         entidadEstudiante = new EntidadEstudiante();
-         entidadProfesor = new EntidadProfesor();
     }
     public final void Controladores(){
        //Controladores Inyeccion de codigo
@@ -100,7 +99,7 @@ public class ControladorPrincipal {
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes, agregarEstudiante);
                      controladorAdminProfesores= new ControladorAdminProfesor(administracion,adminProfesor,entidadProfesor,panelProfesores, agregarProfesor);
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
-                    controlProfesor = new ControladorProfesor(interfaz);
+                   // controlProfesor = new ControladorProfesor(interfaz);
                 
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
                     JOptionPane.showMessageDialog(null, "Entre Estudiantes");
