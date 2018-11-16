@@ -17,6 +17,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
     
     public FichasAsignatura(ControladorAdminAsignatura e) {
         c=e;
+        comboBox();
         initComponents();
     }
     
@@ -135,6 +136,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
    
+        comboBox();
        if(!validar()){
            
            EntidadAsignatura aux = new EntidadAsignatura();
@@ -142,40 +144,21 @@ public class FichasAsignatura extends javax.swing.JPanel {
            aux.setNombre(this.jTextFieldNombre.getText());
            aux.setIdAsignatura(this.jTextFieldId.getText());
            aux.setHorario(this.jTextFieldHorario.getText());
-           EntidadProfesor auxx = new EntidadProfesor();
            
-           auxx.setNombre(jComboBoxProfesores.getSelectedItem()+"");
-           
-        
-           Session session = new HibernateUtil().buildSessionFactory().openSession();        
-           session.beginTransaction();
-   
-           datos=session.createCriteria(EntidadProfesor.class).list();
-        
-           session.getTransaction().commit();
-           session.close();
-           
-           
-            for (EntidadProfesor e : datos){
-                       
-                       if(e.getNombre().equals(auxx)){
-                           aux.setProfesor(e);
-                       }
-            
-            }
-                   
            if(c.interfaceAsignatura.modificarAsignatura(aux)){
                c.mostrarEnPanel();
                JOptionPane.showMessageDialog(null, "Se modifico");
            
+               
            }
+           
        }
         
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
      
-       
+        comboBox();
        if(!validar()){
            
            EntidadAsignatura aux = new EntidadAsignatura();
@@ -204,7 +187,25 @@ public class FichasAsignatura extends javax.swing.JPanel {
     
     
     
+    private void comboBox(){
     
+//        jComboBoxProfesores.removeAllItems();
+        
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+                    session.beginTransaction();
+   
+                    datos=session.createCriteria(EntidadProfesor.class).list();
+        
+                    session.getTransaction().commit();
+                    session.close();
+                   
+                    for(EntidadProfesor e: datos){
+                        
+  //                      jComboBoxProfesores.addItem(e.getNombre());
+                    
+                    }
+                    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminar;
     public javax.swing.JButton jButtonModificar;

@@ -1,11 +1,19 @@
 
 package Vista.Administracion;
 
+import Controlador.ControladorAdminAsignatura;
+import Controlador.ControladorAdminProfesor;
+import Modelo.Entidades.EntidadAsignatura;
+import Modelo.Entidades.EntidadProfesor;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Profesores extends javax.swing.JPanel {
-
-    public Profesores() {
+ private ControladorAdminProfesor c;
+    public Profesores(ControladorAdminProfesor e) {
+        c=e;
         initComponents();
     }
 
@@ -49,6 +57,11 @@ public class Profesores extends javax.swing.JPanel {
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jTextFieldCedula.setEnabled(false);
 
@@ -152,6 +165,7 @@ public class Profesores extends javax.swing.JPanel {
          if(evt.getKeyCode() == KeyEvent.VK_ENTER){
                   jTextFieldApellidos.requestFocus(); //Este metodo da foco 
            }
+         
     }//GEN-LAST:event_jTextFieldNombreKeyPressed
 
     private void jTextFieldApellidosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldApellidosKeyPressed
@@ -168,9 +182,52 @@ public class Profesores extends javax.swing.JPanel {
 
     private void btnModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnModificarKeyPressed
            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-                   //Modificarrrrr.............. no implementado aún
+                   
+           
+           EntidadProfesor aux = new EntidadProfesor();
+           
+            
+           aux.setId(this.jTextFieldCedula.getText());
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setApe1(this.jTextFieldApellidos.getText());
+           aux.setContrasena(this.jTextFieldContrasena.getText());
+           
+           
+               try {
+                   if(c.interfaceAdminProfesor.modificarProfesor(aux)){
+                       
+                       JOptionPane.showMessageDialog(null, "Se modifico");
+                       
+                       
+                       
+                       
+                   }       } catch (Exception ex) {
+                   Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
+               }
            }
     }//GEN-LAST:event_btnModificarKeyPressed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+       
+           
+           EntidadProfesor aux = new EntidadProfesor();
+            
+           aux.setId(this.jTextFieldCedula.getText());
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setApe1(this.jTextFieldApellidos.getText());
+           aux.setContrasena(this.jTextFieldContrasena.getText());
+           
+     try {
+         if(c.interfaceAdminProfesor.eliminarProfesor(aux)){
+             JOptionPane.showMessageDialog(null, "Se Elimino");
+             
+             
+             
+         }
+     } catch (Exception ex) {
+         Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
+     }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
