@@ -2,18 +2,23 @@
 package Controlador;
 
 import Modelo.Administracion.ContenedorAdminEstudiante;
+import Modelo.Administracion.ContenedorAdminProfesor;
 import Modelo.Administracion.ContenedorAsignatura;
 import Modelo.Administracion.IAdminEstudiante;
+import Modelo.Administracion.IAdminProfesor;
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
+import Modelo.Entidades.EntidadProfesor;
 import Modelo.Login.ILogin;
 import Modelo.Login.LoginMetodos;
 import Vista.Administracion.AgregarAsignatura;
 import Vista.Administracion.AgregarEstudiante;
+import Vista.Administracion.AgregarProfesor;
 import Vista.Administracion.Estudiantes;
 import Vista.Interfaz;
 import Vista.Administracion.InterfazAdministracion;
+import Vista.Administracion.Profesores;
 import Vista.Estudiante.InterfazEstudiante;
 import Vista.Login.InterfazLogin;
 import Vista.Profesor.InterfazProfesor;
@@ -33,17 +38,22 @@ public class ControladorPrincipal {
     public AgregarAsignatura agregarAsignatura;
     public Estudiantes panelEstudiantes;
     public AgregarEstudiante agregarEstudiante;
+     public Profesores panelProfesores;
+    public AgregarProfesor agregarProfesor;
     //Modelo
     private ILogin loginMetodos;
     private EntidadAsignatura asignatura;
     private IAsignatura interfaceAsignatura;
     private IAdminEstudiante adminEstudiante;
+     private IAdminProfesor adminProfesor;
     private EntidadEstudiante entidadEstudiante;
+     private EntidadProfesor entidadProfesor;
     //Controladores
     private ControladorLogin controladorLogin;
     private ControladorAdminAsignatura controladorAsignaturas;
     private ControladorProfesor controlProfesor;
     private ControladorAdminEstudiante controladorAdminEstudiantes;
+    private ControladorAdminProfesor controladorAdminProfesores;
     private ControladorEstudiante controladorEstudiante;
     
     
@@ -62,6 +72,8 @@ public class ControladorPrincipal {
         agregarAsignatura = new AgregarAsignatura();
         panelEstudiantes = new Estudiantes();
         agregarEstudiante = new AgregarEstudiante();
+        panelProfesores= new Profesores();
+        agregarProfesor = new AgregarProfesor();
         
     }
     public final void Modelo(){
@@ -69,9 +81,10 @@ public class ControladorPrincipal {
         loginMetodos = new LoginMetodos();
         interfaceAsignatura = new ContenedorAsignatura(agregarAsignatura);
         adminEstudiante = new ContenedorAdminEstudiante(panelEstudiantes, agregarEstudiante);
+        adminProfesor = new ContenedorAdminProfesor(panelProfesores, agregarProfesor);
         asignatura=new EntidadAsignatura();
         entidadEstudiante = new EntidadEstudiante();
-        
+         entidadProfesor = new EntidadProfesor();
     }
     public final void Controladores(){
        //Controladores Inyeccion de codigo
@@ -85,7 +98,7 @@ public class ControladorPrincipal {
                     JOptionPane.showMessageDialog(null, "Administrador");
                     controladorAsignaturas = new ControladorAdminAsignatura(administracion,interfaceAsignatura,asignatura,agregarAsignatura);
                     controladorAdminEstudiantes = new ControladorAdminEstudiante(administracion,adminEstudiante,entidadEstudiante,panelEstudiantes, agregarEstudiante);
-                    
+                     controladorAdminProfesores= new ControladorAdminProfesor(administracion,adminProfesor,entidadProfesor,panelProfesores, agregarProfesor);
                 }else if(loginMetodos.verificarQueTipoDeUsuarioEs().equals("Profesor")){
                     controlProfesor = new ControladorProfesor(interfaz);
                 

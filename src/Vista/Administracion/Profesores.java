@@ -18,12 +18,12 @@ public class Profesores extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButtonAsignatura = new javax.swing.JButton();
-        jButtonEliminar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jTextFieldCedula = new javax.swing.JTextField();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldApellidos = new javax.swing.JTextField();
         jTextFieldContrasena = new javax.swing.JTextField();
-        jButtonModificar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
@@ -45,10 +45,10 @@ public class Profesores extends javax.swing.JPanel {
         jButtonAsignatura.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAsignatura.setText("Ver Asignaturas");
 
-        jButtonEliminar.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonEliminar.setText("Eliminar");
+        btnEliminar.setBackground(new java.awt.Color(51, 51, 51));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("Eliminar");
 
         jTextFieldCedula.setEnabled(false);
 
@@ -70,13 +70,13 @@ public class Profesores extends javax.swing.JPanel {
             }
         });
 
-        jButtonModificar.setBackground(new java.awt.Color(51, 51, 51));
-        jButtonModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonModificar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonModificar.setText("Modificar");
-        jButtonModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+        btnModificar.setBackground(new java.awt.Color(51, 51, 51));
+        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButtonModificarKeyPressed(evt);
+                btnModificarKeyPressed(evt);
             }
         });
 
@@ -113,9 +113,9 @@ public class Profesores extends javax.swing.JPanel {
                 .addGap(45, 45, 45)
                 .addComponent(jButtonAsignatura)
                 .addGap(28, 28, 28)
-                .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -141,9 +141,9 @@ public class Profesores extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -162,21 +162,21 @@ public class Profesores extends javax.swing.JPanel {
 
     private void jTextFieldContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContrasenaKeyPressed
          if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-                   jButtonModificar.requestFocus(); //Este metodo da foco 
+                   btnModificar.requestFocus(); //Este metodo da foco 
            }
     }//GEN-LAST:event_jTextFieldContrasenaKeyPressed
 
-    private void jButtonModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonModificarKeyPressed
+    private void btnModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnModificarKeyPressed
            if(evt.getKeyCode() == KeyEvent.VK_ENTER){
                    //Modificarrrrr.............. no implementado aún
            }
-    }//GEN-LAST:event_jButtonModificarKeyPressed
+    }//GEN-LAST:event_btnModificarKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     public javax.swing.JButton jButtonAsignatura;
-    public javax.swing.JButton jButtonEliminar;
-    public javax.swing.JButton jButtonModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
