@@ -2,8 +2,10 @@
 package Controlador;
 
 import Modelo.Administracion.IAdminProfesor;
+import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadProfesor;
 import Vista.Administracion.AgregarProfesor;
+import Vista.Administracion.FichasAsignatura;
 import Vista.Administracion.InterfazAdministracion;
 import Vista.Administracion.Profesores;
 import java.awt.event.ActionEvent;
@@ -14,11 +16,11 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class ControladorAdminProfesor {
-     private InterfazAdministracion interfazAdministracion;
-    private EntidadProfesor profesor;
-    private IAdminProfesor interfaceAdminProfesor;
-    private Profesores panelProfesores;
-    private AgregarProfesor agregarProfesor;
+    public InterfazAdministracion interfazAdministracion;
+    public EntidadProfesor profesor;
+    public IAdminProfesor interfaceAdminProfesor;
+    public Profesores panelProfesores;
+    public AgregarProfesor agregarProfesor;
     
     public ControladorAdminProfesor(InterfazAdministracion e, IAdminProfesor a, EntidadProfesor r, Profesores es, AgregarProfesor ae){
             panelProfesores=es;
@@ -78,6 +80,30 @@ public class ControladorAdminProfesor {
        
         }
     
+      public void mostrarEnPanel(){
+    
+        interfazAdministracion.panelAgregarProfesores.removeAll();
+        Profesores fa;
+        int i= 0;
+         try {
+             for(EntidadProfesor e: interfaceAdminProfesor.listar()){
+                 fa = null;
+                 fa = new Profesores(this);
+                 fa.jTextFieldCedula.setText(e.getId());
+                 fa.jTextFieldNombre.setText(e.getNombre());
+                 fa.jTextFieldApellidos.setText(e.getApe1());
+                 fa.jTextFieldContrasena.setText(e.getContrasena());
+                 
+                 i++;
+                 interfazAdministracion.panelAgregarProfesores.add(fa).repaint();
+                 
+             }} catch (Exception ex) {
+             Logger.getLogger(ControladorAdminProfesor.class.getName()).log(Level.SEVERE, null, ex);
+         }
+            interfazAdministracion.panelAgregarProfesores.updateUI();
+            JOptionPane.showMessageDialog(null, i);
+    }
+      
     public void buscar(){
         interfazAdministracion.btnBuscar.addActionListener(new ActionListener(){
             @Override
