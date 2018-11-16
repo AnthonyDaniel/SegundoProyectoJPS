@@ -118,13 +118,13 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         contenedorEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 960, 190));
+        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 1010, 190));
 
         panelAgregarEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
         jScrollPane3.setViewportView(panelAgregarEstudiantes);
 
-        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 230));
+        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 440));
 
         jTabbedPane2.addTab("Estudiantes", jPanel5);
 
@@ -132,12 +132,12 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelAgregarProfesores.setLayout(new java.awt.GridLayout(1, 0));
-        jPanel6.add(panelAgregarProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 960, 130));
+        jPanel6.add(panelAgregarProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 1060, 210));
 
         contenedorProfesores.setLayout(new java.awt.GridLayout(0, 1));
         jScrollPane4.setViewportView(contenedorProfesores);
 
-        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 950, 190));
+        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 420));
 
         jTabbedPane2.addTab("Profesores o administrativos", jPanel6);
 
@@ -154,7 +154,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
+            .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 1060, Short.MAX_VALUE)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
@@ -163,7 +163,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Asignaturas", jPanel1);

@@ -31,9 +31,7 @@ public class EntidadAsistencia implements Serializable {
     public void setIdAsistencia(EntidadAsignatura idAsistencia) {
         this.idAsistencia = idAsistencia;
     }
-    
-
-
+   
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
