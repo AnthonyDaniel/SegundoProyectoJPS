@@ -28,8 +28,11 @@ public class EntidadAsignatura implements Serializable {
     
     @OneToMany(cascade= CascadeType.ALL)
     @JoinColumn(name="IdAsignatura")
-    @IndexColumn(name="idx")
     private List<EntidadNota> nota;
+    
+    @OneToMany(cascade= CascadeType.ALL)
+    @JoinColumn(name="IdAsignatura")
+    private List<EntidadAsistencia> asistencia;
     
     public EntidadAsignatura() {
         
@@ -85,6 +88,14 @@ public class EntidadAsignatura implements Serializable {
 
     public void setNota(List<EntidadNota> nota) {
         this.nota = nota;
+    }
+
+    public List<EntidadAsistencia> getAsistencia() {
+        return asistencia;
+    }
+
+    public void setAsistencia(List<EntidadAsistencia> asistencia) {
+        this.asistencia = asistencia;
     }
     
 }

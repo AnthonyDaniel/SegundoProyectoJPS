@@ -26,14 +26,13 @@ public class EntidadEstudiante implements Serializable  {
     
     @OneToMany(cascade= CascadeType.ALL)
     @JoinColumn(name="IdEstudiante")
-    @IndexColumn(name="idx")
     private List<EntidadAsistencia> asistencia;
    
     @OneToMany(cascade= CascadeType.ALL)
     @JoinColumn(name="IdEstudiante")
-    @IndexColumn(name="idx")
     private List<EntidadNota> nota;
-
+    
+  
     public EntidadEstudiante(){ 
     }
 

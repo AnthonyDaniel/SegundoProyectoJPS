@@ -9,12 +9,13 @@ import javax.persistence.*;
 public class EntidadAsistencia implements Serializable {
     
     @Id
-    @Column(name="IdAsistencia")    
-    private int idAsistencia;
-    
     @Column(name="Fecha")
     private String fecha;
     
+    @ManyToOne
+    @JoinColumn(name="IdAsignatura")    
+    private EntidadAsignatura idAsistencia;
+
     @ManyToOne
     @JoinColumn(name="IdEstudiante")
     private EntidadEstudiante estudiante;
@@ -22,24 +23,16 @@ public class EntidadAsistencia implements Serializable {
     public EntidadAsistencia() {
         
     }
-    
-    public EntidadAsistencia(int idCorreo,String fecha,EntidadEstudiante estudiante) {
-        this.idAsistencia=idCorreo;
-        this.fecha=fecha;
-        this.estudiante=estudiante;
-    }
 
-    public int getIdAsistencia() {
+    public EntidadAsignatura getIdAsistencia() {
         return idAsistencia;
     }
 
-    public void setIdAsistencia(int idCorreo) {
-        this.idAsistencia = idCorreo;
+    public void setIdAsistencia(EntidadAsignatura idAsistencia) {
+        this.idAsistencia = idAsistencia;
     }
+    
 
-    public String getFecha() {
-        return fecha;
-    }
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
