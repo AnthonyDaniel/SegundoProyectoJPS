@@ -3,17 +3,24 @@
 package Vista.Administracion;
 
 import Controlador.ControladorAdminAsignatura;
+import Modelo.Entidades.EntidadAsignatura;
+import Modelo.Entidades.EntidadProfesor;
+import Modelo.Hibernate.HibernateUtil;
+import java.util.List;
+import javax.swing.JOptionPane;
+import org.hibernate.Session;
 
 public class FichasAsignatura extends javax.swing.JPanel {
 
     private ControladorAdminAsignatura c;
+    List<EntidadProfesor> datos;
     
     public FichasAsignatura(ControladorAdminAsignatura e) {
         c=e;
+        comboBox();
         initComponents();
     }
     
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,7 +36,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButtonModificar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonEliminar = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -54,7 +61,12 @@ public class FichasAsignatura extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libro.png"))); // NOI18N
 
-        jButton1.setText("Eliminar");
+        jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,7 +97,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addComponent(jButtonModificar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
+                        .addComponent(jButtonEliminar)
                         .addGap(8, 8, 8))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,7 +119,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
                             .addComponent(jComboBoxProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonModificar)
-                            .addComponent(jButton1))))
+                            .addComponent(jButtonEliminar))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -124,15 +136,78 @@ public class FichasAsignatura extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
-        
-        
-        
+        JOptionPane.showMessageDialog(null, "Modificar");
+        comboBox();
+       if(!validar()){
+           
+           EntidadAsignatura aux = new EntidadAsignatura();
+           
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setIdAsignatura(this.jTextFieldId.getText());
+           aux.setHorario(this.jTextFieldHorario.getText());
+           
+           if(c.interfaceAsignatura.modificarAsignatura(aux)){
+           
+               JOptionPane.showMessageDialog(null, "Se modifico");
+           
+               
+           }
+           
+       }
         
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        JOptionPane.showMessageDialog(null, "Modificar");
+        comboBox();
+       if(!validar()){
+           
+           EntidadAsignatura aux = new EntidadAsignatura();
+           
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setIdAsignatura(this.jTextFieldId.getText());
+           aux.setHorario(this.jTextFieldHorario.getText());
+           
+           if(c.interfaceAsignatura.eliminarAsignatura(aux)){
+               JOptionPane.showMessageDialog(null, "Se Elimino");
+               
+           }
+           
+       }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
 
+    private boolean validar(){
+    
+        if(this.jTextFieldNombre.getText().equals("") && this.jTextFieldHorario.getText().equals("")
+                && this.jComboBoxProfesores.getSelectedItem().equals("")){
+            return true;
+        }
+        return false;
+    }
+    
+    
+    
+    private void comboBox(){
+    
+        jComboBoxProfesores.removeAllItems();
+        
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+                    session.beginTransaction();
+   
+                    datos=session.createCriteria(EntidadProfesor.class).list();
+        
+                    session.getTransaction().commit();
+                    session.close();
+                   
+                    for(EntidadProfesor e: datos){
+                        
+                        jComboBoxProfesores.addItem(e.getNombre());
+                    
+                    }
+                    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonEliminar;
     public javax.swing.JButton jButtonModificar;
     public javax.swing.JComboBox<String> jComboBoxProfesores;
     private javax.swing.JLabel jLabel1;

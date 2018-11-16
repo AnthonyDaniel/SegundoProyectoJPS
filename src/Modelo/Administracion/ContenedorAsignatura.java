@@ -53,7 +53,7 @@ public class ContenedorAsignatura implements IAsignatura{
       exito=true;
        }catch(Exception ex){
              exito=false;
-             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             JOptionPane.showMessageDialog(null, "No se pudo guardar", 
              "WARNING", JOptionPane.WARNING_MESSAGE);
        }
       
@@ -93,7 +93,7 @@ public class ContenedorAsignatura implements IAsignatura{
       exito=true;
        }catch(Exception ex){
              exito=false;
-             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             JOptionPane.showMessageDialog(null, "No se pudo modificar", 
              "WARNING", JOptionPane.WARNING_MESSAGE);
        }
       
@@ -117,7 +117,7 @@ public class ContenedorAsignatura implements IAsignatura{
       exito=true;
        }catch(Exception ex){
              exito=false;
-             JOptionPane.showMessageDialog(null, "No se pudo cargar el archivo", 
+             JOptionPane.showMessageDialog(null, "No se pudo cargar eliminar", 
              "WARNING", JOptionPane.WARNING_MESSAGE);
        }
       
