@@ -70,7 +70,7 @@ public class ListaEstudiantes extends javax.swing.JPanel {
         lbl_tituloListEst.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         btn_faltas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btn_faltas.setText("jButton1");
+        btn_faltas.setText("Agregar/Modificar Ausencia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,7 +82,7 @@ public class ListaEstudiantes extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_nota)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_faltas, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_faltas))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbl_1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
