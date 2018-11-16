@@ -20,7 +20,7 @@ public class ControladorAdminProfesor {
     public EntidadProfesor profesor;
     public IAdminProfesor interfaceAdminProfesor;
     public Profesores panelProfesores;
-    public AgregarProfesor agregarProfesor;
+    public AgregarProfesor agregarProfesor;;
     
     public ControladorAdminProfesor(InterfazAdministracion e, IAdminProfesor a, EntidadProfesor r, Profesores es, AgregarProfesor ae){
             panelProfesores=es;
