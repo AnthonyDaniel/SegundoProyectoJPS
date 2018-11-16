@@ -25,11 +25,13 @@ public class ContenedorAsignatura implements IAsignatura{
     
     public boolean validarDatos(){
     
+        try{
         if(!aa.jTextFieldNombre.getText().equals("") && !aa.jTextFieldId.getText().equals("") 
                 && !aa.jTextFieldHorario.getText().equals("") && !aa.jComboBoxProfesores.getSelectedItem().equals("")){
             return true;
         }
         
+        }catch(Exception e){}
         return false;
     }
     
@@ -125,4 +127,5 @@ public class ContenedorAsignatura implements IAsignatura{
 
 
 }
+
 
