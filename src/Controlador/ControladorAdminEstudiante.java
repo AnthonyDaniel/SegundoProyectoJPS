@@ -31,10 +31,11 @@ public class ControladorAdminEstudiante {
             estudiante= r;
             agregarEstudiante=ae;
           
-            interfazAdministracion.contenedorEstudiantes.add(es).repaint();
-            interfazAdministracion.panelAgregarEstudiantes.add(ae).repaint();
+            interfazAdministracion.contenedorEstudiantes.add(ae).repaint();
+            interfazAdministracion.panelAgregarEstudiantes.add(es).repaint();
             
             mostrarEnTabla();
+            mostrarEnPanel();
             agregar();
             modificar();
             eliminar();
@@ -161,7 +162,6 @@ public class ControladorAdminEstudiante {
     
      public void agregar(){
     
-        JOptionPane.showMessageDialog(null, "EntroAgregar");
            agregarEstudiante.btnAgregar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
@@ -178,7 +178,8 @@ public class ControladorAdminEstudiante {
                     panelEstudiantes.jTextFieldContrasena.setText(agregarEstudiante.txtContrasenia.getText());
                     
                    try {
-                       if(interfaceAdminEstudiante.agregarEstudiante(estudiante));
+                       if(interfaceAdminEstudiante.agregarEstudiante(estudiante))
+                       mostrarEnPanel();
                        else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }
@@ -192,11 +193,9 @@ public class ControladorAdminEstudiante {
     
     public void modificar(){
     
-        JOptionPane.showMessageDialog(null, "EntroModificar");
            panelEstudiantes.btnModificar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
                    
                     
                    estudiante.setId(panelEstudiantes.jTextFieldCedula.getText());
@@ -207,7 +206,8 @@ public class ControladorAdminEstudiante {
                   
                 
                    try {
-                       if(interfaceAdminEstudiante.modificarEstudiante(estudiante));
+                       if(interfaceAdminEstudiante.modificarEstudiante(estudiante))
+                           mostrarEnPanel();
                        else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }
@@ -221,11 +221,9 @@ public class ControladorAdminEstudiante {
     
     public void eliminar(){
     
-        JOptionPane.showMessageDialog(null, "EntroModificar");
            panelEstudiantes.btnEliminar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   JOptionPane.showMessageDialog(null, "Escucho el metodo modificar");
                        
                    estudiante.setId(panelEstudiantes.jTextFieldCedula.getText());
                    estudiante.setNombre(panelEstudiantes.jTextFieldNombre.getText());
@@ -234,7 +232,8 @@ public class ControladorAdminEstudiante {
                    
                 
                    try {
-                       if(interfaceAdminEstudiante.eliminarEstudiante(estudiante));
+                       if(interfaceAdminEstudiante.eliminarEstudiante(estudiante))
+                           mostrarEnPanel();
                        else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }

@@ -81,6 +81,11 @@ private ControladorAdminEstudiante c;
         btnModificar.setForeground(new java.awt.Color(255, 255, 255));
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         btnModificar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 btnModificarKeyPressed(evt);
@@ -163,7 +168,8 @@ private ControladorAdminEstudiante c;
 
     private void btnModificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnModificarKeyPressed
             if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-                   
+           
+              
            
            EntidadEstudiante aux = new EntidadEstudiante();
            
@@ -176,7 +182,7 @@ private ControladorAdminEstudiante c;
            
                try {
                    if(c.interfaceAdminEstudiante.modificarEstudiante(aux)){
-                       
+                       c.mostrarEnPanel();   
                        JOptionPane.showMessageDialog(null, "Se modifico");
                        
                        
@@ -189,7 +195,7 @@ private ControladorAdminEstudiante c;
     }//GEN-LAST:event_btnModificarKeyPressed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-           
+        
            EntidadEstudiante aux = new EntidadEstudiante();
             
            aux.setId(this.jTextFieldCedula.getText());
@@ -199,6 +205,8 @@ private ControladorAdminEstudiante c;
            
      try {
          if(c.interfaceAdminEstudiante.eliminarEstudiante(aux)){
+                
+             c.mostrarEnPanel();
              JOptionPane.showMessageDialog(null, "Se Elimino");
              
              
@@ -208,6 +216,31 @@ private ControladorAdminEstudiante c;
          Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
      }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+         
+           EntidadEstudiante aux = new EntidadEstudiante();
+           
+            
+           aux.setId(this.jTextFieldCedula.getText());
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setApe1(this.jTextFieldApellidos.getText());
+           aux.setContrasena(this.jTextFieldContrasena.getText());
+           
+           
+               try {
+                   if(c.interfaceAdminEstudiante.modificarEstudiante(aux)){
+                       c.mostrarEnPanel();
+                       JOptionPane.showMessageDialog(null, "Se modifico");
+                       
+                       
+                       
+                       
+                   }       } catch (Exception ex) {
+                   Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
+               }
+         
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

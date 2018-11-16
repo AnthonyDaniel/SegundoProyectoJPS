@@ -85,7 +85,6 @@ public class ControladorAdminProfesor {
     
         interfazAdministracion.panelAgregarProfesores.removeAll();
         Profesores fa;
-        int i= 0;
          try {
              for(EntidadProfesor e: interfaceAdminProfesor.listar()){
                  fa = null;
@@ -95,14 +94,12 @@ public class ControladorAdminProfesor {
                  fa.jTextFieldApellidos.setText(e.getApe1());
                  fa.jTextFieldContrasena.setText(e.getContrasena());
                  
-                 i++;
                  interfazAdministracion.panelAgregarProfesores.add(fa).repaint();
                  
              }} catch (Exception ex) {
              Logger.getLogger(ControladorAdminProfesor.class.getName()).log(Level.SEVERE, null, ex);
          }
             interfazAdministracion.panelAgregarProfesores.updateUI();
-            JOptionPane.showMessageDialog(null, i);
     }
       
     public void buscar(){

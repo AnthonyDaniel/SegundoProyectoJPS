@@ -117,12 +117,12 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
-        contenedorEstudiantes.setLayout(new java.awt.GridLayout(1, 0));
-        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, 946, 250));
+        contenedorEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 960, 140));
 
         panelAgregarEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
-        panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(1, 0));
-        jPanel5.add(panelAgregarEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 789, 120));
+        panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel5.add(panelAgregarEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 280));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 960, 520));
@@ -132,14 +132,14 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel6.setBackground(new java.awt.Color(0, 255, 153));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        contenedorProfesores.setLayout(new java.awt.GridLayout(1, 0));
-        jPanel6.add(contenedorProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 800, 196));
+        contenedorProfesores.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel6.add(contenedorProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 960, 196));
 
         panelAgregarProfesores.setLayout(new java.awt.GridLayout(1, 0));
-        jPanel6.add(panelAgregarProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 800, 130));
+        jPanel6.add(panelAgregarProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 960, 130));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 520));
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 530));
 
         jTabbedPane2.addTab("Profesores o administrativos", jPanel6);
 
@@ -156,7 +156,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
+            .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
             .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(

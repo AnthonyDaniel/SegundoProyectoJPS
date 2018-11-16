@@ -208,8 +208,6 @@ public class Profesores extends javax.swing.JPanel {
                        JOptionPane.showMessageDialog(null, "Se modifico");
                        
                        
-                       
-                       
                    }       } catch (Exception ex) {
                    Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
                }
