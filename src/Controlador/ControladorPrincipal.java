@@ -72,7 +72,7 @@ public class ControladorPrincipal {
         agregarAsignatura = new AgregarAsignatura();
         panelEstudiantes = new Estudiantes(controladorAdminEstudiantes);
         agregarEstudiante = new AgregarEstudiante();
-        panelProfesores= new Profesores(controladorAdminProfesores);
+        panelProfesores= new Profesores();
         agregarProfesor = new AgregarProfesor();
         
     }
