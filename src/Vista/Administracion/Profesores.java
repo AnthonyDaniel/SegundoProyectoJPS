@@ -240,7 +240,7 @@ public class Profesores extends javax.swing.JPanel {
 
     private void jButtonAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAsignaturaActionPerformed
          
-          Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
    
         List<EntidadAsignatura> datos;
@@ -250,8 +250,21 @@ public class Profesores extends javax.swing.JPanel {
         session.getTransaction().commit();
         session.close();
         
-         datos;
+        String info = "";
         
+        for(EntidadAsignatura e: datos){
+        
+            try{
+            if(e.getProfesor().getId().equals(this.jTextFieldCedula.getText())){
+                
+               info = info + "Asignatura: Id:" + e.getIdModulo() + " " + e.getNombre();
+            
+            }
+            }catch(Exception t){}
+        
+        }
+        
+        JOptionPane.showMessageDialog(this, info);
         
     }//GEN-LAST:event_jButtonAsignaturaActionPerformed
 
