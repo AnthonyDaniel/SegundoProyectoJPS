@@ -258,4 +258,13 @@ public class ControladorProfesor {
             }
         });
     }
+    
+    private void agregarAusenciaClick(){
+        interfazAusc.btn_agregarAusc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+            }
+        });
+    }
 }
