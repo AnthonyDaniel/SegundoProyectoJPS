@@ -118,11 +118,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         contenedorEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 960, 140));
+        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 960, 190));
 
         panelAgregarEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel5.add(panelAgregarEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 280));
+        jPanel5.add(panelAgregarEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 960, 520));

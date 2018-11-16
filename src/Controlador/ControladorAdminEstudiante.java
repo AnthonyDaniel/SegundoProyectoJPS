@@ -5,7 +5,9 @@ import Modelo.Administracion.IAdminEstudiante;
 import Modelo.Administracion.IAsignatura;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadEstudiante;
+import Modelo.Entidades.EntidadNota;
 import Modelo.Entidades.EntidadProfesor;
+import Modelo.Hibernate.HibernateUtil;
 import Vista.Administracion.AgregarEstudiante;
 import Vista.Administracion.Estudiantes;
 import Vista.Administracion.FichasAsignatura;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.hibernate.Session;
 
 public class ControladorAdminEstudiante {
    public InterfazAdministracion interfazAdministracion;
@@ -41,6 +44,48 @@ public class ControladorAdminEstudiante {
             eliminar();
             buscar();
             DefaultTabla();
+            Materias();
+    }
+    
+    public void Materias(){
+    
+              
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+   
+        List<EntidadAsignatura> materias;
+       
+        materias=session.createCriteria(EntidadAsignatura.class).list();
+       
+        session.getTransaction().commit();
+        session.close();
+       
+        agregarEstudiante.jComboBoxMateria1.removeAllItems();
+        agregarEstudiante.jComboBoxMateria2.removeAllItems();
+        agregarEstudiante.jComboBoxMateria3.removeAllItems();
+        agregarEstudiante.jComboBoxMateria4.removeAllItems();
+        agregarEstudiante.jComboBoxMateria5.removeAllItems();
+        agregarEstudiante.jComboBoxMateria6.removeAllItems();
+                
+        agregarEstudiante.jComboBoxMateria1.addItem("");
+        agregarEstudiante.jComboBoxMateria2.addItem("");
+        agregarEstudiante.jComboBoxMateria3.addItem("");
+        agregarEstudiante.jComboBoxMateria4.addItem("");
+        agregarEstudiante.jComboBoxMateria5.addItem("");
+        agregarEstudiante.jComboBoxMateria6.addItem("");
+                
+        for(EntidadAsignatura e:materias){
+        
+            agregarEstudiante.jComboBoxMateria1.addItem(e.getNombre() + "" + e.getHorario());
+            agregarEstudiante.jComboBoxMateria2.addItem(e.getNombre() + "" + e.getHorario());
+            agregarEstudiante.jComboBoxMateria3.addItem(e.getNombre() + "" + e.getHorario());
+            agregarEstudiante.jComboBoxMateria4.addItem(e.getNombre() + "" + e.getHorario());
+            agregarEstudiante.jComboBoxMateria5.addItem(e.getNombre() + "" + e.getHorario());
+            agregarEstudiante.jComboBoxMateria6.addItem(e.getNombre() + "" + e.getHorario());
+              
+            
+        }
+    
     }
     
     public void DefaultTabla(){
@@ -165,7 +210,6 @@ public class ControladorAdminEstudiante {
            agregarEstudiante.btnAgregar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   JOptionPane.showMessageDialog(null, "Escucho el metodo");
                    
                    estudiante.setId(agregarEstudiante.txtCedula.getText());
                    estudiante.setNombre(agregarEstudiante.txtNombre.getText());
@@ -176,6 +220,67 @@ public class ControladorAdminEstudiante {
                     panelEstudiantes.jTextFieldNombre.setText(agregarEstudiante.txtNombre.getText());
                     panelEstudiantes.jTextFieldApellidos.setText(agregarEstudiante.txtApellido.getText());
                     panelEstudiantes.jTextFieldContrasena.setText(agregarEstudiante.txtContrasenia.getText());
+                    
+                    EntidadNota e1 = new EntidadNota();
+                    EntidadNota e2 = new EntidadNota();
+                    EntidadNota e3 = new EntidadNota();
+                    EntidadNota e4 = new EntidadNota();
+                    EntidadNota e5 = new EntidadNota();
+                    EntidadNota e6 = new EntidadNota();
+                    
+                          Session session = new HibernateUtil().buildSessionFactory().openSession();        
+                          session.beginTransaction();
+   
+                          List<EntidadAsignatura> materias;
+       
+                          materias=session.createCriteria(EntidadAsignatura.class).list();
+       
+                          session.getTransaction().commit();
+                          session.close();
+                   
+                         for(EntidadAsignatura o : materias){
+                         
+                             if(agregarEstudiante.jComboBoxMateria1.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
+                             
+                                 e1.setAsignatura(o);
+                             
+                             }
+                             if(agregarEstudiante.jComboBoxMateria2.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
+                             
+                                 e2.setAsignatura(o);
+                             
+                             }
+                            if(agregarEstudiante.jComboBoxMateria3.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
+                             
+                                 e3.setAsignatura(o);
+                             
+                             }
+                             if(agregarEstudiante.jComboBoxMateria4.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
+                             
+                                 e4.setAsignatura(o);
+                             
+                             }
+                             if(agregarEstudiante.jComboBoxMateria5.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
+                             
+                                 e5.setAsignatura(o);
+                             
+                             }
+                             if(agregarEstudiante.jComboBoxMateria6.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
+                             
+                                 e6.setAsignatura(o);
+                             
+                             }
+                    
+                         }
+                     
+                     estudiante.getNota().add(e1);
+                     estudiante.getNota().add(e2);
+                     estudiante.getNota().add(e3);
+                     estudiante.getNota().add(e4);
+                     estudiante.getNota().add(e5);
+                     estudiante.getNota().add(e6);
+                     
+                     
                     
                    try {
                        if(interfaceAdminEstudiante.agregarEstudiante(estudiante))
