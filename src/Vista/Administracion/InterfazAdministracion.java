@@ -27,11 +27,11 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         contenedorEstudiantes = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
         panelAgregarEstudiantes = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         panelAgregarProfesores = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
         contenedorProfesores = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         panelAgregar = new javax.swing.JPanel();
@@ -118,12 +118,13 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         contenedorEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 960, 190));
+        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 960, 190));
 
-        panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(1, 0));
-        jScrollPane4.setViewportView(panelAgregarEstudiantes);
+        panelAgregarEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
+        panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
+        jScrollPane3.setViewportView(panelAgregarEstudiantes);
 
-        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 940, 210));
+        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 230));
 
         jTabbedPane2.addTab("Estudiantes", jPanel5);
 
@@ -134,9 +135,9 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel6.add(panelAgregarProfesores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 960, 130));
 
         contenedorProfesores.setLayout(new java.awt.GridLayout(0, 1));
-        jScrollPane3.setViewportView(contenedorProfesores);
+        jScrollPane4.setViewportView(contenedorProfesores);
 
-        jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 210));
+        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 950, 190));
 
         jTabbedPane2.addTab("Profesores o administrativos", jPanel6);
 
@@ -154,14 +155,15 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Asignaturas", jPanel1);

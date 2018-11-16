@@ -126,7 +126,7 @@ public class ControladorAdminProfesor {
            agregarProfesor.btnAgregar.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent ae) {
-                   
+                  
                   profesor.setId(agregarProfesor.txtCedula.getText());
                    profesor.setNombre(agregarProfesor.txtNombre.getText());
                    profesor.setApe1(agregarProfesor.txtApellido.getText());

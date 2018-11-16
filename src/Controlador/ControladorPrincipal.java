@@ -84,6 +84,7 @@ public class ControladorPrincipal {
         adminProfesor = new ContenedorAdminProfesor(panelProfesores, agregarProfesor);
         asignatura=new EntidadAsignatura();
         entidadEstudiante = new EntidadEstudiante();
+        entidadProfesor=new EntidadProfesor();
     }
     public final void Controladores(){
        //Controladores Inyeccion de codigo
