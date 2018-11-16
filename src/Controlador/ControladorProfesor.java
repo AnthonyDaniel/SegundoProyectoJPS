@@ -145,11 +145,11 @@ public class ControladorProfesor {
         Object[] fila ;
         for(Object lib:lista){
             Map tupla = (Map)lib;
-            fila = new Object[2];
-            fila[0] = tupla.get("Fecha");
+            fila = new Object[4];
+            fila[2] = tupla.get("Fecha");
             fila[1] = tupla.get("IdEstudiante"); 
-            fila[1] = tupla.get("IdAsignatura"); 
-            //fila[1] = tupla.get("ape1"); 
+            fila[0] = tupla.get("IdAsignatura"); 
+            fila[3] = 0; 
             model.addRow(fila);
         }
         interfazAusc.tbl_Ausc.setModel(model); 
@@ -199,6 +199,7 @@ public class ControladorProfesor {
                     interfazProf.panel_Contenido.add(interfazListaEst).repaint();
                     interfazProf.panel_Contenido.updateUI();
                     agregarNotaClick(id, nom);
+                    irAusenciasClick(id, nom);
                 }
             }
         });
@@ -208,7 +209,7 @@ public class ControladorProfesor {
         interfazListaEst.btn_nota.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {                
-                if(interfazListaEst.tbl_listaEst.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(), 0) != null){
+                if(interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(), 0) != null){
                     String asig = _idAsig+"-"+_nombreAsig; 
                     String ced = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),0);
                     String nom = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),1);
@@ -237,6 +238,23 @@ public class ControladorProfesor {
                 }else{
                     JOptionPane.showMessageDialog(null, "No se ingreso una nueva nota \nNo se modifico la nota!", "No se modifico", JOptionPane.ERROR_MESSAGE);
                 }
+            }
+        });
+    }
+    
+    private void irAusenciasClick(String _idAsig, String _nomAsig){
+        interfazListaEst.btn_faltas.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(), 0) != null){                    
+                    String ced = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),0);
+                    String nom = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),1);
+                    String ape = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),2);
+                    cargarTablaAusencias(ced, _idAsig);
+                    interfazProf.panel_Contenido.removeAll();
+                    interfazProf.panel_Contenido.add(interfazAusc).repaint();
+                    interfazProf.panel_Contenido.updateUI();                    
+                }               
             }
         });
     }
