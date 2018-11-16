@@ -3,6 +3,7 @@
 package Vista.Administracion;
 
 import Controlador.ControladorAdminAsignatura;
+import Modelo.Entidades.EntidadAsignatura;
 
 public class FichasAsignatura extends javax.swing.JPanel {
 
@@ -125,12 +126,31 @@ public class FichasAsignatura extends javax.swing.JPanel {
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
         
-        
-        
+       if(!validar()){
+           
+           EntidadAsignatura aux = new EntidadAsignatura();
+           
+           aux.setNombre(this.jTextFieldNombre.getText());
+           aux.setIdAsignatura(this.jTextFieldId.getText());
+           aux.setHorario(this.jTextFieldHorario.getText());
+           
+       }
         
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
+    private boolean validar(){
+    
+        if(this.jTextFieldNombre.getText().equals("") && this.jTextFieldHorario.getText().equals("")
+                && this.jComboBoxProfesores.getSelectedItem().equals("")){
+            return true;
+        }
+        return false;
+    }
 
+    private void comboBox(){
+    
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButtonModificar;
