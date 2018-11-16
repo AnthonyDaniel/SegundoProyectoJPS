@@ -82,8 +82,7 @@ public class ControladorAdminEstudiante {
             agregarEstudiante.jComboBoxMateria4.addItem(e.getNombre() + "" + e.getHorario());
             agregarEstudiante.jComboBoxMateria5.addItem(e.getNombre() + "" + e.getHorario());
             agregarEstudiante.jComboBoxMateria6.addItem(e.getNombre() + "" + e.getHorario());
-              
-            
+               
         }
     
     }
@@ -235,11 +234,10 @@ public class ControladorAdminEstudiante {
        
                           materias=session.createCriteria(EntidadAsignatura.class).list();
        
-                          session.getTransaction().commit();
-                          session.close();
+                          
                    
                          for(EntidadAsignatura o : materias){
-                         
+                         try{
                              if(agregarEstudiante.jComboBoxMateria1.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
                              
                                  e1.setAsignatura(o);
@@ -270,17 +268,48 @@ public class ControladorAdminEstudiante {
                                  e6.setAsignatura(o);
                              
                              }
+                         }catch(Exception e){}
                     
                          }
-                     
+                         //Pruebas
+                     try{
+                    // e1.setAsignatura(asignatura);
+                     e1.setEstudiante(estudiante);
+                     e1.setId(0);
+                     e1.setNota(12);
                      estudiante.getNota().add(e1);
+                     session.save(e1);
+                     }catch(Exception r){
+                     JOptionPane.showMessageDialog(null,"Error");
+                     }
+                     try{
+                     e2.setEstudiante(estudiante);    
                      estudiante.getNota().add(e2);
+                     session.save(e2);
+                     }catch(Exception r){}
+                     try{
+                     e3.setEstudiante(estudiante);   
                      estudiante.getNota().add(e3);
+                     session.save(e3);
+                     }catch(Exception r){}
+                     try{
+                     e4.setEstudiante(estudiante);    
                      estudiante.getNota().add(e4);
+                     session.save(e4);
+                     }catch(Exception r){}
+                     try{ 
+                     e5.setEstudiante(estudiante);    
                      estudiante.getNota().add(e5);
+                     session.save(e5);
+                     }catch(Exception r){}
+                     try{ 
+                     e6.setEstudiante(estudiante);    
                      estudiante.getNota().add(e6);
+                     session.save(e6);
+                     }catch(Exception r){}
                      
-                     
+                    session.getTransaction().commit();
+                    session.close(); 
                     
                    try {
                        if(interfaceAdminEstudiante.agregarEstudiante(estudiante))
