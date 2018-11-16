@@ -38,13 +38,13 @@ public class ControladorEstudiante {
         interfazPrin.panelContenedor.add(interfazEstu).repaint();       
         
         tablaListarEstudiantes();       
-        interfazEstu.tablaEstudiantes.add(interfazEstu);
+        interfazEstu.panelEstudiantes.add(interfazEstu);
         
         interfazPrin.panelContenedor.add(interfazEstu).repaint();
         interfazPrin.panelContenedor.updateUI();
         
         tablaListarAsistencia();
-        interfazEstu.tablaEstudiantes.add(interfazEstu);
+        interfazEstu.panelEstudiantes.add(interfazEstu);
         
         interfazPrin.panelContenedor.add(interfazEstu).repaint();
         interfazPrin.panelContenedor.updateUI();
