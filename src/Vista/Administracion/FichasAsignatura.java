@@ -189,7 +189,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
     
     private void comboBox(){
     
-        jComboBoxProfesores.removeAllItems();
+//        jComboBoxProfesores.removeAllItems();
         
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
                     session.beginTransaction();
@@ -201,7 +201,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
                    
                     for(EntidadProfesor e: datos){
                         
-                        jComboBoxProfesores.addItem(e.getNombre());
+  //                      jComboBoxProfesores.addItem(e.getNombre());
                     
                     }
                     
