@@ -85,14 +85,15 @@ public class ControladorEstudiante {
         interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
         
-        Object[] etiquetas = {"Asignaruta","Nombre"};
+        Object[] etiquetas = {"Estudiante","IdAsignatura", "Nota"};
         DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
         Object[] fila ;
         for(Object lib:lista){
             Map tupla = (Map)lib;
             fila = new Object[2];
             fila[0] = tupla.get("IdAsignatura");
-            fila[1] = tupla.get("Nombre");            
+            fila[1] = tupla.get("Nombre");  
+            fila[2] = tupla.get("Nota");
             model.addRow(fila);
         }
         interfazAsig.tbl_ListaAsig.setModel(model);
