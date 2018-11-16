@@ -121,7 +121,14 @@ public class ControladorAdminProfesor {
             
         });
     }
+    public void limpiar(){
     
+        agregarProfesor.txtContrasenia.setText("");
+        agregarProfesor.txtNombre.setText("");
+        agregarProfesor.txtCedula.setText("");
+        agregarProfesor.txtApellido.setText("");
+        
+    }
      public void agregar(){
     
            agregarProfesor.btnAgregar.addActionListener(new ActionListener() {
@@ -138,6 +145,7 @@ public class ControladorAdminProfesor {
                        if(interfaceAdminProfesor.agregarProfesor(profesor)){
                        refrescar.mostrarEnPanel();
                        refrescar.comboBox();
+                       limpiar();
                        mostrarEnPanel();
                        }else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
