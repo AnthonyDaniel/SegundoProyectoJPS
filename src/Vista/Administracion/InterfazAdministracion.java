@@ -24,7 +24,6 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDatos = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         contenedorEstudiantes = new javax.swing.JPanel();
         panelAgregarEstudiantes = new javax.swing.JPanel();
@@ -40,43 +39,21 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Tabla de Datos");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 6, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel2.setText("Buscar");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 37, -1, -1));
-        jPanel4.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 61, 156, -1));
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa-de-busqueda (1).png"))); // NOI18N
-        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(189, 49, 68, -1));
 
-        jRadioButtonEstudiantes.setBackground(new java.awt.Color(102, 102, 102));
         buttonGroup1.add(jRadioButtonEstudiantes);
-        jRadioButtonEstudiantes.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jRadioButtonEstudiantes.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButtonEstudiantes.setSelected(true);
         jRadioButtonEstudiantes.setText("Estudiantes");
-        jPanel4.add(jRadioButtonEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(798, 27, 110, -1));
 
-        jRadioButtonProfesor.setBackground(new java.awt.Color(102, 102, 102));
         buttonGroup1.add(jRadioButtonProfesor);
-        jRadioButtonProfesor.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jRadioButtonProfesor.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButtonProfesor.setText("Profesores");
-        jPanel4.add(jRadioButtonProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 60, 110, -1));
 
-        jRadioButonAsignaturas.setBackground(new java.awt.Color(102, 102, 102));
         buttonGroup1.add(jRadioButonAsignaturas);
-        jRadioButonAsignaturas.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        jRadioButonAsignaturas.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButonAsignaturas.setText("Asignaturas");
-        jPanel4.add(jRadioButonAsignaturas, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 95, 110, -1));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -106,10 +83,52 @@ public class InterfazAdministracion extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
         );
 
-        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 135, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 520));
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButtonEstudiantes, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButonAsignaturas)
+                                .addComponent(jRadioButtonProfesor)))))
+                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jRadioButtonEstudiantes)
+                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonProfesor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnBuscar)
+                        .addGap(28, 28, 28)))
+                .addComponent(jRadioButonAsignaturas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         jTabbedPane2.addTab("Inicio", jPanel4);
 
@@ -162,7 +181,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -182,7 +201,6 @@ public class InterfazAdministracion extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
