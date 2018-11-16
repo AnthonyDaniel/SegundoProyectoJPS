@@ -10,13 +10,12 @@
             <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadProfesor.java</file>
             <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/Main.java</file>
             <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Modelo/Entidades/EntidadAsignatura.java</file>
-            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/InterfazAdministracion.java</file>
             <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Estudiantes.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/InterfazAdministracion.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorAdminEstudiante.java</file>
             <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Interfaz.java</file>
-            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Profesores.java</file>
-            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Vista/Administracion/Asignaturas.java</file>
+            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorAdminAsignatura.java</file>
             <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorLogin.java</file>
-            <file>file:/C:/Users/Thony/Documents/GitHub/SegundoProyectoJPS/src/Controlador/ControladorPrincipal.java</file>
         </group>
     </open-files>
 </project-private>
