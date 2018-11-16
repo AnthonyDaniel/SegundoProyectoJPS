@@ -170,8 +170,7 @@ public class ContenedorProfesor implements IProfesor{
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
-        lista = consulta.list();
-                
+        lista = consulta.list();                
         
         session.getTransaction().commit();
         session.close();
