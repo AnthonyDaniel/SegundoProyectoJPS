@@ -57,11 +57,7 @@ public class ContenedorEstudiante implements IEstudiante {
         
         lista = consulta.list();
         
-        for(Object lib:lista){
-            Map tupla = (Map) lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura")+" "+tupla.get("nombre"));
-            System.out.println("-------");
-        }
+        
         
         return lista;
     }

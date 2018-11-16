@@ -30,6 +30,7 @@ public class ControladorEstudiante {
     private final IEstudiante iEstudiante;
     private final InterfazEstudiante interfazEstu;
     private ListaAsignaturas interfazAsig;
+    
    
     public ControladorEstudiante(Interfaz interfazPrin, InterfazEstudiante _interfazEstudiante){
         iEstudiante = new ContenedorEstudiante();
@@ -64,6 +65,26 @@ public class ControladorEstudiante {
         
         interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
+        Object[] etiquetas = {"Asignaruta","Nombre"};
+        DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
+        Object[] fila ;
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            fila = new Object[2];
+            fila[0] = tupla.get("IdAsignatura");
+            fila[1] = tupla.get("Nombre");            
+            model.addRow(fila);
+        }
+        interfazAsig.tbl_ListaAsig.setModel(model);
+        
+    }
+    private void tablaListarNotas(){
+        EntidadEstudiante e = new EntidadEstudiante();
+        
+        List lista = iEstudiante.listarNotas(13);
+        interfazAsig.tbl_ListaAsig.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        interfazAsig.tbl_ListaAsig.getTableHeader().setReorderingAllowed(false);
+        
         Object[] etiquetas = {"Asignaruta","Nombre"};
         DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
         Object[] fila ;
