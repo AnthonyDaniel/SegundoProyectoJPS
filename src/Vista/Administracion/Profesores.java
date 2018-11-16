@@ -5,13 +5,17 @@ import Controlador.ControladorAdminAsignatura;
 import Controlador.ControladorAdminProfesor;
 import Modelo.Entidades.EntidadAsignatura;
 import Modelo.Entidades.EntidadProfesor;
+import Modelo.Hibernate.HibernateUtil;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.hibernate.Session;
 
 public class Profesores extends javax.swing.JPanel {
  private ControladorAdminProfesor c;
+ 
     public Profesores(ControladorAdminProfesor e) {
         c=e;
         initComponents();
@@ -52,6 +56,11 @@ public class Profesores extends javax.swing.JPanel {
         jButtonAsignatura.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonAsignatura.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAsignatura.setText("Ver Asignaturas");
+        jButtonAsignatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAsignaturaActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setBackground(new java.awt.Color(51, 51, 51));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -228,6 +237,23 @@ public class Profesores extends javax.swing.JPanel {
          Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
      }
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jButtonAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAsignaturaActionPerformed
+         
+          Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+   
+        List<EntidadAsignatura> datos;
+       
+        datos=session.createCriteria(EntidadAsignatura.class).list();
+        
+        session.getTransaction().commit();
+        session.close();
+        
+         datos;
+        
+        
+    }//GEN-LAST:event_jButtonAsignaturaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
