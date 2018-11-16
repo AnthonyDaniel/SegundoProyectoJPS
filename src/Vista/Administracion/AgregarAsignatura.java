@@ -37,7 +37,6 @@ public class AgregarAsignatura extends javax.swing.JPanel {
         jComboBoxProfesores = new javax.swing.JComboBox<>();
         jButtonAgregar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButtonModificar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -53,8 +52,6 @@ public class AgregarAsignatura extends javax.swing.JPanel {
         jButtonAgregar.setText("Agregar");
 
         jLabel1.setText("ID_Asignatura");
-
-        jButtonModificar.setText("Modificar");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/libro.png"))); // NOI18N
 
@@ -84,9 +81,7 @@ public class AgregarAsignatura extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                        .addComponent(jButtonModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                         .addComponent(jButtonAgregar)))
                 .addContainerGap())
         );
@@ -108,8 +103,7 @@ public class AgregarAsignatura extends javax.swing.JPanel {
                             .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBoxProfesores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAgregar)
-                            .addComponent(jButtonModificar))))
+                            .addComponent(jButtonAgregar))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -128,7 +122,6 @@ public class AgregarAsignatura extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButtonAgregar;
-    public javax.swing.JButton jButtonModificar;
     public javax.swing.JComboBox<String> jComboBoxProfesores;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

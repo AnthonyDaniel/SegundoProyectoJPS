@@ -21,7 +21,6 @@ public class FichasAsignatura extends javax.swing.JPanel {
         initComponents();
     }
     
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -136,7 +135,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
-        JOptionPane.showMessageDialog(null, "Modificar");
+   
         comboBox();
        if(!validar()){
            
@@ -147,7 +146,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
            aux.setHorario(this.jTextFieldHorario.getText());
            
            if(c.interfaceAsignatura.modificarAsignatura(aux)){
-           
+               c.mostrarEnPanel();
                JOptionPane.showMessageDialog(null, "Se modifico");
            
                
@@ -158,7 +157,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonModificarActionPerformed
 
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        JOptionPane.showMessageDialog(null, "Modificar");
+     
         comboBox();
        if(!validar()){
            
@@ -169,6 +168,7 @@ public class FichasAsignatura extends javax.swing.JPanel {
            aux.setHorario(this.jTextFieldHorario.getText());
            
            if(c.interfaceAsignatura.eliminarAsignatura(aux)){
+               c.mostrarEnPanel();
                JOptionPane.showMessageDialog(null, "Se Elimino");
                
            }

@@ -34,8 +34,6 @@ public class ControladorAdminAsignatura {
             mostrarEnPanel();
             mostrarEnTabla();
             Agregar();
-           //Modificar();
-            //Eliminar();
         
     }
     
@@ -66,19 +64,19 @@ public class ControladorAdminAsignatura {
     
         interfazAdministracion.panelAsignaturas.removeAll();
         FichasAsignatura fa;
-        int i= 0;
+      
         for(EntidadAsignatura e: interfaceAsignatura.listar()){
             fa = null;
             fa = new FichasAsignatura(this);
             fa.jTextFieldId.setText(e.getIdModulo());
             fa.jTextFieldNombre.setText(e.getNombre());
             fa.jTextFieldHorario.setText(e.getHorario());
-            i++;
+          
             interfazAdministracion.panelAsignaturas.add(fa).repaint();
             
         }
             interfazAdministracion.panelAsignaturas.updateUI();
-            JOptionPane.showMessageDialog(null, i);
+         
     }
     
     public void mostrarEnTabla(){
@@ -149,7 +147,7 @@ public class ControladorAdminAsignatura {
                        JOptionPane.showMessageDialog(null, "Guardado");
                    }
                    else {
-                   JOptionPane.showMessageDialog(null, "ErrorGuardar");
+                   JOptionPane.showMessageDialog(null, "Error Guardar");
                    }
                   }else{
                
@@ -159,58 +157,6 @@ public class ControladorAdminAsignatura {
            });
     }
     
-    public void Modificar(){
-    
-         mostrarEnPanel();
-           agregarAsignatura.jButtonModificar.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent ae) {
-                  
-                   asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
-                   asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
-                   asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
-               
-                   
-                  if(interfaceAsignatura.validarDatos()){
-                
-                   if(interfaceAsignatura.modificarAsignatura(asignatura))
-                       JOptionPane.showMessageDialog(null, "Modificado");
-                   else {
-                     JOptionPane.showMessageDialog(null, "ErrorGuardar");
-                   }
-                  }else{
-               
-                   JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios");
-               }
-               }
-           });
-    }
-    
-    public void Eliminar(){
-    
-         mostrarEnPanel();
-           agregarAsignatura.jButtonModificar.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent ae) {
-                  
-                   asignatura.setNombre(agregarAsignatura.jTextFieldNombre.getText());
-                   asignatura.setIdAsignatura(agregarAsignatura.jTextFieldId.getText());
-                   asignatura.setHorario(agregarAsignatura.jTextFieldHorario.getText());
-                
-                   
-                  if(interfaceAsignatura.validarDatos()){
-                
-                   if(interfaceAsignatura.eliminarAsignatura(asignatura));
-                   else {
-                     JOptionPane.showMessageDialog(null, "ErrorGuardar");
-                   }
-                  }else{
-               
-                   JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios");
-               }
-               }
-           });
-    }
-    
+   
    }
     
