@@ -39,6 +39,40 @@ public class ControladorAdminEstudiante {
             modificar();
             eliminar();
             buscar();
+            DefaultTabla();
+    }
+    
+    public void DefaultTabla(){
+    
+              try {
+                        List<EntidadEstudiante> lista= interfaceAdminEstudiante.listar();
+
+                        String[][] matriz = new String[lista.size()][5];
+
+                        for(int i = 0; i<lista.size();i++){
+
+                            EntidadEstudiante aux = lista.get(i);
+
+                            matriz[i][0] = aux.getId()+"";
+                            matriz[i][1] = aux.getNombre();
+                            matriz[i][2] = aux.getApe1();
+                            matriz[i][3] = aux.getContrasena();
+
+                        }
+
+            interfazAdministracion.jTableDatos.setModel(new javax.swing.table.DefaultTableModel(
+                         matriz,
+                        new String [] {
+                    "ID", "Nombre", "Apellidos","Contrasenia"
+
+                        }
+                    ));
+
+                    } catch (Exception ex) {
+                       JOptionPane.showMessageDialog(null, "Error en el metodoAdministracion-> Comunicar al desarrollador");
+                    }
+
+    
     }
     
     public void mostrarEnTabla(){
@@ -81,6 +115,8 @@ public class ControladorAdminEstudiante {
         });
        
         }
+    
+      
        public void mostrarEnPanel(){
     
         interfazAdministracion.panelAgregarEstudiantes.removeAll();
