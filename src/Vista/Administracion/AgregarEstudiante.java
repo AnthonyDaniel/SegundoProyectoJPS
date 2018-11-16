@@ -51,7 +51,7 @@ public class AgregarEstudiante extends javax.swing.JPanel {
         jLabel3.setText("Contraseña");
 
         btnAgregar.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-usuario.png"))); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario.png"))); // NOI18N
         btnAgregar.setText("Agregar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -66,7 +66,7 @@ public class AgregarEstudiante extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                        .addComponent(txtNombre)
                         .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
