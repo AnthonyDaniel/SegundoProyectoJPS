@@ -5,6 +5,8 @@
  */
 package Vista.Profesor;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Mauricio
@@ -77,6 +79,11 @@ public class NotaEstudiante extends javax.swing.JPanel {
         jLabel6.setText("Nota actual:");
 
         txt_notaNueva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_notaNueva.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_notaNuevaKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Nueva nota:");
@@ -111,11 +118,9 @@ public class NotaEstudiante extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btn_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,6 +159,15 @@ public class NotaEstudiante extends javax.swing.JPanel {
     private void txt_cedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cedActionPerformed
+
+    private void txt_notaNuevaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_notaNuevaKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!Character.isDigit(c) && c != KeyEvent.VK_PERIOD && c != KeyEvent.VK_DELETE && c != KeyEvent.VK_BACK_SPACE){
+            evt.consume();
+            getToolkit().beep();
+        } 
+    }//GEN-LAST:event_txt_notaNuevaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

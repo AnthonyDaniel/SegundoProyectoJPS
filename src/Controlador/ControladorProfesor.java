@@ -31,7 +31,8 @@ public class ControladorProfesor {
     private AusenciasEstudiante interfazAusc;
     private Ausencia interfazAgrAusc;
     
-    private List lista;
+    private List lista;    
+    
     
     public ControladorProfesor(Interfaz interfazPrin, String _idProf){        
         iProfesor = new ContenedorProfesor();
@@ -54,8 +55,6 @@ public class ControladorProfesor {
         listarProfesoresClick();
         listarAsginaturasClick(_idProf);
         listarEstudiantesClick();
-        
-        
     }
     
     private void cargarTablaAsignaturas(String _idProf){
@@ -192,16 +191,15 @@ public class ControladorProfesor {
         interfazListaAsig.btn_verEstudiantes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(), 0) != null){
-                    
-                    String id = (String) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),0);
-                    String nom = (String) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),1);
-                    cargarTablaEstudiantes(id, nom);                    
+                if(interfazListaAsig.tbl_ListaAsig.getSelectedRow() > -1){                    
+                    String idAsig = (String) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),0);
+                    String nomAsig = (String) interfazListaAsig.tbl_ListaAsig.getValueAt(interfazListaAsig.tbl_ListaAsig.getSelectedRow(),1);
+                    cargarTablaEstudiantes(idAsig, nomAsig);                    
                     interfazProf.panel_Contenido.removeAll();
                     interfazProf.panel_Contenido.add(interfazListaEst).repaint();
                     interfazProf.panel_Contenido.updateUI();
-                    agregarNotaClick(id, nom);
-                    irAusenciasClick(id, nom);
+                    agregarNotaClick(idAsig, nomAsig);
+                    irAusenciasClick(idAsig, nomAsig);
                 }
             }
         });
@@ -211,16 +209,16 @@ public class ControladorProfesor {
         interfazListaEst.btn_nota.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {                
-                if(interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(), 0) != null){
+                if(interfazListaEst.tbl_listaEst.getSelectedRow() > -1){
                     String asig = _idAsig+"-"+_nombreAsig; 
-                    String ced = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),0);
-                    String nom = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),1);
-                    String ape = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),2);
+                    String  _idEst = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),0);
+                    String _nomEst = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),1);
+                    String _apeEst = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),2);
                     interfazProf.panel_Contenido.removeAll();
                     interfazProf.panel_Contenido.add(interfazNotas).repaint();
                     interfazProf.panel_Contenido.updateUI();
-                    editarNota(ced, nom+" "+ape, asig,_idAsig);
-                    guardarNotaClick(ced, _idAsig, nom+" "+ape,asig);
+                    editarNota(_idEst, _nomEst, asig,_idAsig);
+                    guardarNotaClick(_idEst, _idAsig, _nomEst+" "+_apeEst,asig);
                 }
             }
         });
@@ -248,29 +246,75 @@ public class ControladorProfesor {
         interfazListaEst.btn_faltas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(), 0) != null){                    
-                    String ced = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),0);
-                    String nom = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),1);
-                    String ape = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),2);
-                    cargarTablaAusencias(ced, _idAsig);
+                if(interfazListaEst.tbl_listaEst.getSelectedRow() > -1){                    
+                    String _idEst = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),0);
+                    String _nomEst = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),1);
+                    String _apeEst = (String) interfazListaEst.tbl_listaEst.getValueAt(interfazListaEst.tbl_listaEst.getSelectedRow(),2);
+                    cargarTablaAusencias(_idEst, _idAsig);
                     interfazProf.panel_Contenido.removeAll();
                     interfazProf.panel_Contenido.add(interfazAusc).repaint();
                     interfazProf.panel_Contenido.updateUI();    
-                    agregarAusenciaClick(ced, _idAsig);
+                    agregarAusenciaClick(_idEst,_nomEst+" "+_apeEst, _idAsig,_nomAsig);
+                    modificarAusencia();
                 }               
             }
         });
     }
     
-    private void agregarAusenciaClick(String _idest, String _idAsig){
+    private void agregarAusenciaClick(String _idEst, String _nomEst, String _idAsig, String _nomAsig){
         interfazAusc.btn_agregarAusc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                interfazAgrAusc.txt_asig.setText(_idest);
-                interfazAgrAusc.txt_Est.setText(_idAsig);   
+                interfazAgrAusc.txt_Est.setText(_idEst+" "+_nomEst);
+                interfazAgrAusc.txt_asig.setText(_idAsig+"-"+_nomAsig);   
                 interfazProf.panel_Contenido.removeAll();
                 interfazProf.panel_Contenido.add(interfazAgrAusc).repaint();
-                interfazProf.panel_Contenido.updateUI();                
+                interfazProf.panel_Contenido.updateUI(); 
+                guardarAusenciaClick(_idAsig, _idEst);
+            }
+        });
+    }
+    
+    private void guardarAusenciaClick(String _idAsig, String _idEst){
+        interfazAgrAusc.btn_guardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!interfazAgrAusc.txt_fecha.getText().isEmpty()){
+                    if(interfazAgrAusc.rbtn_just.isSelected()){
+                        iProfesor.ponerFalta(interfazAgrAusc.txt_fecha.getText(), _idAsig, _idEst, interfazAgrAusc.rbtn_just.getText());
+                    }
+                    if(interfazAgrAusc.rbtn_sinJust.isSelected()){
+                        iProfesor.ponerFalta(interfazAgrAusc.txt_fecha.getText(), _idAsig, _idEst, interfazAgrAusc.rbtn_sinJust.getText());
+                    }
+                    JOptionPane.showMessageDialog(null, "Se agrego la ausencia!", "Ausencia Agregada", JOptionPane.INFORMATION_MESSAGE);
+                    interfazAgrAusc.txt_fecha.setText("");
+                    interfazAgrAusc.rbtn_just.setSelected(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Campo de Fecha no puede estar vacio \nNo se agrego la ausencia", "Error al agregar", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+    }
+    
+    private void modificarAusencia(){
+        interfazAusc.btn_modAusc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(interfazAusc.tbl_Ausc.getSelectedRow() > -1 ){ 
+                    if(JOptionPane.showConfirmDialog(null, "Desea modificar el estado de la ausencia: ", "Modificar estado ausencia", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+                        String _idAsig = (String) interfazAusc.tbl_Ausc.getValueAt(interfazAusc.tbl_Ausc.getSelectedRow(),0);
+                        String _idEst = (String) interfazAusc.tbl_Ausc.getValueAt(interfazAusc.tbl_Ausc.getSelectedRow(),1);
+                        String _fecha = (String) interfazAusc.tbl_Ausc.getValueAt(interfazAusc.tbl_Ausc.getSelectedRow(),2);
+                        String _estado = (String) interfazAusc.tbl_Ausc.getValueAt(interfazAusc.tbl_Ausc.getSelectedRow(),3);
+                        if("Justificada".equals(_estado)){
+                            iProfesor.modificarFalta(_idEst, _idAsig, _fecha, "Sin justificar");
+                        }
+                        if("Sin justificar".equals(_estado)){
+                            iProfesor.modificarFalta(_idEst, _idAsig, _fecha, "Justificada");
+                        }
+                        cargarTablaAusencias(_idEst, _idAsig);
+                    }
+                } 
             }
         });
     }
