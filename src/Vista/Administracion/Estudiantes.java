@@ -2,9 +2,7 @@
 package Vista.Administracion;
 
 import Controlador.ControladorAdminEstudiante;
-import Controlador.ControladorAdminProfesor;
 import Modelo.Entidades.EntidadEstudiante;
-import Modelo.Entidades.EntidadProfesor;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -184,9 +182,6 @@ private ControladorAdminEstudiante c;
                    if(c.interfaceAdminEstudiante.modificarEstudiante(aux)){
                        c.mostrarEnPanel();   
                        JOptionPane.showMessageDialog(null, "Se modifico");
-                       
-                       
-                       
                        
                    }       } catch (Exception ex) {
                    Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);

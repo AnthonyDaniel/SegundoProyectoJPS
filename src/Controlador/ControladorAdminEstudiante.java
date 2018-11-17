@@ -205,6 +205,15 @@ public class ControladorAdminEstudiante {
             
         });
     }
+     
+     public void limpiar(){
+     
+         agregarEstudiante.txtCedula.setText("");
+         agregarEstudiante.txtNombre.setText("");
+         agregarEstudiante.txtApellido.setText("");
+         agregarEstudiante.txtContrasenia.setText("");
+     
+     }
     
      public void agregar(){
     
@@ -212,18 +221,25 @@ public class ControladorAdminEstudiante {
                @Override
                public void actionPerformed(ActionEvent ae) {
                    
-                   estudiante.setId(agregarEstudiante.txtCedula.getText());
-                   estudiante.setNombre(agregarEstudiante.txtNombre.getText());
-                   estudiante.setApe1(agregarEstudiante.txtApellido.getText());
-                   estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+                   if(!agregarEstudiante.txtCedula.getText().equals("") &&
+                           !agregarEstudiante.txtNombre.getText().equals("")
+                           && !agregarEstudiante.txtApellido.getText().equals("")
+                           && !agregarEstudiante.txtContrasenia.getText().equals("")){
                    
-                    panelEstudiantes.jTextFieldCedula.setText(agregarEstudiante.txtCedula.getText());
-                    panelEstudiantes.jTextFieldNombre.setText(agregarEstudiante.txtNombre.getText());
-                    panelEstudiantes.jTextFieldApellidos.setText(agregarEstudiante.txtApellido.getText());
-                    panelEstudiantes.jTextFieldContrasena.setText(agregarEstudiante.txtContrasenia.getText());
+                               estudiante.setId(agregarEstudiante.txtCedula.getText());
+                               estudiante.setNombre(agregarEstudiante.txtNombre.getText());
+                               estudiante.setApe1(agregarEstudiante.txtApellido.getText());
+                               estudiante.setContrasena(agregarEstudiante.txtContrasenia.getText());
+
+                                panelEstudiantes.jTextFieldCedula.setText(agregarEstudiante.txtCedula.getText());
+                                panelEstudiantes.jTextFieldNombre.setText(agregarEstudiante.txtNombre.getText());
+                                panelEstudiantes.jTextFieldApellidos.setText(agregarEstudiante.txtApellido.getText());
+                                panelEstudiantes.jTextFieldContrasena.setText(agregarEstudiante.txtContrasenia.getText());
                   
                    try {
                        if(interfaceAdminEstudiante.agregarEstudiante(estudiante)){
+                           mostrarEnPanel();
+                           limpiar();
                              JOptionPane.showMessageDialog(null, "Agregado");
                        }
                      
@@ -233,8 +249,12 @@ public class ControladorAdminEstudiante {
                    } catch (Exception ex) {
                        Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
                    }
-                
-                
+                       
+                       
+                   }else{
+                       JOptionPane.showMessageDialog(null, "Debe llenar todos los espacios");
+                   }
+             
                }
            });
     }
@@ -255,6 +275,7 @@ public class ControladorAdminEstudiante {
                 
                    try {
                        if(interfaceAdminEstudiante.modificarEstudiante(estudiante))
+                           
                            mostrarEnPanel();
                        else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
