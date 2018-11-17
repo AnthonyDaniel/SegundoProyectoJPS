@@ -42,20 +42,20 @@ public class ControladorEstudiante {
     private ListaNota listNotas;
     private ListaAsistenciaEstu listAsistencia;
    
-    public ControladorEstudiante(Interfaz interfazPrin, InterfazEstudiante _interfazEstudiante){
+    public ControladorEstudiante(Interfaz interfazPrin, String idEstudiante){
         iEstudiante = new ContenedorEstudiante();
         interfazAsignaturaEstu = new ListarAsignaturaEstu();
         interfazListEstudiantes = new ListarEstudiantes();
         listNotas = new ListaNota();
         listAsistencia = new ListaAsistenciaEstu();
-        interfazEstu = _interfazEstudiante;
+        interfazEstu = new InterfazEstudiante();
         
         interfazPrin.panelContenedor.add(interfazEstu).repaint();       
         
       
-        listarNotasClick();
-        listarAsignaturasClick();
-        mostrarNota();
+        listarNotasClick(idEstudiante);
+        listarAsignaturasClick(idEstudiante);
+        mostrarNota(idEstudiante);
       //Pruebas
         iEstudiante.listarProfesores(0);
       
@@ -88,8 +88,8 @@ public class ControladorEstudiante {
       listNotas.tabla_notas.setModel(model);
        
     }
-    private void tablaListarAsignaturas(){
-        List lista = iEstudiante.listarAsignaturas("504250813");
+    private void tablaListarAsignaturas(String id){
+        List lista = iEstudiante.listarAsignaturas(id);
         interfazAsignaturaEstu.tableAsignaturasEstu.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         interfazAsignaturaEstu.tableAsignaturasEstu.getTableHeader().setReorderingAllowed(false);
         Object[] etiquetas = {"Asignaruta","Nombre"};
@@ -104,10 +104,10 @@ public class ControladorEstudiante {
         }
         interfazAsignaturaEstu.tableAsignaturasEstu.setModel(model);
       } 
-    private void tablaListarNotas(){
+    private void tablaListarNotas(String id){
         EntidadEstudiante e = new EntidadEstudiante();
         
-        List lista = iEstudiante.listarNotas("504250813", "2");// que lo agarre del login y que el id de la asignatura lo agarre cuando seleccione un campo de texto
+        List lista = iEstudiante.listarNotas(id, "2");// que lo agarre del login y que el id de la asignatura lo agarre cuando seleccione un campo de texto
           listNotas.tabla_notas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
           listNotas.tabla_notas.getTableHeader().setReorderingAllowed(false);
         
@@ -146,11 +146,11 @@ public class ControladorEstudiante {
        interfazAsignaturaEstu.tableAsignaturasEstu.setModel(model);
        
     }
-    private void listarNotasClick(){
+    private void listarNotasClick(String id){
         interfazEstu.btnListarNotasEstu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                tablaListarNotas();
+                tablaListarNotas(id);
                 interfazEstu.panelEstudiantes.removeAll();
                 interfazEstu.panelEstudiantes.add(listNotas).repaint();
                 interfazEstu.panelEstudiantes.updateUI();
@@ -161,11 +161,11 @@ public class ControladorEstudiante {
        
         
     }
-     private void listarAsignaturasClick(){
+     private void listarAsignaturasClick(String id){
             interfazEstu.btnListarAsignatura.addActionListener(new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent ae) {
-                    tablaListarAsignaturas();
+                    tablaListarAsignaturas(id);
                 interfazEstu.panelEstudiantes.removeAll();
                 interfazEstu.panelEstudiantes.add(interfazAsignaturaEstu).repaint();
                 interfazEstu.panelEstudiantes.updateUI();
@@ -173,11 +173,11 @@ public class ControladorEstudiante {
             
             });
         }
-    private void mostrarNota(){
+    private void mostrarNota(String id){
         interfazAsignaturaEstu.btnMostrarNotasEstu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                tablaListarNotas();
+                tablaListarNotas(id);
                 interfazEstu.panelEstudiantes.removeAll();
                 interfazEstu.panelEstudiantes.add(listNotas).repaint();
                 interfazEstu.panelEstudiantes.updateUI();

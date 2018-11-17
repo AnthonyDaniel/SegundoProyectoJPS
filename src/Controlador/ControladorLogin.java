@@ -23,7 +23,7 @@ public class ControladorLogin {
     private InterfazEstudiante estudiante;
     private ControladorPrincipal controladorPrincipal;
     private ControladorProfesor controlProfesor;
-    
+    private ControladorEstudiante controlEstudiante;
     public ControladorLogin(ControladorPrincipal t,Interfaz e, InterfazLogin a, ILogin lm, InterfazAdministracion _administracion,  InterfazEstudiante _estudiante){
     
         controladorPrincipal = t;
@@ -73,7 +73,7 @@ public class ControladorLogin {
                               if(login.verificarQueTipoDeUsuarioEs().equals("Administrador")){
                                   e.panelContenedor.add(administracion).repaint();
                               }else if(login.verificarQueTipoDeUsuarioEs().equals("Estudiante")){
-                                  e.panelContenedor.add(estudiante).repaint();
+                                  controlEstudiante = new ControladorEstudiante(interfaz, interfazLogin.jTextFieldCedula.getText());
                               }else{
                                    controlProfesor = new ControladorProfesor(interfaz, interfazLogin.jTextFieldCedula.getText());
                               }
