@@ -88,12 +88,13 @@ public class ControladorAdminEstudiante {
             Session session = new HibernateUtil().buildSessionFactory().openSession();        
             session.beginTransaction();
    
-                    datoss=session.createCriteria(EntidadProfesor.class).list();
+                    datoss=session.createCriteria(EntidadEstudiante.class).list();
         
                     session.getTransaction().commit();
                     session.close();
                    
                     boolean exito = false;
+                    try{
                     for(EntidadEstudiante ee: datoss){
                         
                         if(ee.getId().equals(ced)){
@@ -101,14 +102,15 @@ public class ControladorAdminEstudiante {
                         }
                     
                     }
+                    }catch(Exception u){}
             if(exito){
-            
                 try{
                     interfaceAdminEstudiante.ponerAsignatura(ced,idA);
                      limpiar();
                 }catch(Exception t){}
-            JOptionPane.showMessageDialog(null,"Asignatura Agregada");
+                JOptionPane.showMessageDialog(null,"Asignatura Agregada");
             }else{
+             limpiar();
             JOptionPane.showMessageDialog(null, "La cedula no existe");
             }
         }

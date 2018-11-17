@@ -3,10 +3,14 @@ package Vista.Administracion;
 
 import Controlador.ControladorAdminEstudiante;
 import Modelo.Entidades.EntidadEstudiante;
+import Modelo.Entidades.EntidadNota;
+import Modelo.Hibernate.HibernateUtil;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.hibernate.Session;
 
 public class Estudiantes extends javax.swing.JPanel {
 private ControladorAdminEstudiante c;
@@ -30,6 +34,7 @@ private ControladorAdminEstudiante c;
         jTextFieldContrasena = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        btnVer = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel1.setText("Cedula");
@@ -92,6 +97,22 @@ private ControladorAdminEstudiante c;
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/persona.png"))); // NOI18N
 
+        btnVer.setBackground(new java.awt.Color(51, 51, 51));
+        btnVer.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
+        btnVer.setForeground(new java.awt.Color(255, 255, 255));
+        btnVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
+        btnVer.setText("Ver Asignaturas");
+        btnVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerActionPerformed(evt);
+            }
+        });
+        btnVer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVerKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,16 +131,19 @@ private ControladorAdminEstudiante c;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextFieldContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEliminar)))
-                .addGap(29, 29, 29))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,8 +165,9 @@ private ControladorAdminEstudiante c;
                     .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -213,7 +238,7 @@ private ControladorAdminEstudiante c;
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-         
+         try{ 
            EntidadEstudiante aux = new EntidadEstudiante();
            
             
@@ -234,13 +259,73 @@ private ControladorAdminEstudiante c;
                    }       } catch (Exception ex) {
                    Logger.getLogger(Profesores.class.getName()).log(Level.SEVERE, null, ex);
                }
-         
+         }catch(Exception t){}
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
+        try{
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+        
+        JOptionPane.showMessageDialog(null, "Entre aqui1");
+        List<EntidadNota> datos=session.createCriteria(EntidadNota.class).list();
+        session.getTransaction().commit();
+        session.close();
+        
+        String info = "";
+        
+        
+        
+        for(EntidadNota e: datos){
+        
+           
+            if(e.getEstudiante().getId().equals(this.jTextFieldCedula.getText())){
+                
+               info = info + "Asignatura: Id:" + e.getAsignatura().getIdAsignatura();
+            
+            }
+           
+        
+        }
+        
+        JOptionPane.showMessageDialog(this, info);
+         }catch(Exception t){}
+    }//GEN-LAST:event_btnVerActionPerformed
+
+    private void btnVerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVerKeyPressed
+       
+       try{ 
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+
+        List<EntidadNota> datos=session.createCriteria(EntidadNota.class).list();
+        
+        session.getTransaction().commit();
+        session.close();
+        
+        String info = "";
+        
+        for(EntidadNota e: datos){
+            
+            if(e.getEstudiante().getId().equals(this.jTextFieldCedula.getText())){
+                
+               info = info + "Asignatura: Id:" + e.getAsignatura().getIdAsignatura();
+            
+            }
+        }
+        
+        JOptionPane.showMessageDialog(this, info);
+        }catch(Exception t){
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
+    }//GEN-LAST:event_btnVerKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnEliminar;
     public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnVer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -146,8 +146,6 @@ public class ContenedorAdminEstudiante implements IAdminEstudiante{
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();      
         
-        
-
         SQLQuery consulta =  session.createSQLQuery("insert into asignaturaEstudiante (IdAsignatura,IdEstudiante) values ('"+idAsig+"','"+idEst+"')");
 
         consulta.executeUpdate();    

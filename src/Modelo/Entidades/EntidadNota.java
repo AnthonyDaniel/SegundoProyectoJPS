@@ -13,6 +13,7 @@ public class EntidadNota implements Serializable{
     @Column(name="ID")
     private int id;
 
+    @GeneratedValue
     @Column(name="Nota")
     private double nota;
     
