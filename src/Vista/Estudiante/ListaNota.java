@@ -9,12 +9,12 @@ package Vista.Estudiante;
  *
  * @author Edris Jose Rios
  */
-public class ListaNotas extends javax.swing.JFrame {
+public class ListaNota extends javax.swing.JPanel {
 
     /**
-     * Creates new form ListaNotas
+     * Creates new form ListaNota
      */
-    public ListaNotas() {
+    public ListaNota() {
         initComponents();
     }
 
@@ -31,8 +31,6 @@ public class ListaNotas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_notas = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Notas");
 
@@ -48,8 +46,8 @@ public class ListaNotas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabla_notas);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -58,9 +56,9 @@ public class ListaNotas extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(20, 20, 20)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,13 +67,10 @@ public class ListaNotas extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

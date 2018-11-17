@@ -32,6 +32,7 @@ public class InterfazEstudiante extends javax.swing.JPanel {
         panelEstudiantes = new javax.swing.JPanel();
         btnListarNotasEstu = new javax.swing.JButton();
         btnAsistencia = new javax.swing.JButton();
+        btnListarAsignatura = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 255, 102));
 
@@ -42,42 +43,41 @@ public class InterfazEstudiante extends javax.swing.JPanel {
 
         btnListarProfesores.setText("Listar Profesores");
 
-        javax.swing.GroupLayout panelEstudiantesLayout = new javax.swing.GroupLayout(panelEstudiantes);
-        panelEstudiantes.setLayout(panelEstudiantesLayout);
-        panelEstudiantesLayout.setHorizontalGroup(
-            panelEstudiantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
-        );
-        panelEstudiantesLayout.setVerticalGroup(
-            panelEstudiantesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 357, Short.MAX_VALUE)
-        );
+        panelEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
 
         btnListarNotasEstu.setText("Listar Notas");
 
         btnAsistencia.setText("Listar Asistencia");
+
+        btnListarAsignatura.setText("Listar Asignatura");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnListarEstudiantes)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnListarProfesores)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnListarNotasEstu)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAsistencia))
-                    .addComponent(jLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(panelEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
+                        .addContainerGap()
+                        .addComponent(panelEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnListarEstudiantes)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnListarProfesores)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnListarNotasEstu)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAsistencia)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnListarAsignatura)))
+                        .addGap(0, 30, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,16 +89,18 @@ public class InterfazEstudiante extends javax.swing.JPanel {
                     .addComponent(btnListarEstudiantes)
                     .addComponent(btnListarNotasEstu)
                     .addComponent(btnListarProfesores)
-                    .addComponent(btnAsistencia))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelEstudiantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                    .addComponent(btnAsistencia)
+                    .addComponent(btnListarAsignatura))
+                .addGap(18, 18, 18)
+                .addComponent(panelEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAsistencia;
+    public javax.swing.JButton btnListarAsignatura;
     public javax.swing.JButton btnListarEstudiantes;
     public javax.swing.JButton btnListarNotasEstu;
     public javax.swing.JButton btnListarProfesores;
