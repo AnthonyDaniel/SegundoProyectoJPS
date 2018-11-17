@@ -48,7 +48,7 @@ public class ContenedorEstudiante implements IEstudiante {
     }
 
     @Override
-    public List listarProfesores(int _idAsignatura) {
+    public List listarProfesores(String _idAsignatura) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
    
@@ -90,18 +90,22 @@ public class ContenedorEstudiante implements IEstudiante {
     }
 
     @Override
-    public List listarAsistencias(int id) {
+    public List listarAsistencias(String id, String idAsig) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
         session.beginTransaction();
         
-        List<EntidadAsistencia> lista;
+        List <EntidadAsistencia> lista;
 
-        SQLQuery consulta =  session.createSQLQuery("select * from asistencia where IdEstudiante = "+ id);
+        SQLQuery consulta =  session.createSQLQuery("select * from asistencia where IdEstudiante ='"+ id+"'"+"and IdAsignatura ='"+idAsig+"'");
 
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
         lista = consulta.list();
-        
+        for(Object lib:lista){
+            Map tupla = (Map)lib;
+            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura")+" "+tupla.get("Justificacion"));
+            System.out.println("-------");
+        }
         session.getTransaction().commit();
         
         return lista;

@@ -9,7 +9,8 @@ import Modelo.Administracion.ContenedorEstudiante;
 import Modelo.Administracion.IEstudiante;
 import Modelo.Entidades.EntidadEstudiante;
 import Vista.Estudiante.InterfazEstudiante;
-import Vista.Estudiante.ListaAsistenciaEstu;
+import Vista.Estudiante.ListaAsistencias;
+
 import Vista.Estudiante.ListaNota;
 
 import Vista.Estudiante.ListarAsignaturaEstu;
@@ -40,14 +41,14 @@ public class ControladorEstudiante {
     private ListarAsignaturaEstu interfazAsignaturaEstu;
     private ListarEstudiantes interfazListEstudiantes;
     private ListaNota listNotas;
-    private ListaAsistenciaEstu listAsistencia;
+    private ListaAsistencias listAsistencia;
    
     public ControladorEstudiante(Interfaz interfazPrin, String idEstudiante){
         iEstudiante = new ContenedorEstudiante();
         interfazAsignaturaEstu = new ListarAsignaturaEstu();
         interfazListEstudiantes = new ListarEstudiantes();
         listNotas = new ListaNota();
-        listAsistencia = new ListaAsistenciaEstu();
+        listAsistencia = new ListaAsistencias();
         interfazEstu = new InterfazEstudiante();
         
         interfazPrin.panelContenedor.add(interfazEstu).repaint();       
@@ -56,8 +57,9 @@ public class ControladorEstudiante {
         listarNotasClick(idEstudiante);
         listarAsignaturasClick(idEstudiante);
         mostrarNota(idEstudiante);
+        mostrarAsistencia(idEstudiante);
       //Pruebas
-        iEstudiante.listarProfesores(0);
+        iEstudiante.listarProfesores(idEstudiante);
       
     }
      
@@ -106,8 +108,10 @@ public class ControladorEstudiante {
       } 
     private void tablaListarNotas(String id){
         EntidadEstudiante e = new EntidadEstudiante();
-        
-        List lista = iEstudiante.listarNotas(id, "2");// que lo agarre del login y que el id de la asignatura lo agarre cuando seleccione un campo de texto
+        String notas;
+        notas =  (String) interfazAsignaturaEstu.tableAsignaturasEstu.getValueAt(interfazAsignaturaEstu.tableAsignaturasEstu.getSelectedRow(), 0);
+       
+          List lista = iEstudiante.listarNotas(id, notas);// que lo agarre del login y que el id de la asignatura lo agarre cuando seleccione un campo de texto
           listNotas.tabla_notas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
           listNotas.tabla_notas.getTableHeader().setReorderingAllowed(false);
         
@@ -125,25 +129,25 @@ public class ControladorEstudiante {
         listNotas.tabla_notas.setModel(model);
         
     }
-    private void tablaListarAsistencia(){
-       
-      
-        List lista = iEstudiante.listarAsistencias(13);
-        interfazAsignaturaEstu.tableAsignaturasEstu.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        interfazAsignaturaEstu.tableAsignaturasEstu.getTableHeader().setReorderingAllowed(false);
-        Object[] etiquetas = {"Asignatura","Cedula Estudiante","Asistencia"};
+    private void tablaListarAsistencia(String id){
+       String notas;
+        notas =  (String) interfazAsignaturaEstu.tableAsignaturasEstu.getValueAt(interfazAsignaturaEstu.tableAsignaturasEstu.getSelectedRow(), 0);
+        List lista = iEstudiante.listarAsistencias(id, notas);
+        listAsistencia.tableAsistencia.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listAsistencia.tableAsistencia.getTableHeader().setReorderingAllowed(false);
+        Object[] etiquetas = {"Fecha","Ausencia"};
         DefaultTableModel model = new DefaultTableModel(etiquetas, 0);
         Object[] fila ;
         for(Object lib:lista){
             Map tupla = (Map)lib;
             fila = new Object[2];
-            fila[0] = tupla.get("IdAsignatura");
-            fila[1] = tupla.get("IdEstudiante");
-            fila[2] = tupla.get("Idx");
+            fila[0] = tupla.get("Fecha");
+            fila[1] = tupla.get("Justificacion");
+            
             
             model.addRow(fila);
         }
-       interfazAsignaturaEstu.tableAsignaturasEstu.setModel(model);
+       listAsistencia.tableAsistencia.setModel(model);
        
     }
     private void listarNotasClick(String id){
@@ -182,6 +186,19 @@ public class ControladorEstudiante {
                 interfazEstu.panelEstudiantes.add(listNotas).repaint();
                 interfazEstu.panelEstudiantes.updateUI();
             }
+        
+        });
+    }
+    private void mostrarAsistencia(String id){
+        interfazAsignaturaEstu.btnMostrarAsistencia.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                tablaListarAsistencia(id);
+                interfazEstu.panelEstudiantes.removeAll();
+                interfazEstu.panelEstudiantes.add(listAsistencia).repaint();
+                interfazEstu.panelEstudiantes.updateUI();
+            }
+        
         
         });
     }

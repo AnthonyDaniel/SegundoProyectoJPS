@@ -9,12 +9,12 @@ package Vista.Estudiante;
  *
  * @author Edris Jose Rios
  */
-public class ListaAsistenciaEstu extends javax.swing.JFrame {
+public class ListaAsistencias extends javax.swing.JPanel {
 
     /**
-     * Creates new form ListaAsistenciaEstu
+     * Creates new form ListaAsistencias
      */
-    public ListaAsistenciaEstu() {
+    public ListaAsistencias() {
         initComponents();
     }
 
@@ -31,8 +31,6 @@ public class ListaAsistenciaEstu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAsistencia = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Asistencia del Estudiante:");
 
@@ -46,8 +44,8 @@ public class ListaAsistenciaEstu extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableAsistencia);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -58,7 +56,7 @@ public class ListaAsistenciaEstu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,13 +65,10 @@ public class ListaAsistenciaEstu extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
