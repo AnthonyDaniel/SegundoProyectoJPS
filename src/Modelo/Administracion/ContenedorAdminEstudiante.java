@@ -144,7 +144,9 @@ public class ContenedorAdminEstudiante implements IAdminEstudiante{
     @Override
     public void ponerAsignatura(String idEst, String idAsig) {
         Session session = new HibernateUtil().buildSessionFactory().openSession();        
-        session.beginTransaction();        
+        session.beginTransaction();      
+        
+        
 
         SQLQuery consulta =  session.createSQLQuery("insert into asignaturaEstudiante (IdAsignatura,IdEstudiante) values ('"+idAsig+"','"+idEst+"')");
 

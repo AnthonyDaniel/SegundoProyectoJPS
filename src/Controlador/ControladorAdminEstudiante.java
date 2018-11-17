@@ -79,12 +79,38 @@ public class ControladorAdminEstudiante {
         @Override
         public void actionPerformed(ActionEvent e) {
              
-                    String ced= agregarMateria.txtCedula.getText();
+            String ced= agregarMateria.txtCedula.getText();
                     
-                    String idA=agregarMateria.jComboBoxMaterias.getSelectedItem().toString();
-                
+            String idA=agregarMateria.jComboBoxMaterias.getSelectedItem().toString();
+              
+            List<EntidadEstudiante> datoss;
+            
+            Session session = new HibernateUtil().buildSessionFactory().openSession();        
+            session.beginTransaction();
+   
+                    datoss=session.createCriteria(EntidadProfesor.class).list();
+        
+                    session.getTransaction().commit();
+                    session.close();
+                   
+                    boolean exito = false;
+                    for(EntidadEstudiante ee: datoss){
+                        
+                        if(ee.getId().equals(ced)){
+                            exito = true;
+                        }
+                    
+                    }
+            if(exito){
+            
+                try{
                     interfaceAdminEstudiante.ponerAsignatura(ced,idA);
-                    JOptionPane.showMessageDialog(null,"Asignatura Agregada");
+                     limpiar();
+                }catch(Exception t){}
+            JOptionPane.showMessageDialog(null,"Asignatura Agregada");
+            }else{
+            JOptionPane.showMessageDialog(null, "La cedula no existe");
+            }
         }
     
     });
@@ -212,9 +238,12 @@ public class ControladorAdminEstudiante {
          agregarEstudiante.txtNombre.setText("");
          agregarEstudiante.txtApellido.setText("");
          agregarEstudiante.txtContrasenia.setText("");
+         agregarMateria.txtCedula.setText("");
      
+         
      }
     
+     
      public void agregar(){
     
            agregarEstudiante.btnAgregar.addActionListener(new ActionListener() {
