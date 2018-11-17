@@ -29,6 +29,7 @@ public class ControladorProfesor {
     private ListaEstudiantes interfazListaEst;
     private NotaEstudiante interfazNotas;
     private AusenciasEstudiante interfazAusc;
+    private Ausencia interfazAgrAusc;
     
     private List lista;
     
@@ -40,6 +41,7 @@ public class ControladorProfesor {
         interfazListaAsig = new ListaAsignaturas();
         interfazNotas = new NotaEstudiante();
         interfazAusc = new AusenciasEstudiante();
+        interfazAgrAusc = new Ausencia();
                         
         interfazPrin.panelContenedor.add(interfazProf).repaint();       
         
@@ -253,17 +255,22 @@ public class ControladorProfesor {
                     cargarTablaAusencias(ced, _idAsig);
                     interfazProf.panel_Contenido.removeAll();
                     interfazProf.panel_Contenido.add(interfazAusc).repaint();
-                    interfazProf.panel_Contenido.updateUI();                    
+                    interfazProf.panel_Contenido.updateUI();    
+                    agregarAusenciaClick(ced, _idAsig);
                 }               
             }
         });
     }
     
-    private void agregarAusenciaClick(){
+    private void agregarAusenciaClick(String _idest, String _idAsig){
         interfazAusc.btn_agregarAusc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+                interfazAgrAusc.txt_asig.setText(_idest);
+                interfazAgrAusc.txt_Est.setText(_idAsig);   
+                interfazProf.panel_Contenido.removeAll();
+                interfazProf.panel_Contenido.add(interfazAgrAusc).repaint();
+                interfazProf.panel_Contenido.updateUI();                
             }
         });
     }
