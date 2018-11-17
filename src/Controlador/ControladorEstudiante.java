@@ -55,7 +55,7 @@ public class ControladorEstudiante {
         
       
         listarNotasClick(idEstudiante);
-        listarAsignaturasClick(idEstudiante);
+        listarAsistenciaClick(idEstudiante);
         mostrarNota(idEstudiante);
         mostrarAsistencia(idEstudiante);
       //Pruebas
@@ -109,9 +109,9 @@ public class ControladorEstudiante {
     private void tablaListarNotas(String id){
         EntidadEstudiante e = new EntidadEstudiante();
         String notas;
-        notas =  (String) interfazAsignaturaEstu.tableAsignaturasEstu.getValueAt(interfazAsignaturaEstu.tableAsignaturasEstu.getSelectedRow(), 0);
-       
-          List lista = iEstudiante.listarNotas(id, notas);// que lo agarre del login y que el id de la asignatura lo agarre cuando seleccione un campo de texto
+        try{
+            notas =  (String) interfazAsignaturaEstu.tableAsignaturasEstu.getValueAt(interfazAsignaturaEstu.tableAsignaturasEstu.getSelectedRow(), 0);
+            List lista = iEstudiante.listarNotas(id, notas);// que lo agarre del login y que el id de la asignatura lo agarre cuando seleccione un campo de texto
           listNotas.tabla_notas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
           listNotas.tabla_notas.getTableHeader().setReorderingAllowed(false);
         
@@ -128,10 +128,19 @@ public class ControladorEstudiante {
         }
         listNotas.tabla_notas.setModel(model);
         
+        
+        }catch(Exception ex){
+            
+        }
+        
+         
+        
     }
+    
     private void tablaListarAsistencia(String id){
        String notas;
-        notas =  (String) interfazAsignaturaEstu.tableAsignaturasEstu.getValueAt(interfazAsignaturaEstu.tableAsignaturasEstu.getSelectedRow(), 0);
+       try{
+       notas =  (String) interfazAsignaturaEstu.tableAsignaturasEstu.getValueAt(interfazAsignaturaEstu.tableAsignaturasEstu.getSelectedRow(), 0);
         List lista = iEstudiante.listarAsistencias(id, notas);
         listAsistencia.tableAsistencia.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listAsistencia.tableAsistencia.getTableHeader().setReorderingAllowed(false);
@@ -149,14 +158,37 @@ public class ControladorEstudiante {
         }
        listAsistencia.tableAsistencia.setModel(model);
        
+       
+       }catch(Exception e){
+           
+       }
+       
+        
+       
     }
+    private void listarAsistenciaClick(String id){
+        interfazEstu.btnAsistencia.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                tablaListarAsignaturas(id);
+                interfazEstu.panelEstudiantes.removeAll();
+                interfazEstu.panelEstudiantes.add(interfazAsignaturaEstu).repaint();
+                interfazEstu.panelEstudiantes.updateUI();
+            }
+        
+        
+        });
+    }
+    
+    
+    
     private void listarNotasClick(String id){
         interfazEstu.btnListarNotasEstu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
-                tablaListarNotas(id);
+                tablaListarAsignaturas(id);
                 interfazEstu.panelEstudiantes.removeAll();
-                interfazEstu.panelEstudiantes.add(listNotas).repaint();
+                interfazEstu.panelEstudiantes.add(interfazAsignaturaEstu).repaint();
                 interfazEstu.panelEstudiantes.updateUI();
             }
         
@@ -165,22 +197,12 @@ public class ControladorEstudiante {
        
         
     }
-     private void listarAsignaturasClick(String id){
-            interfazEstu.btnListarAsignatura.addActionListener(new ActionListener(){
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    tablaListarAsignaturas(id);
-                interfazEstu.panelEstudiantes.removeAll();
-                interfazEstu.panelEstudiantes.add(interfazAsignaturaEstu).repaint();
-                interfazEstu.panelEstudiantes.updateUI();
-                }
-            
-            });
-        }
+     
     private void mostrarNota(String id){
         interfazAsignaturaEstu.btnMostrarNotasEstu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent ae) {
+                
                 tablaListarNotas(id);
                 interfazEstu.panelEstudiantes.removeAll();
                 interfazEstu.panelEstudiantes.add(listNotas).repaint();
@@ -188,6 +210,7 @@ public class ControladorEstudiante {
             }
         
         });
+        ;
     }
     private void mostrarAsistencia(String id){
         interfazAsignaturaEstu.btnMostrarAsistencia.addActionListener(new ActionListener(){
@@ -201,6 +224,7 @@ public class ControladorEstudiante {
         
         
         });
+        
     }
     
 

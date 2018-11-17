@@ -32,7 +32,7 @@ public class InterfazEstudiante extends javax.swing.JPanel {
         panelEstudiantes = new javax.swing.JPanel();
         btnListarNotasEstu = new javax.swing.JButton();
         btnAsistencia = new javax.swing.JButton();
-        btnListarAsignatura = new javax.swing.JButton();
+        btnConsultaHorario = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 255, 102));
 
@@ -49,7 +49,7 @@ public class InterfazEstudiante extends javax.swing.JPanel {
 
         btnAsistencia.setText("Listar Asistencia");
 
-        btnListarAsignatura.setText("Listar Asignatura");
+        btnConsultaHorario.setText("Consultar Horario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,8 +75,8 @@ public class InterfazEstudiante extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnAsistencia)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnListarAsignatura)))
-                        .addGap(0, 30, Short.MAX_VALUE)))
+                                .addComponent(btnConsultaHorario)))
+                        .addGap(0, 26, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -90,7 +90,7 @@ public class InterfazEstudiante extends javax.swing.JPanel {
                     .addComponent(btnListarNotasEstu)
                     .addComponent(btnListarProfesores)
                     .addComponent(btnAsistencia)
-                    .addComponent(btnListarAsignatura))
+                    .addComponent(btnConsultaHorario))
                 .addGap(18, 18, 18)
                 .addComponent(panelEstudiantes, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(124, Short.MAX_VALUE))
@@ -100,7 +100,7 @@ public class InterfazEstudiante extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAsistencia;
-    public javax.swing.JButton btnListarAsignatura;
+    public javax.swing.JButton btnConsultaHorario;
     public javax.swing.JButton btnListarEstudiantes;
     public javax.swing.JButton btnListarNotasEstu;
     public javax.swing.JButton btnListarProfesores;

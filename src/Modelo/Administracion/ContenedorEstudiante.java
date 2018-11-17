@@ -36,11 +36,7 @@ public class ContenedorEstudiante implements IEstudiante {
         
         lista = consulta.list();
         
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura"));
-            System.out.println("-------");
-        }
+        
         
         session.getTransaction().commit();
         
@@ -78,11 +74,7 @@ public class ContenedorEstudiante implements IEstudiante {
         
         lista = consulta.list();
         
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura")+" "+tupla.get("Nota"));
-            System.out.println("-------");
-        }
+       
         
         session.getTransaction().commit();
         
@@ -101,11 +93,7 @@ public class ContenedorEstudiante implements IEstudiante {
         consulta.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         
         lista = consulta.list();
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura")+" "+tupla.get("Justificacion"));
-            System.out.println("-------");
-        }
+       
         session.getTransaction().commit();
         
         return lista;
@@ -124,11 +112,7 @@ public class ContenedorEstudiante implements IEstudiante {
         
         lista = consulta.list();
         
-        for(Object lib:lista){
-            Map tupla = (Map)lib;
-            System.out.println(tupla.get("IdEstudiante") +" "+tupla.get("IdAsignatura")+" "+tupla.get("Nota"));
-            System.out.println("-------");
-        }
+       
         
         session.getTransaction().commit();
         
