@@ -124,8 +124,16 @@ public class ContenedorProfesor implements IProfesor{
     }
 
     @Override
-    public void ponerFalta() {
+    public void ponerFalta(String _fecha, String _idAsig, String _idEst, String _estado) {
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();        
+
+        SQLQuery consulta =  session.createSQLQuery("insert into asistencia (Fecha,IdEstudiante,IdAsignatura,Justificacion) values ('"+_fecha+"','"+_idEst+"','"+_idAsig+"','"+_estado+"')");
+
+        consulta.executeUpdate();    
         
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
