@@ -9,6 +9,7 @@ import Modelo.Entidades.EntidadNota;
 import Modelo.Entidades.EntidadProfesor;
 import Modelo.Hibernate.HibernateUtil;
 import Vista.Administracion.AgregarEstudiante;
+import Vista.Administracion.AgregarMaterias;
 import Vista.Administracion.Estudiantes;
 import Vista.Administracion.FichasAsignatura;
 import Vista.Administracion.InterfazAdministracion;
@@ -26,16 +27,19 @@ public class ControladorAdminEstudiante {
     public IAdminEstudiante interfaceAdminEstudiante;
     public Estudiantes panelEstudiantes;
     public AgregarEstudiante agregarEstudiante;
+    public AgregarMaterias agregarMateria;
     
-    public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r, Estudiantes es, AgregarEstudiante ae){
+    public ControladorAdminEstudiante(InterfazAdministracion e, IAdminEstudiante a, EntidadEstudiante r, Estudiantes es, AgregarEstudiante ae,AgregarMaterias an){
             panelEstudiantes=es;
             interfazAdministracion = e;
             interfaceAdminEstudiante = a;
             estudiante= r;
             agregarEstudiante=ae;
+            agregarMateria=an;
           
             interfazAdministracion.contenedorEstudiantes.add(ae).repaint();
             interfazAdministracion.panelAgregarEstudiantes.add(es).repaint();
+            interfazAdministracion.panelAgregarMaterias.add(an).repaint();
             
             mostrarEnTabla();
             mostrarEnPanel();
@@ -45,48 +49,46 @@ public class ControladorAdminEstudiante {
             buscar();
             DefaultTabla();
             Materias();
+            AgregarMateria();
     }
     
     public void Materias(){
     
-              
-        Session session = new HibernateUtil().buildSessionFactory().openSession();        
-        session.beginTransaction();
-   
         List<EntidadAsignatura> materias;
+       try {
+           
+         materias = interfaceAdminEstudiante.listarAsignaturas();
+           
+        agregarMateria.jComboBoxMaterias.removeAllItems();
+        agregarMateria.jComboBoxMaterias.addItem("");
        
-        materias=session.createCriteria(EntidadAsignatura.class).list();
-       
-        session.getTransaction().commit();
-        session.close();
-       
-        agregarEstudiante.jComboBoxMateria1.removeAllItems();
-        agregarEstudiante.jComboBoxMateria2.removeAllItems();
-        agregarEstudiante.jComboBoxMateria3.removeAllItems();
-        agregarEstudiante.jComboBoxMateria4.removeAllItems();
-        agregarEstudiante.jComboBoxMateria5.removeAllItems();
-        agregarEstudiante.jComboBoxMateria6.removeAllItems();
-                
-        agregarEstudiante.jComboBoxMateria1.addItem("");
-        agregarEstudiante.jComboBoxMateria2.addItem("");
-        agregarEstudiante.jComboBoxMateria3.addItem("");
-        agregarEstudiante.jComboBoxMateria4.addItem("");
-        agregarEstudiante.jComboBoxMateria5.addItem("");
-        agregarEstudiante.jComboBoxMateria6.addItem("");
-                
         for(EntidadAsignatura e:materias){
         
-            agregarEstudiante.jComboBoxMateria1.addItem(e.getNombre() + "" + e.getHorario());
-            agregarEstudiante.jComboBoxMateria2.addItem(e.getNombre() + "" + e.getHorario());
-            agregarEstudiante.jComboBoxMateria3.addItem(e.getNombre() + "" + e.getHorario());
-            agregarEstudiante.jComboBoxMateria4.addItem(e.getNombre() + "" + e.getHorario());
-            agregarEstudiante.jComboBoxMateria5.addItem(e.getNombre() + "" + e.getHorario());
-            agregarEstudiante.jComboBoxMateria6.addItem(e.getNombre() + "" + e.getHorario());
+            agregarMateria.jComboBoxMaterias.addItem(e.getIdAsignatura());
                
         }
+       } catch (Exception ex) {
+           Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
     
     }
     
+     public void AgregarMateria(){
+    agregarMateria.btnAgregar.addActionListener(new ActionListener(){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+             
+                    String ced= agregarMateria.txtCedula.getText();
+                    
+                    String idA=agregarMateria.jComboBoxMaterias.getSelectedItem().toString();
+                
+                    interfaceAdminEstudiante.ponerAsignatura(ced,idA);
+                    JOptionPane.showMessageDialog(null,"Asignatura Agregada");
+        }
+    
+    });
+  }
     public void DefaultTabla(){
     
               try {
@@ -219,105 +221,19 @@ public class ControladorAdminEstudiante {
                     panelEstudiantes.jTextFieldNombre.setText(agregarEstudiante.txtNombre.getText());
                     panelEstudiantes.jTextFieldApellidos.setText(agregarEstudiante.txtApellido.getText());
                     panelEstudiantes.jTextFieldContrasena.setText(agregarEstudiante.txtContrasenia.getText());
-                    
-                    EntidadNota e1 = new EntidadNota();
-                    EntidadNota e2 = new EntidadNota();
-                    EntidadNota e3 = new EntidadNota();
-                    EntidadNota e4 = new EntidadNota();
-                    EntidadNota e5 = new EntidadNota();
-                    EntidadNota e6 = new EntidadNota();
-                    
-                          Session session = new HibernateUtil().buildSessionFactory().openSession();        
-                          session.beginTransaction();
-   
-                          List<EntidadAsignatura> materias;
-       
-                          materias=session.createCriteria(EntidadAsignatura.class).list();
-       
-                          
-                   
-                         for(EntidadAsignatura o : materias){
-                         try{
-                             if(agregarEstudiante.jComboBoxMateria1.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
-                             
-                                 e1.setAsignatura(o);
-                             
-                             }
-                             if(agregarEstudiante.jComboBoxMateria2.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
-                             
-                                 e2.setAsignatura(o);
-                             
-                             }
-                            if(agregarEstudiante.jComboBoxMateria3.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
-                             
-                                 e3.setAsignatura(o);
-                             
-                             }
-                             if(agregarEstudiante.jComboBoxMateria4.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
-                             
-                                 e4.setAsignatura(o);
-                             
-                             }
-                             if(agregarEstudiante.jComboBoxMateria5.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
-                             
-                                 e5.setAsignatura(o);
-                             
-                             }
-                             if(agregarEstudiante.jComboBoxMateria6.getSelectedItem().equals(o.getNombre() + "" + o.getHorario())){
-                             
-                                 e6.setAsignatura(o);
-                             
-                             }
-                         }catch(Exception e){}
-                    
-                         }
-                         //Pruebas
-                     try{
-                     e1.setEstudiante(estudiante);
-                     
-                   //  estudiante.getNota().add(e1);
-                     session.save(e1);
-                     }catch(Exception r){
-                     JOptionPane.showMessageDialog(null,"Error");
-                     }
-                     try{
-                     e2.setEstudiante(estudiante);    
-                     estudiante.getNota().add(e2);
-                     session.save(e2);
-                     }catch(Exception r){}
-                     try{
-                     e3.setEstudiante(estudiante);   
-                     estudiante.getNota().add(e3);
-                     session.save(e3);
-                     }catch(Exception r){}
-                     try{
-                     e4.setEstudiante(estudiante);    
-                     estudiante.getNota().add(e4);
-                     session.save(e4);
-                     }catch(Exception r){}
-                     try{ 
-                     e5.setEstudiante(estudiante);    
-                     estudiante.getNota().add(e5);
-                     session.save(e5);
-                     }catch(Exception r){}
-                     try{ 
-                     e6.setEstudiante(estudiante);    
-                     estudiante.getNota().add(e6);
-                     session.save(e6);
-                     }catch(Exception r){}
-                     
-                    session.getTransaction().commit();
-                    session.close(); 
-                    
+                  
                    try {
-                       if(interfaceAdminEstudiante.agregarEstudiante(estudiante))
-                       mostrarEnPanel();
-                       else {
+                       if(interfaceAdminEstudiante.agregarEstudiante(estudiante)){
+                             JOptionPane.showMessageDialog(null, "Agregado");
+                       }
+                     
+                           else {
                            JOptionPane.showMessageDialog(null, "ErrorGuardar");
                        }
                    } catch (Exception ex) {
                        Logger.getLogger(ControladorAdminEstudiante.class.getName()).log(Level.SEVERE, null, ex);
                    }
+                
                 
                }
            });
