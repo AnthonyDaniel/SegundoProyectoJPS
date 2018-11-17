@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface IEstudiante {
     public List listarEstudiantes(String _idAsginatura);
-    public List listarProfesores(int _idAsignatura);
+    public List listarProfesores(String _idAsignatura);
     public List listarNotas(String id, String Asignatura);
     public List listarAsignaturas(String id);
-    public List listarAsistencias(int id);
+    public List listarAsistencias(String id, String idAsig);
 }
 

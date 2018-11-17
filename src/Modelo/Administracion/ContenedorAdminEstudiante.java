@@ -125,4 +125,34 @@ public class ContenedorAdminEstudiante implements IAdminEstudiante{
         
         return lista;
     }
+
+    @Override
+    public List<EntidadAsignatura> listarAsignaturas() throws Exception {
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();
+   
+        List<EntidadAsignatura> datos;
+       
+        datos=session.createCriteria(EntidadAsignatura.class).list();
+        
+        session.getTransaction().commit();
+        session.close();
+        
+        return datos;
+    }
+
+    @Override
+    public void ponerAsignatura(String idEst, String idAsig) {
+        Session session = new HibernateUtil().buildSessionFactory().openSession();        
+        session.beginTransaction();      
+        
+        
+
+        SQLQuery consulta =  session.createSQLQuery("insert into asignaturaEstudiante (IdAsignatura,IdEstudiante) values ('"+idAsig+"','"+idEst+"')");
+
+        consulta.executeUpdate();    
+        
+        session.getTransaction().commit();
+        session.close();
+    }
 }

@@ -29,6 +29,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
         contenedorEstudiantes = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         panelAgregarEstudiantes = new javax.swing.JPanel();
+        panelAgregarMaterias = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         panelAgregarProfesores = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -120,13 +121,16 @@ public class InterfazAdministracion extends javax.swing.JPanel {
 
         contenedorEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         contenedorEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
-        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 1010, 190));
+        jPanel5.add(contenedorEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 1060, 190));
 
         panelAgregarEstudiantes.setBackground(new java.awt.Color(204, 255, 204));
         panelAgregarEstudiantes.setLayout(new java.awt.GridLayout(0, 1));
         jScrollPane3.setViewportView(panelAgregarEstudiantes);
 
-        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 440));
+        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 280));
+
+        panelAgregarMaterias.setLayout(new java.awt.GridLayout());
+        jPanel5.add(panelAgregarMaterias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 1060, 140));
 
         jTabbedPane2.addTab("Estudiantes", jPanel5);
 
@@ -198,6 +202,7 @@ public class InterfazAdministracion extends javax.swing.JPanel {
     public javax.swing.JTable jTableDatos;
     public javax.swing.JPanel panelAgregar;
     public javax.swing.JPanel panelAgregarEstudiantes;
+    public javax.swing.JPanel panelAgregarMaterias;
     public javax.swing.JPanel panelAgregarProfesores;
     public javax.swing.JPanel panelAsignaturas;
     public javax.swing.JTextField txtBuscar;

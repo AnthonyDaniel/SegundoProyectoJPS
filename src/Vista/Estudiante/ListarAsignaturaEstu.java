@@ -31,7 +31,7 @@ public class ListarAsignaturaEstu extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAsignaturasEstu = new javax.swing.JTable();
         btnMostrarNotasEstu = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnMostrarAsistencia = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Asignaturas del estudiante:");
@@ -49,8 +49,8 @@ public class ListarAsignaturaEstu extends javax.swing.JPanel {
         btnMostrarNotasEstu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnMostrarNotasEstu.setText("Mostrar Nota");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setText("Mostrar Asistencia");
+        btnMostrarAsistencia.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnMostrarAsistencia.setText("Mostrar Asistencia");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,7 +67,7 @@ public class ListarAsignaturaEstu extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(jButton1)
+                        .addComponent(btnMostrarAsistencia)
                         .addGap(56, 56, 56)
                         .addComponent(btnMostrarNotasEstu)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -82,15 +82,15 @@ public class ListarAsignaturaEstu extends javax.swing.JPanel {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMostrarNotasEstu)
-                    .addComponent(jButton1))
+                    .addComponent(btnMostrarAsistencia))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnMostrarAsistencia;
     public javax.swing.JButton btnMostrarNotasEstu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable tableAsignaturasEstu;
