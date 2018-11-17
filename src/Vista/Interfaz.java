@@ -59,7 +59,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Logo");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/colegio.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -68,20 +68,25 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(184, 184, 184)
-                .addComponent(salir))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(salir))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(salir)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel1)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
@@ -154,17 +159,17 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
 
-    Font font = jLabel2.getFont();
-    Map<TextAttribute, Object> attributes = new HashMap<>(font.getAttributes());
-    attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-    jLabel2.setFont(font.deriveFont(attributes));
+        Font font = jLabel2.getFont();
+        Map<TextAttribute, Object> attributes = new HashMap<>(font.getAttributes());
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        jLabel2.setFont(font.deriveFont(attributes));
     }//GEN-LAST:event_jLabel2MouseEntered
 
     private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
-    Font font = jLabel2.getFont();
-    Map<TextAttribute, Object> attributes = new HashMap<>(font.getAttributes());
-    attributes.put(TextAttribute.UNDERLINE, -1);
-    jLabel2.setFont(font.deriveFont(attributes));
+        Font font = jLabel2.getFont();
+        Map<TextAttribute, Object> attributes = new HashMap<>(font.getAttributes());
+        attributes.put(TextAttribute.UNDERLINE, -1);
+        jLabel2.setFont(font.deriveFont(attributes));
     }//GEN-LAST:event_jLabel2MouseExited
 
 
